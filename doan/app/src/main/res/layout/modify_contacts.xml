@@ -1,69 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp">
 
-
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="@color/light_blue"
-        android:drawableLeft="@drawable/baseline_contact_page_24"
-        android:text="Contact information"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-    <TextView
-        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/imageButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintHorizontal_bias="0.0" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_star_border_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnedit"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btnedit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Mã khách hàng: "
-        android:textSize="16sp"
-        android:paddingBottom="4dp" />
-
-    <EditText
-        android:id="@+id/editTextMAKH"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập mã khách hàng" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Họ tên: "
-        android:textSize="16sp"
-        android:paddingBottom="4dp" />
-
-    <EditText
-        android:id="@+id/editTextName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Nhập họ tên"
-         />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Số điện thoại:"
-        android:textSize="16sp"
-        android:paddingBottom="4dp" />
+        android:orientation="horizontal"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/custom_icon"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/textViewName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="25sp" />
+            <TextView
+                android:id="@+id/textViewMAKH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+            <EditText
+                android:id="@+id/editTextName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:textSize="25sp"
+                android:hint="Nhập họ tên"
+                android:visibility="gone" />
+            <EditText
+                android:id="@+id/editTextMAKH"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập mã khách hàng"
+                android:visibility="gone" />
+        </LinearLayout>
+    </LinearLayout>
 
     <EditText
         android:id="@+id/editTextPhone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Nhập số điện thoại" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Địa chỉ"
-        android:textSize="16sp"
-        android:paddingBottom="4dp" />
 
     <EditText
         android:id="@+id/editTextAddress"
@@ -76,6 +99,5 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Cập nhật thông tin" />
-
 
 </LinearLayout>
