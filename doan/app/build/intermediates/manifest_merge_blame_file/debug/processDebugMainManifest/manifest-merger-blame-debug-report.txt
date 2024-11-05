@@ -20,46 +20,46 @@
 15-->[androidx.core:core:1.13.0] C:\Users\Admin\.gradle\caches\transforms-4\42dfdf811721b94244c28f65a2afec29\transformed\core-1.13.0\AndroidManifest.xml:26:22-94
 16
 17    <application
-17-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:5:5-25:19
+17-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:5:5-25:19
 18        android:allowBackup="true"
-18-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:6:9-35
+18-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:6:9-35
 19        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 19-->[androidx.core:core:1.13.0] C:\Users\Admin\.gradle\caches\transforms-4\42dfdf811721b94244c28f65a2afec29\transformed\core-1.13.0\AndroidManifest.xml:28:18-86
 20        android:dataExtractionRules="@xml/data_extraction_rules"
-20-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:7:9-65
+20-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:7:9-65
 21        android:debuggable="true"
 22        android:extractNativeLibs="false"
 23        android:fullBackupContent="@xml/backup_rules"
-23-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:8:9-54
+23-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:8:9-54
 24        android:icon="@mipmap/ic_launcher"
-24-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:9:9-43
+24-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:9:9-43
 25        android:label="@string/app_name"
-25-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:10:9-41
+25-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:10:9-41
 26        android:roundIcon="@mipmap/ic_launcher_round"
-26-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:11:9-54
+26-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:11:9-54
 27        android:supportsRtl="true"
-27-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:12:9-35
+27-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:12:9-35
 28        android:testOnly="true"
 29        android:theme="@style/Theme.DoAn" >
-29-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:13:9-42
+29-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:13:9-42
 30        <activity android:name="com.example.doan.ModifyContact" />
-30-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:15:9-51
-30-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:15:19-48
+30-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:15:9-51
+30-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:15:19-48
 31        <activity
-31-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:16:9-24:20
+31-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:16:9-24:20
 32            android:name="com.example.doan.MainActivity"
-32-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:17:13-41
+32-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:17:13-41
 33            android:exported="true" >
-33-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:18:13-36
+33-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:18:13-36
 34            <intent-filter>
-34-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:19:13-23:29
+34-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:19:13-23:29
 35                <action android:name="android.intent.action.MAIN" />
-35-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:20:17-69
-35-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:20:25-66
+35-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:20:17-69
+35-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:20:25-66
 36
 37                <category android:name="android.intent.category.LAUNCHER" />
-37-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:22:17-77
-37-->C:\Users\Admin\AndroidStudioProjects\NT118.P13-DoAn\doan\app\src\main\AndroidManifest.xml:22:27-74
+37-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:22:17-77
+37-->C:\Users\Admin\AndroidStudioProjects\CRM_Doan\doan\app\src\main\AndroidManifest.xml:22:27-74
 38            </intent-filter>
 39        </activity>
 40

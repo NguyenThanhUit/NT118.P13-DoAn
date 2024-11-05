@@ -38,7 +38,7 @@ drawable ic_settings
 drawable square_blue_icon_for_filter_textview
 drawable square_gold_icon_for_filter_textview
 drawable square_green_icon_for_filter_textview
-drawable square_orange_icon_for_filter_listview
+drawable square_orange_icon_for_filter_textview
 drawable square_red_icon_for_filter_textview
 drawable task
 id bottomNavigationView

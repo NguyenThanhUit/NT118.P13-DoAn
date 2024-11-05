@@ -57,7 +57,7 @@
                 android:text=" Chưa tiếp cận"
                 android:textColor="@color/black"
                 android:textSize="16sp"
-                android:drawableLeft="@drawable/square_orange_icon_for_filter_listview" />
+                android:drawableLeft="@drawable/square_orange_icon_for_filter_textview" />
 
             <!-- Filter Tag "Tiếp Cận" -->
             <TextView
