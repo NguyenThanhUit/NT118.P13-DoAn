@@ -51,5 +51,14 @@ public class assignTask extends AppCompatActivity {
                 finish();
             }
         });
+
+        Button btnAdd = findViewById(R.id.btnAdd);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(assignTask.this, createTask.class);
+                startActivity(intent);
+            }
+        });
     }
 }
