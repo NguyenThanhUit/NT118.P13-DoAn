@@ -3019,9 +3019,12 @@ drawable abc_textfield_search_activated_mtrl_alpha
 drawable abc_textfield_search_default_mtrl_alpha
 drawable abc_textfield_search_material
 drawable abc_vector_test
+drawable address_icon
 drawable avd_hide_password
 drawable avd_show_password
+drawable back_arrow
 drawable baseline_contact_page_24
+drawable baseline_star_border_24
 drawable btn_checkbox_checked_mtrl
 drawable btn_checkbox_checked_to_unchecked_mtrl_animation
 drawable btn_checkbox_unchecked_mtrl
@@ -3037,7 +3040,7 @@ drawable design_ic_visibility
 drawable design_ic_visibility_off
 drawable design_password_eye
 drawable design_snackbar_background
-drawable filter_count_background
+drawable email_icon
 drawable filter_tag_background
 drawable ic_arrow_back_black_24
 drawable ic_call_answer
@@ -3085,6 +3088,7 @@ drawable material_ic_keyboard_arrow_previous_black_24dp
 drawable material_ic_keyboard_arrow_right_black_24dp
 drawable material_ic_menu_arrow_down_black_24dp
 drawable material_ic_menu_arrow_up_black_24dp
+drawable message_icon
 drawable mtrl_bottomsheet_drag_handle
 drawable mtrl_checkbox_button
 drawable mtrl_checkbox_button_checked_unchecked
@@ -3136,12 +3140,14 @@ drawable notification_template_icon_bg
 drawable notification_template_icon_low_bg
 drawable notification_tile_bg
 drawable notify_panel_notification_icon_bg
+drawable phone_icon
 drawable square_blue_icon_for_filter_textview
 drawable square_gold_icon_for_filter_textview
 drawable square_green_icon_for_filter_textview
 drawable square_orange_icon_for_filter_textview
 drawable square_red_icon_for_filter_textview
 drawable task
+drawable task_icon
 drawable test_level_drawable
 drawable tooltip_frame_dark
 drawable tooltip_frame_light
@@ -3248,6 +3254,7 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnUpdate
+id btnedit
 id buttonPanel
 id cache_measures
 id callMeasure
@@ -3322,6 +3329,7 @@ id easeOut
 id east
 id edge
 id editTextAddress
+id editTextEmail
 id editTextMAKH
 id editTextName
 id editTextPhone
@@ -3371,12 +3379,14 @@ id homeAsUp
 id honorRequest
 id horizontal
 id horizontal_only
+id ibtnBack
 id icon
 id icon_group
 id ifRoom
 id ignore
 id ignoreRequest
 id image
+id imageButton2
 id immediateStop
 id included
 id indeterminate
@@ -3611,6 +3621,8 @@ id textSpacerNoTitle
 id textStart
 id textTop
 id textView
+id textViewMAKH
+id textViewName
 id text_input_end_icon
 id text_input_error_icon
 id text_input_start_icon
@@ -3639,6 +3651,8 @@ id transition_position
 id transition_scene_layoutid_cache
 id transition_transform
 id triangle
+id tvAddress
+id tvEmail
 id tvFilterAll
 id tvFilterApproach
 id tvFilterHot
@@ -3648,6 +3662,7 @@ id tvFilterPotential
 id tvLoaiNV
 id tvMAKH
 id tvName
+id tvPhone
 id tvTenNV
 id unchecked
 id uniform

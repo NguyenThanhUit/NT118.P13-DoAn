@@ -4,9 +4,6 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp">
-
-
-    <!-- Hình vuông tương ứng với từng lọại khách hàng -->
     <ImageView
         android:id="@+id/indicatorSquare"
         android:layout_width="16dp"

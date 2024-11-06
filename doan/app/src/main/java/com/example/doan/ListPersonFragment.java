@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -124,7 +125,6 @@ public class ListPersonFragment extends Fragment {
             Contacts contact = getItem(position);
             TextView textViewMAKH = convertView.findViewById(R.id.tvMAKH);
             TextView textViewName = convertView.findViewById(R.id.tvName);
-
             if (contact != null) {
                 textViewMAKH.setText(contact.getMaKH());
                 textViewName.setText(contact.getName());

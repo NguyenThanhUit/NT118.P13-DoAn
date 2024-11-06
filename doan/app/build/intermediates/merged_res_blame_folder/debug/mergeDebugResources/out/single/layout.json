@@ -1,34 +1,42 @@
 [
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\activity_main.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\activity_main.xml"
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_settings.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\home_fragment.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\home_fragment.xml"
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\list_item.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\list_item.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_list_person.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_list_person.xml"
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_list_person.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_list_person.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_search.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_search.xml"
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_search.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_search.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\list_item.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\list_item.xml"
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\activity_main.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\activity_main.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_settings.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_settings.xml"
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\test.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\test.xml"
     },
     {
         "merged": "com.example.doan.app-mergeDebugResources-30:/layout/home_fragment.xml",
         "source": "com.example.doan.app-main-33:/layout/home_fragment.xml"
     },
     {
-        "merged": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\modify_contacts.xml",
-        "source": "C:\\Users\\Admin\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\modify_contacts.xml"
+        "merged": "com.example.doan.app-mergeDebugResources-30:/layout/list_item.xml",
+        "source": "com.example.doan.app-main-33:/layout/list_item.xml"
+    },
+    {
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\home_fragment.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\home_fragment.xml"
+    },
+    {
+        "merged": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\modify_contacts.xml",
+        "source": "C:\\Users\\Legion\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\modify_contacts.xml"
     }
 ]

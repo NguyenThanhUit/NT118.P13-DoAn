@@ -32,9 +32,6 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.home) {
                 replaceFragment(new HomeFragment());
                 return true;
-            } else if (item.getItemId() == R.id.search) {
-                replaceFragment(new SearchFragment());
-                return true;
             } else if (item.getItemId() == R.id.list_person) {
                 replaceFragment(new ListPersonFragment());
                 return true;
