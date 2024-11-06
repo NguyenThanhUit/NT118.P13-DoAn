@@ -62,7 +62,6 @@ id imageButton2
 id indicatorSquare
 id list_person
 id lvPerson
-id search
 id settings
 id textView
 id textViewMAKH
@@ -82,7 +81,6 @@ id tvPhone
 id tvTenNV
 layout activity_main
 layout fragment_list_person
-layout fragment_search
 layout fragment_settings
 layout home_fragment
 layout list_item

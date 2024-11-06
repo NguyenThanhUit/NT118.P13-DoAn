@@ -4,7 +4,7 @@ package com.example.doan.databinding;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
@@ -18,7 +18,7 @@ import java.lang.String;
 
 public final class FragmentListPersonBinding implements ViewBinding {
   @NonNull
-  private final FrameLayout rootView;
+  private final LinearLayout rootView;
 
   @NonNull
   public final ListView lvPerson;
@@ -26,16 +26,42 @@ public final class FragmentListPersonBinding implements ViewBinding {
   @NonNull
   public final TextView textView;
 
-  private FragmentListPersonBinding(@NonNull FrameLayout rootView, @NonNull ListView lvPerson,
-      @NonNull TextView textView) {
+  @NonNull
+  public final TextView tvFilterAll;
+
+  @NonNull
+  public final TextView tvFilterApproach;
+
+  @NonNull
+  public final TextView tvFilterHot;
+
+  @NonNull
+  public final TextView tvFilterNew;
+
+  @NonNull
+  public final TextView tvFilterNotApproach;
+
+  @NonNull
+  public final TextView tvFilterPotential;
+
+  private FragmentListPersonBinding(@NonNull LinearLayout rootView, @NonNull ListView lvPerson,
+      @NonNull TextView textView, @NonNull TextView tvFilterAll, @NonNull TextView tvFilterApproach,
+      @NonNull TextView tvFilterHot, @NonNull TextView tvFilterNew,
+      @NonNull TextView tvFilterNotApproach, @NonNull TextView tvFilterPotential) {
     this.rootView = rootView;
     this.lvPerson = lvPerson;
     this.textView = textView;
+    this.tvFilterAll = tvFilterAll;
+    this.tvFilterApproach = tvFilterApproach;
+    this.tvFilterHot = tvFilterHot;
+    this.tvFilterNew = tvFilterNew;
+    this.tvFilterNotApproach = tvFilterNotApproach;
+    this.tvFilterPotential = tvFilterPotential;
   }
 
   @Override
   @NonNull
-  public FrameLayout getRoot() {
+  public LinearLayout getRoot() {
     return rootView;
   }
 
@@ -72,7 +98,44 @@ public final class FragmentListPersonBinding implements ViewBinding {
         break missingId;
       }
 
-      return new FragmentListPersonBinding((FrameLayout) rootView, lvPerson, textView);
+      id = R.id.tvFilterAll;
+      TextView tvFilterAll = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilterAll == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFilterApproach;
+      TextView tvFilterApproach = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilterApproach == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFilterHot;
+      TextView tvFilterHot = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilterHot == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFilterNew;
+      TextView tvFilterNew = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilterNew == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFilterNotApproach;
+      TextView tvFilterNotApproach = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilterNotApproach == null) {
+        break missingId;
+      }
+
+      id = R.id.tvFilterPotential;
+      TextView tvFilterPotential = ViewBindings.findChildViewById(rootView, id);
+      if (tvFilterPotential == null) {
+        break missingId;
+      }
+
+      return new FragmentListPersonBinding((LinearLayout) rootView, lvPerson, textView, tvFilterAll,
+          tvFilterApproach, tvFilterHot, tvFilterNew, tvFilterNotApproach, tvFilterPotential);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

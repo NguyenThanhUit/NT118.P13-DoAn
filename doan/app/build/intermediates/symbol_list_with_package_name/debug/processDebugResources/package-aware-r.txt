@@ -3546,7 +3546,6 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
-id search
 id search_badge
 id search_bar
 id search_button
@@ -3820,7 +3819,6 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_list_person
-layout fragment_search
 layout fragment_settings
 layout home_fragment
 layout ime_base_split_test_activity
