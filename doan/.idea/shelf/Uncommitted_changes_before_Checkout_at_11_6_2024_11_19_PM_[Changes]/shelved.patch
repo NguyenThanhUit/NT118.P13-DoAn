@@ -1,0 +1,142 @@
+Index: gradle.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Project-wide Gradle settings.\r\n# IDE (e.g. Android Studio) users:\r\n# Gradle settings configured through the IDE *will override*\r\n# any settings specified in this file.\r\n# For more details on how to configure your build environment visit\r\n# http://www.gradle.org/docs/current/userguide/build_environment.html\r\n# Specifies the JVM arguments used for the daemon process.\r\n# The setting is particularly useful for tweaking memory settings.\r\norg.gradle.jvmargs=-Xmx2048m -Dfile.encoding=UTF-8\r\n# When configured, Gradle will run in incubating parallel mode.\r\n# This option should only be used with decoupled projects. For more details, visit\r\n# https://developer.android.com/r/tools/gradle-multi-project-decoupled-projects\r\n# org.gradle.parallel=true\r\n# AndroidX package structure to make it clearer which packages are bundled with the\r\n# Android operating system, and which are packaged with your app's APK\r\n# https://developer.android.com/topic/libraries/support-library/androidx-rn\r\nandroid.useAndroidX=true\r\n# Enables namespacing of each library's R class so that its R class includes only the\r\n# resources declared in the library itself and none from the library's dependencies,\r\n# thereby reducing the size of the R class for that library\r\nandroid.nonTransitiveRClass=true
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/gradle.properties b/gradle.properties
+--- a/gradle.properties	(revision 8088ebd5272409dcd12d621438ef5c5477358b29)
++++ b/gradle.properties	(date 1730909957054)
+@@ -18,4 +18,5 @@
+ # Enables namespacing of each library's R class so that its R class includes only the
+ # resources declared in the library itself and none from the library's dependencies,
+ # thereby reducing the size of the R class for that library
+-android.nonTransitiveRClass=true
+\ No newline at end of file
++android.nonTransitiveRClass=true
++android.overridePathCheck=true
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AndroidLayouts\">\r\n    <shared>\r\n      <config />\r\n    </shared>\r\n    <layouts>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_list_person.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_search.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/home_fragment.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/list_item.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/layout/modify_contacts.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n      <layout url=\"file://$PROJECT_DIR$/app/src/main/res/menu/bottom_nav_menu.xml\">\r\n        <config>\r\n          <theme>@style/Theme.DoAn</theme>\r\n        </config>\r\n      </layout>\r\n    </layouts>\r\n  </component>\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"NONE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"a3cea81f-085e-43e1-9296-a85d47b14741\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"ClangdSettings\">\r\n    <option name=\"formatViaClangd\" value=\"false\" />\r\n  </component>\r\n  <component name=\"ExecutionTargetManager\" SELECTED_TARGET=\"device_and_snapshot_combo_box_target[DeviceId(pluginId=LocalEmulator, isTemplate=false, identifier=path=C:\\Users\\Legion\\.android\\avd\\Pixel_8_Pro_API_35.avd)]\" />\r\n  <component name=\"ExternalProjectsData\">\r\n    <projectState path=\"$PROJECT_DIR$\">\r\n      <ProjectState />\r\n    </projectState>\r\n  </component>\r\n  <component name=\"ExternalProjectsManager\">\r\n    <system id=\"GRADLE\">\r\n      <state>\r\n        <task path=\"$PROJECT_DIR$/app\">\r\n          <activation />\r\n        </task>\r\n        <projects_view>\r\n          <tree_state>\r\n            <expand>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"do an\" type=\"f1a62948:ProjectNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"do an\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"app\" type=\"2d1252cf:ModuleNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"do an\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"app\" type=\"2d1252cf:ModuleNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n              </path>\r\n              <path>\r\n                <item name=\"\" type=\"6a2764b6:ExternalProjectsStructure$RootNode\" />\r\n                <item name=\"do an\" type=\"f1a62948:ProjectNode\" />\r\n                <item name=\"app\" type=\"2d1252cf:ModuleNode\" />\r\n                <item name=\"Tasks\" type=\"e4a08cd1:TasksNode\" />\r\n                <item name=\"other\" type=\"c8890929:TasksNode$1\" />\r\n              </path>\r\n            </expand>\r\n            <select />\r\n          </tree_state>\r\n        </projects_view>\r\n      </state>\r\n    </system>\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Class\" />\r\n        <option value=\"layoutResourceFile\" />\r\n        <option value=\"resourceFile\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"ProblemsViewState\">\r\n    <option name=\"selectedTabId\" value=\"CurrentFile\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;customColor&quot;: &quot;&quot;,\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2oC42to2R90sRAZmhUs06MAJDpY\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"Android App.app.executor\": \"Run\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.cidr.known.project.marker\": \"true\",\r\n    \"RunOnceActivity.readMode.enableVisualFormatting\": \"true\",\r\n    \"cf.first.check.clang-format\": \"false\",\r\n    \"cidr.known.project.marker\": \"true\",\r\n    \"dart.analysis.tool.window.visible\": \"false\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"C:/Users/Legion/Downloads/NT118.P13-DoAn-Hao (1)/NT118.P13-DoAn-Hao/doan\",\r\n    \"show.migrate.to.gradle.popup\": \"false\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RecentsManager\">\r\n    <key name=\"CopyFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Legion\\Documents\\doan\\app\\src\\main\\res\\drawable\" />\r\n    </key>\r\n    <key name=\"MoveFile.RECENT_KEYS\">\r\n      <recent name=\"C:\\Users\\Legion\\Documents\\doan\\app\\src\\main\\res\\drawable\" />\r\n    </key>\r\n  </component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"app\" type=\"AndroidRunConfigurationType\" factoryName=\"Android App\">\r\n      <module name=\"do_an.app.main\" />\r\n      <option name=\"DEPLOY\" value=\"true\" />\r\n      <option name=\"DEPLOY_APK_FROM_BUNDLE\" value=\"false\" />\r\n      <option name=\"DEPLOY_AS_INSTANT\" value=\"false\" />\r\n      <option name=\"ARTIFACT_NAME\" value=\"\" />\r\n      <option name=\"PM_INSTALL_OPTIONS\" value=\"\" />\r\n      <option name=\"ALL_USERS\" value=\"false\" />\r\n      <option name=\"ALWAYS_INSTALL_WITH_PM\" value=\"false\" />\r\n      <option name=\"CLEAR_APP_STORAGE\" value=\"false\" />\r\n      <option name=\"DYNAMIC_FEATURES_DISABLED_LIST\" value=\"\" />\r\n      <option name=\"ACTIVITY_EXTRA_FLAGS\" value=\"\" />\r\n      <option name=\"MODE\" value=\"default_activity\" />\r\n      <option name=\"CLEAR_LOGCAT\" value=\"false\" />\r\n      <option name=\"SHOW_LOGCAT_AUTOMATICALLY\" value=\"false\" />\r\n      <option name=\"TARGET_SELECTION_MODE\" value=\"DEVICE_AND_SNAPSHOT_COMBO_BOX\" />\r\n      <option name=\"SELECTED_CLOUD_MATRIX_CONFIGURATION_ID\" value=\"-1\" />\r\n      <option name=\"SELECTED_CLOUD_MATRIX_PROJECT_ID\" value=\"\" />\r\n      <option name=\"DEBUGGER_TYPE\" value=\"Auto\" />\r\n      <Auto>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Auto>\r\n      <Hybrid>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Hybrid>\r\n      <Java>\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Java>\r\n      <Native>\r\n        <option name=\"USE_JAVA_AWARE_DEBUGGER\" value=\"false\" />\r\n        <option name=\"SHOW_STATIC_VARS\" value=\"true\" />\r\n        <option name=\"WORKING_DIR\" value=\"\" />\r\n        <option name=\"TARGET_LOGGING_CHANNELS\" value=\"lldb process:gdb-remote packets\" />\r\n        <option name=\"SHOW_OPTIMIZED_WARNING\" value=\"true\" />\r\n        <option name=\"ATTACH_ON_WAIT_FOR_DEBUGGER\" value=\"false\" />\r\n        <option name=\"DEBUG_SANDBOX_SDK\" value=\"false\" />\r\n      </Native>\r\n      <Profilers>\r\n        <option name=\"ADVANCED_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_CPU_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"STARTUP_CPU_PROFILING_CONFIGURATION_NAME\" value=\"Java/Kotlin Method Sample (legacy)\" />\r\n        <option name=\"STARTUP_NATIVE_MEMORY_PROFILING_ENABLED\" value=\"false\" />\r\n        <option name=\"NATIVE_MEMORY_SAMPLE_RATE_BYTES\" value=\"2048\" />\r\n      </Profilers>\r\n      <option name=\"DEEP_LINK\" value=\"\" />\r\n      <option name=\"ACTIVITY_CLASS\" value=\"\" />\r\n      <option name=\"SEARCH_ACTIVITY_IN_GLOBAL_SCOPE\" value=\"false\" />\r\n      <option name=\"SKIP_ACTIVITY_VALIDATION\" value=\"false\" />\r\n      <method v=\"2\">\r\n        <option name=\"Android.Gradle.BeforeRunTask\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"a3cea81f-085e-43e1-9296-a85d47b14741\" name=\"Changes\" comment=\"\" />\r\n      <created>1730360021428</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1730360021428</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 8088ebd5272409dcd12d621438ef5c5477358b29)
++++ b/.idea/workspace.xml	(date 1730909975650)
+@@ -51,7 +51,13 @@
+     <option name="autoReloadType" value="NONE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="a3cea81f-085e-43e1-9296-a85d47b14741" name="Changes" comment="" />
++    <list default="true" id="a3cea81f-085e-43e1-9296-a85d47b14741" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.gradle/config.properties" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/config.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/gradle.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle.properties" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/local.properties" beforeDir="false" afterPath="$PROJECT_DIR$/local.properties" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -74,30 +80,7 @@
+         </task>
+         <projects_view>
+           <tree_state>
+-            <expand>
+-              <path>
+-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+-                <item name="do an" type="f1a62948:ProjectNode" />
+-              </path>
+-              <path>
+-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+-                <item name="do an" type="f1a62948:ProjectNode" />
+-                <item name="app" type="2d1252cf:ModuleNode" />
+-              </path>
+-              <path>
+-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+-                <item name="do an" type="f1a62948:ProjectNode" />
+-                <item name="app" type="2d1252cf:ModuleNode" />
+-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+-              </path>
+-              <path>
+-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+-                <item name="do an" type="f1a62948:ProjectNode" />
+-                <item name="app" type="2d1252cf:ModuleNode" />
+-                <item name="Tasks" type="e4a08cd1:TasksNode" />
+-                <item name="other" type="c8890929:TasksNode$1" />
+-              </path>
+-            </expand>
++            <expand />
+             <select />
+           </tree_state>
+         </projects_view>
+@@ -113,6 +96,9 @@
+       </list>
+     </option>
+   </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
++  </component>
+   <component name="ProblemsViewState">
+     <option name="selectedTabId" value="CurrentFile" />
+   </component>
+@@ -131,11 +117,14 @@
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "RunOnceActivity.cidr.known.project.marker": "true",
+     "RunOnceActivity.readMode.enableVisualFormatting": "true",
++    "android.gradle.sync.needed": "true",
+     "cf.first.check.clang-format": "false",
+     "cidr.known.project.marker": "true",
+     "dart.analysis.tool.window.visible": "false",
++    "git-widget-placeholder": "main",
++    "ignore.virus.scanning.warn.message": "true",
+     "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "C:/Users/Legion/Downloads/NT118.P13-DoAn-Hao (1)/NT118.P13-DoAn-Hao/doan",
++    "last_opened_file_path": "C:/Users/duyth/AndroidStudioProjects/Đồ án - mới/NT118.P13-DoAn/doan",
+     "show.migrate.to.gradle.popup": "false"
+   }
+ }]]></component>
+Index: .gradle/config.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>#Wed Nov 06 10:26:27 ICT 2024\r\njava.home=C\\:\\\\Program Files\\\\Android\\\\Android Studio1\\\\jbr\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/.gradle/config.properties b/.gradle/config.properties
+--- a/.gradle/config.properties	(revision 8088ebd5272409dcd12d621438ef5c5477358b29)
++++ b/.gradle/config.properties	(date 1730909901683)
+@@ -1,2 +1,2 @@
+-#Wed Nov 06 10:26:27 ICT 2024
+-java.home=C\:\\Program Files\\Android\\Android Studio1\\jbr
++#Wed Nov 06 23:18:21 ICT 2024
++java.home=C\:\\Program Files\\Android\\Android Studio\\jbr
+Index: local.properties
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>## This file is automatically generated by Android Studio.\r\n# Do not modify this file -- YOUR CHANGES WILL BE ERASED!\r\n#\r\n# This file should *NOT* be checked into Version Control Systems,\r\n# as it contains information specific to your local configuration.\r\n#\r\n# Location of the SDK. This is only used by Gradle.\r\n# For customization when using a Version Control System, please read the\r\n# header note.\r\nsdk.dir=C\\:\\\\Users\\\\Legion\\\\AppData\\\\Local\\\\Android\\\\Sdk
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>ISO-8859-1
+===================================================================
+diff --git a/local.properties b/local.properties
+--- a/local.properties	(revision 8088ebd5272409dcd12d621438ef5c5477358b29)
++++ b/local.properties	(date 1730909906890)
+@@ -1,10 +1,8 @@
+-## This file is automatically generated by Android Studio.
+-# Do not modify this file -- YOUR CHANGES WILL BE ERASED!
+-#
+-# This file should *NOT* be checked into Version Control Systems,
++## This file must *NOT* be checked into Version Control Systems,
+ # as it contains information specific to your local configuration.
+ #
+ # Location of the SDK. This is only used by Gradle.
+ # For customization when using a Version Control System, please read the
+ # header note.
+-sdk.dir=C\:\\Users\\Legion\\AppData\\Local\\Android\\Sdk
+\ No newline at end of file
++#Wed Nov 06 23:18:26 ICT 2024
++sdk.dir=C\:\\Users\\duyth\\AppData\\Local\\Android\\Sdk
