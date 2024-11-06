@@ -4,7 +4,13 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="16dp">
-
+    <ImageView
+        android:id="@+id/indicatorSquare"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="8dp"
+        android:layout_gravity="center_vertical"
+        android:background="@color/gray" />
 
     <ImageView
         android:layout_width="80dp"
