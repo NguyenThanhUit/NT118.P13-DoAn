@@ -16,8 +16,6 @@ public class DBAdapter {
     private static final int DATABASE_VERSION = 3;
     private final Context context;
 
-
-
     public DBAdapter(Context context) {
         this.context = context;
     }
@@ -62,7 +60,6 @@ public class DBAdapter {
         values.put(KEY_ADDRESS, address);
         return sqLiteDatabase.update(DATABASE_TABLE, values, KEY_MAKH + "=?", new String[]{maKH}) > 0;
     }
-
     public int getCountByFilter(String filter) {
         String query = "";
 

@@ -4,7 +4,7 @@
             "outputFile": "com.example.doan.app-mergeDebugResources-29:/values-watch-v21/values-watch-v21.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-4\\9db7aa2f674b483b85f7a172fe4f9c04\\transformed\\appcompat-1.7.0\\res\\values-watch-v21\\values-watch-v21.xml",
+                    "source": "C:\\Users\\Legion\\.gradle\\caches\\transforms-4\\9fec72012c70a25fabd0ef96aec02de2\\transformed\\appcompat-1.7.0\\res\\values-watch-v21\\values-watch-v21.xml",
                     "from": {
                         "startLines": "2,6,10",
                         "startColumns": "4,4,4",

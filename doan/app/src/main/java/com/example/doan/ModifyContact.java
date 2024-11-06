@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -13,10 +14,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ModifyContact extends AppCompatActivity {
     private DBAdapter dbAdapter;
-    private EditText editTextMAKH, editTextNAME, editTextPHONE, editTextaddr;
+    private EditText editTextNAME, editTextPHONE, editTextaddr;
     private TextView textViewMAKH, textViewNAME, textViewPHONE, textViewaddr;
     private String MAKH;
-    private Button btnedit, buttonUpdate;
+    private Button btnEdit, buttonUpdate;
+    private ImageButton ibtnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,14 +31,20 @@ public class ModifyContact extends AppCompatActivity {
         Intent intent = getIntent();
         MAKH = intent.getStringExtra("MAKH");
 
+
         editTextNAME = findViewById(R.id.editTextName);
         editTextaddr = findViewById(R.id.editTextAddress);
         editTextPHONE = findViewById(R.id.editTextPhone);
-        editTextMAKH = findViewById(R.id.editTextMAKH);
         textViewNAME = findViewById(R.id.textViewName);
+
+
         textViewMAKH = findViewById(R.id.textViewMAKH);
-        btnedit = findViewById(R.id.btnedit);
+        textViewPHONE = findViewById(R.id.tvPhone);
+        textViewaddr = findViewById(R.id.tvAddress);
+
+        btnEdit = findViewById(R.id.btnedit);
         buttonUpdate = findViewById(R.id.btnUpdate);
+        ibtnBack = findViewById(R.id.ibtnBack);
 
         loadStudentData();
 
@@ -47,7 +55,14 @@ public class ModifyContact extends AppCompatActivity {
             }
         });
 
-        btnedit.setOnClickListener(new View.OnClickListener() {
+        ibtnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
+        btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 toggleEditMode();
@@ -62,13 +77,15 @@ public class ModifyContact extends AppCompatActivity {
             String phone = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_PHONE));
             String address = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_ADDRESS));
 
+
             editTextNAME.setText(name);
-            editTextMAKH.setText(MAKH);
+            textViewMAKH.setText(MAKH);
             editTextPHONE.setText(phone);
             editTextaddr.setText(address);
 
             textViewNAME.setText(name);
-            textViewMAKH.setText(MAKH);
+            textViewPHONE.setText(phone);
+            textViewaddr.setText(address);
 
             cursor.close();
         } else {
@@ -85,29 +102,44 @@ public class ModifyContact extends AppCompatActivity {
         Toast.makeText(this, "Thông tin đã được cập nhật", Toast.LENGTH_SHORT).show();
 
         textViewNAME.setText(name);
-        textViewMAKH.setText(MAKH);
+        textViewPHONE.setText(phone);
+        textViewaddr.setText(addr);
 
         setResult(RESULT_OK);
         finish();
     }
 
     private void toggleEditMode() {
-        if (editTextNAME.getVisibility() == View.GONE) {
+        boolean isEditMode = editTextNAME.getVisibility() == View.GONE;
+
+        if (isEditMode) {
+            editTextNAME.setText(textViewNAME.getText());
+            editTextPHONE.setText(textViewPHONE.getText());
+            editTextaddr.setText(textViewaddr.getText());
 
             editTextNAME.setVisibility(View.VISIBLE);
-            editTextMAKH.setVisibility(View.VISIBLE);
+            editTextPHONE.setVisibility(View.VISIBLE);
+            editTextaddr.setVisibility(View.VISIBLE);
+
             textViewNAME.setVisibility(View.GONE);
-            textViewMAKH.setVisibility(View.GONE);
-            btnedit.setText("Save");
+            textViewPHONE.setVisibility(View.GONE);
+            textViewaddr.setVisibility(View.GONE);
+
+            btnEdit.setText("View");
         } else {
+            textViewNAME.setText(editTextNAME.getText().toString());
+            textViewPHONE.setText(editTextPHONE.getText().toString());
+            textViewaddr.setText(editTextaddr.getText().toString());
 
             editTextNAME.setVisibility(View.GONE);
-            editTextMAKH.setVisibility(View.GONE);
+            editTextPHONE.setVisibility(View.GONE);
+            editTextaddr.setVisibility(View.GONE);
+
             textViewNAME.setVisibility(View.VISIBLE);
-            textViewMAKH.setVisibility(View.VISIBLE);
-            textViewNAME.setText(editTextNAME.getText());
-            textViewMAKH.setText(editTextMAKH.getText());
-            btnedit.setText("OK");
+            textViewPHONE.setVisibility(View.VISIBLE);
+            textViewaddr.setVisibility(View.VISIBLE);
+
+            btnEdit.setText("Edit");
         }
     }
 }

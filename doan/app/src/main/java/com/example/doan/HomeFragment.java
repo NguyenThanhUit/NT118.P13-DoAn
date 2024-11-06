@@ -12,7 +12,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,9 +26,11 @@ public class HomeFragment extends Fragment {
     private ListView lvContacts;
     private ContactsAdapter contactsAdapter;
     private List<Contacts> contactsData;
+
     private int countAll, countNew, countNotApproach, countApproach, countHot, countPotential;
     private TextView selectedTextView; // Lưu trữ TextView được chọn hiện tại
     private TextView tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
         lvContacts = view.findViewById(R.id.lvPerson);
 
-        // Khởi tạo DBAdapter
+//        dbAdapter.deleteAllUsers();
         dbAdapter = new DBAdapter(getContext());
         dbAdapter.open();
 
@@ -60,9 +61,9 @@ public class HomeFragment extends Fragment {
         for (TextView filter : filters) {
             filter.setOnClickListener(v -> onFilterClicked(filter));
         }
-
         // Lấy số lượng khách hàng cho từng bộ lọc và cập nhật TextView
         updateFilterCounts();
+
 
         dbAdapter.deleteAllUsers();
         insertSampleData();
@@ -144,7 +145,6 @@ public class HomeFragment extends Fragment {
             return convertView;
         }
     }
-
     // Phương thức thay đổi trạng thái khi Button được chọn
     private void onFilterClicked(TextView newSelectedTextView) {
         /// Đặt lại trạng thái của TextView trước đó nếu có
