@@ -1,4 +1,4 @@
-package com.example.doan;
+package com.example.doan.domain.contact;
 
 public class Contacts {
     private String maKH;
