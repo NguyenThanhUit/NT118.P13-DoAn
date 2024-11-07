@@ -1,4 +1,4 @@
-package com.example.doan;
+package com.example.doan.domain.contact;
 
 import android.content.Intent;
 import android.database.Cursor;
@@ -9,10 +9,12 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ModifyContact extends AppCompatActivity {
+import com.example.doan.R;
+import com.example.doan.data.DBAdapter;
+
+public class ModifyContactActivity extends AppCompatActivity {
     private DBAdapter dbAdapter;
     private EditText editTextNAME, editTextPHONE, editTextaddr;
     private TextView textViewMAKH, textViewNAME, textViewPHONE, textViewaddr;

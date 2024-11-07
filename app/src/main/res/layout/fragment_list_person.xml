@@ -1,121 +1,137 @@
-<?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/white"
     tools:context=".ListPersonFragment">
 
-    <!-- Title TextView -->
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/light_sky_blue"
-        android:drawableLeft="@drawable/baseline_contact_page_24"
-        android:gravity="center"
-        android:text="Thông tin khách hàng"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-    <!-- Filter Section -->
-    <HorizontalScrollView
+    <!-- Layout chứa tiêu đề và các bộ lọc -->
+    <LinearLayout
+        android:id="@+id/headerLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:padding="8dp"
-        android:scrollbars="none">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <!-- Title TextView -->
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:background="@color/light_sky_blue"
+            android:drawableLeft="@drawable/baseline_contact_page_24"
+            android:gravity="center"
+            android:text="Thông tin khách hàng"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+        <!-- Filter Section -->
+        <HorizontalScrollView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:padding="8dp"
+            android:scrollbars="none">
 
-            <!-- Filter Tag "Tất Cả" -->
-            <TextView
-                android:id="@+id/tvFilterAll"
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/filter_tag_background"
-                android:text="Tất cả"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:gravity="center"/>
+                android:orientation="horizontal">
 
-            <!-- Filter Tag "Mới" -->
-            <TextView
-                android:id="@+id/tvFilterNew"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/filter_tag_background"
-                android:text=" Mới"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/square_blue_icon_for_filter_textview" />
+                <!-- Filter Tag "Tất Cả" -->
+                <TextView
+                    android:id="@+id/tvFilterAll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/filter_tag_background"
+                    android:text="Tất cả"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:gravity="center"/>
 
-            <!-- Filter Tag "Chưa tiếp Cận" -->
-            <TextView
-                android:id="@+id/tvFilterNotApproach"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/filter_tag_background"
-                android:text=" Chưa tiếp cận"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/square_orange_icon_for_filter_textview" />
+                <!-- Filter Tag "Mới" -->
+                <TextView
+                    android:id="@+id/tvFilterNew"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/filter_tag_background"
+                    android:text=" Mới"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/square_blue_icon_for_filter_textview" />
 
-            <!-- Filter Tag "Tiếp Cận" -->
-            <TextView
-                android:id="@+id/tvFilterApproach"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/filter_tag_background"
-                android:text=" Tiếp cận"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/square_green_icon_for_filter_textview"/>
+                <!-- Filter Tag "Chưa tiếp Cận" -->
+                <TextView
+                    android:id="@+id/tvFilterNotApproach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/filter_tag_background"
+                    android:text=" Chưa tiếp cận"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/square_orange_icon_for_filter_textview" />
 
-            <!-- Filter Tag "Nóng" -->
-            <TextView
-                android:id="@+id/tvFilterHot"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/filter_tag_background"
-                android:text=" Nóng"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/square_red_icon_for_filter_textview"/>
+                <!-- Filter Tag "Tiếp Cận" -->
+                <TextView
+                    android:id="@+id/tvFilterApproach"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/filter_tag_background"
+                    android:text=" Tiếp cận"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/square_green_icon_for_filter_textview"/>
 
-            <!-- Filter Tag "Tiềm Năng" -->
-            <TextView
-                android:id="@+id/tvFilterPotential"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:layout_marginEnd="8dp"
-                android:background="@drawable/filter_tag_background"
-                android:text=" Tiềm năng"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:drawableLeft="@drawable/square_gold_icon_for_filter_textview"/>
-        </LinearLayout>
-    </HorizontalScrollView>
+                <!-- Filter Tag "Nóng" -->
+                <TextView
+                    android:id="@+id/tvFilterHot"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/filter_tag_background"
+                    android:text=" Nóng"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/square_red_icon_for_filter_textview"/>
+                <!-- Filter Tag "Tiềm Năng" -->
+                <TextView
+                    android:id="@+id/tvFilterPotential"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/filter_tag_background"
+                    android:text=" Tiềm năng"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:drawableLeft="@drawable/square_gold_icon_for_filter_textview"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </LinearLayout>
 
-    <!-- ListView Section -->
+    <!-- ListView hiển thị danh sách khách hàng -->
     <ListView
         android:id="@+id/lvPerson"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="16dp" />
-</LinearLayout>
+        android:layout_below="@id/headerLayout" />
+    <!-- Floating Action Button (FAB) tròn cố định ở góc dưới bên phải -->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_margin="16dp"
+        android:tint="@color/white"
+        android:src="@drawable/plus_icon"
+        app:backgroundTint="@color/blue_dark"
+        app:fabSize="mini" />
+</RelativeLayout>

@@ -1,12 +1,12 @@
-package com.example.doan;
+package com.example.doan.domain.contact;
 
-public class Contacts {
+public class ContactDto {
     private String maKH;
     private String name;
     private String phoneNumber;
     private String address;
 
-    public Contacts(String maKH, String name, String phoneNumber, String address) {
+    public ContactDto(String maKH, String name, String phoneNumber, String address) {
         this.maKH = maKH;
         this.name = name;
         this.phoneNumber = phoneNumber;

@@ -11,6 +11,9 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.doan.databinding.ActivityMainBinding;
+import com.example.doan.ui.ListPersonFragment;
+import com.example.doan.ui.SettingsFragment;
+import com.example.doan.ui.HomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,9 +28,7 @@ public class MainActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-
         replaceFragment(new HomeFragment());
-
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
                 replaceFragment(new HomeFragment());

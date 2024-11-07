@@ -7,6 +7,8 @@
     android:background="@color/white"
     android:padding="16dp">
 
+    <!-- Filter Section -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -18,12 +20,11 @@
             android:layout_height="wrap_content"
             android:textColor="@color/black"
             android:text="Home"
-            android:textSize="40sp"
+            android:textSize="20sp"
             android:textStyle="bold"
             android:layout_weight="1" />
 
         <ImageButton
-            android:background="@color/white"
             android:layout_width="71dp"
             android:layout_height="50dp"
             android:layout_gravity="end"
@@ -68,58 +69,116 @@
         </LinearLayout>
     </LinearLayout>
 
-
+    <!-- CardView đầu tiên cho Nhiệm vụ hôm nay -->
     <androidx.cardview.widget.CardView
-        android:layout_width="wrap_content"
+        android:id="@+id/card_view_report"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:focusable="true"
         card_view:cardCornerRadius="8dp"
-        card_view:cardElevation="4dp"
-        android:gravity="center">
+        card_view:cardElevation="4dp">
 
         <LinearLayout
-            android:layout_width="374dp"
-            android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
             android:orientation="horizontal"
             android:padding="8dp">
 
             <ImageView
                 android:layout_width="80dp"
                 android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
                 android:src="@drawable/task" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:gravity="center"
-                android:textStyle="bold"
-                android:text="Nhiệm vụ hôm nay"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Tra cứu báo cáo"
                 android:textColor="@color/black"
-                android:textSize="30sp" />
+                android:textSize="30sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <LinearLayout
+    <!-- CardView thứ hai cho Nhiệm vụ hôm nay -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="4dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Danh sách khách hàng: "
-            android:textSize="30sp"
-            android:textColor="@color/black"/>
-
-        <ListView
-            android:id="@+id/lvPerson"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </LinearLayout>
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_vertical"
+                android:src="@drawable/task" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Tra cứu nhiệm vụ"
+                android:textColor="@color/black"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+    <!-- CardView cho phần "Xem thông báo" -->
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="16dp"
+        android:clickable="true"
+        android:focusable="true"
+        card_view:cardCornerRadius="8dp"
+        card_view:cardElevation="4dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="6"
+                android:text="Thông báo"
+                android:textAlignment="center"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="- Nội dung thông báo"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
 
 </LinearLayout>
