@@ -1,4 +1,4 @@
-package com.example.doan;
+package com.example.doan.data;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
