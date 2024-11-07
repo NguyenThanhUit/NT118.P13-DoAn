@@ -49,12 +49,13 @@
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@+id/profile_icon"
         app:layout_constraintBottom_toTopOf="@id/employee_id"
+        app:layout_constraintStart_toStartOf="parent"
         />
     <EditText
         android:id="@+id/employee_id"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Employee ID"
+        android:hint="ABC123"
         app:layout_constraintTop_toBottomOf="@id/tv_employee_id"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -73,7 +74,7 @@
         android:id="@+id/full_name"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Full Name"
+        android:hint="Nguyen Van A"
         app:layout_constraintTop_toBottomOf="@id/tv_full_name"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -92,7 +93,7 @@
         android:id="@+id/email"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:hint="Email"
+        android:hint="nguyenvana@gmail.com"
         app:layout_constraintTop_toBottomOf="@id/tv_email"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -130,7 +131,7 @@
             android:id="@+id/phone_number"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="Phone Number"
+            android:hint="0123456789"
             android:inputType="phone"
             android:layout_weight="1" />
     </LinearLayout>

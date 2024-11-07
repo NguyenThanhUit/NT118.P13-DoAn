@@ -28,12 +28,12 @@
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\mipmap-mdpi\\ic_launcher_round.webp"
     },
     {
-        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\layout_modify_contacts.xml.flat",
-        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\modify_contacts.xml"
-    },
-    {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\drawable_ic_launcher_background.xml.flat",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\layout_modify_contacts.xml.flat",
+        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\modify_contacts.xml"
     },
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\menu_bottom_nav_menu.xml.flat",
@@ -48,10 +48,6 @@
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\drawable\\square_red_icon_for_filter_textview.xml"
     },
     {
-        "merged": "com.example.doan.app-debug-31:/drawable_ic_person_add.xml.flat",
-        "source": "com.example.doan.app-main-33:/drawable/ic_person_add.xml"
-    },
-    {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\drawable_ic_person_add.xml.flat",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\drawable\\ic_person_add.xml"
     },
@@ -64,12 +60,12 @@
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_settings.xml"
     },
     {
-        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\mipmap-hdpi_ic_launcher.webp.flat",
-        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\mipmap-hdpi\\ic_launcher.webp"
-    },
-    {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\drawable_ic_back.xml.flat",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\drawable\\ic_back.xml"
+    },
+    {
+        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\mipmap-hdpi_ic_launcher.webp.flat",
+        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\mipmap-hdpi\\ic_launcher.webp"
     },
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
@@ -102,6 +98,10 @@
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\mipmap-xxhdpi_ic_launcher.webp.flat",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\mipmap-xxhdpi\\ic_launcher.webp"
+    },
+    {
+        "merged": "com.example.doan.app-debug-31:/layout_activity_login.xml.flat",
+        "source": "com.example.doan.app-main-33:/layout/activity_login.xml"
     },
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\drawable_phone_icon.xml.flat",
@@ -180,12 +180,12 @@
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\drawable\\task.png"
     },
     {
-        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\layout_home_fragment.xml.flat",
-        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\home_fragment.xml"
-    },
-    {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\drawable_task_icon.xml.flat",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\drawable\\task_icon.xml"
+    },
+    {
+        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\layout_home_fragment.xml.flat",
+        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\home_fragment.xml"
     },
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-debug-31:\\drawable_custom_icon.png.flat",

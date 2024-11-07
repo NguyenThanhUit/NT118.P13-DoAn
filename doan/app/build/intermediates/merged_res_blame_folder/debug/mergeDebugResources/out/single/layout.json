@@ -8,10 +8,6 @@
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\activity_main.xml"
     },
     {
-        "merged": "com.example.doan.app-mergeDebugResources-30:/layout/create_account.xml",
-        "source": "com.example.doan.app-main-33:/layout/create_account.xml"
-    },
-    {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\create_account.xml",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\create_account.xml"
     },
@@ -20,12 +16,16 @@
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\home_fragment.xml"
     },
     {
-        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_settings.xml",
-        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_settings.xml"
+        "merged": "com.example.doan.app-mergeDebugResources-30:/layout/activity_login.xml",
+        "source": "com.example.doan.app-main-33:/layout/activity_login.xml"
     },
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\activity_login.xml",
         "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\activity_login.xml"
+    },
+    {
+        "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_settings.xml",
+        "source": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-main-33:\\layout\\fragment_settings.xml"
     },
     {
         "merged": "C:\\Users\\duyth\\.gradle\\daemon\\8.7\\com.example.doan.app-mergeDebugResources-30:\\layout\\fragment_list_person.xml",

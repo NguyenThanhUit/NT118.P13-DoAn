@@ -68,6 +68,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:textColor="@color/black"
+        android:buttonTint="@color/blue"
         android:text="Lưu đăng nhập"
         android:layout_marginTop="20dp"
         />

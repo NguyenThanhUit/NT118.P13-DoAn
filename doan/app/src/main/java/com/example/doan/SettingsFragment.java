@@ -35,6 +35,8 @@ public class SettingsFragment extends Fragment {
     private Button btnNotifications;
     private boolean isNotificationEnabled = true;
     private Switch nightModeSwitch;
+    // Khai báo nút "Log out"
+    private Button btnLogout;
     public SettingsFragment() {
         // Required empty public constructor
     }
@@ -119,7 +121,18 @@ public class SettingsFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+        // Ánh xạ nút "Log out"
+        btnLogout = view.findViewById(R.id.btn_logout);
+        // Gán sự kiện cho nút "Log out"
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Khi nhấn nút "Log out", mở LogInActivity
+                Intent intent = new Intent(getActivity(), LogInActivity.class);
+                startActivity(intent);
+                getActivity().finish();  // Kết thúc SettingsActivity để không quay lại được
+            }
+        });
         return view;
     }
     private void toggleNotification() {
