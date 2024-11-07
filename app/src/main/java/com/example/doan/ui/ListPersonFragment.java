@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,12 +17,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListPersonFragment extends Fragment {
 
-    private DBAdapter dbAdapter;
+    private com.example.doan.DBAdapter dbAdapter;
     private ListView lvContacts;
     private ContactsAdapter contactsAdapter;
     private List<Contacts> contactsData;
@@ -28,11 +32,13 @@ public class ListPersonFragment extends Fragment {
     private int countAll, countNew, countNotApproach, countApproach, countHot, countPotential;
     private TextView selectedTextView; // Lưu trữ TextView được chọn hiện tại
     private TextView tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential;
+    private FloatingActionButton fabAdd;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbAdapter = new DBAdapter(getContext());
+        dbAdapter = new com.example.doan.DBAdapter(getContext());
         dbAdapter.open();
     }
 
@@ -48,6 +54,8 @@ public class ListPersonFragment extends Fragment {
         tvFilterNotApproach = view.findViewById(R.id.tvFilterNotApproach);
         tvFilterHot = view.findViewById(R.id.tvFilterHot);
         tvFilterPotential = view.findViewById(R.id.tvFilterPotential);
+        fabAdd = view.findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(v -> openAddCustomerFragment());
 
         // Đặt sự kiện nhấn cho mỗi TextView
         TextView[] filters = {tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential};
@@ -193,6 +201,14 @@ public class ListPersonFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         dbAdapter.close(); // Đóng kết nối khi view bị hủy
+    }
+
+    private void openAddCustomerFragment() {
+        com.example.doan.AddCustomerFragment addCustomerFragment = new com.example.doan.AddCustomerFragment();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout3, addCustomerFragment);
+        transaction.addToBackStack(null); // Để quay lại khi nhấn nút Back
+        transaction.commit();
     }
 }
 
