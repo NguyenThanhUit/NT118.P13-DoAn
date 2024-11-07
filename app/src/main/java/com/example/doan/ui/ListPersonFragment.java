@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,20 +17,28 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListPersonFragment extends Fragment {
 
-    private DBAdapter dbAdapter;
+    private com.example.doan.DBAdapter dbAdapter;
     private ListView lvContacts;
     private ContactsAdapter contactsAdapter;
     private List<Contacts> contactsData;
 
+    private int countAll, countNew, countNotApproach, countApproach, countHot, countPotential;
+    private TextView selectedTextView; // Lưu trữ TextView được chọn hiện tại
+    private TextView tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential;
+    private FloatingActionButton fabAdd;
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        dbAdapter = new DBAdapter(getContext());
+        dbAdapter = new com.example.doan.DBAdapter(getContext());
         dbAdapter.open();
     }
 
@@ -37,6 +47,23 @@ public class ListPersonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list_person, container, false);
         lvContacts = view.findViewById(R.id.lvPerson);
 
+        // Tìm các TextView
+        tvFilterAll = view.findViewById(R.id.tvFilterAll);
+        tvFilterNew = view.findViewById(R.id.tvFilterNew);
+        tvFilterApproach = view.findViewById(R.id.tvFilterApproach);
+        tvFilterNotApproach = view.findViewById(R.id.tvFilterNotApproach);
+        tvFilterHot = view.findViewById(R.id.tvFilterHot);
+        tvFilterPotential = view.findViewById(R.id.tvFilterPotential);
+        fabAdd = view.findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(v -> openAddCustomerFragment());
+
+        // Đặt sự kiện nhấn cho mỗi TextView
+        TextView[] filters = {tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential};
+        for (TextView filter : filters) {
+            filter.setOnClickListener(v -> onFilterClicked(filter));
+        }
+        // Lấy số lượng khách hàng cho từng bộ lọc và cập nhật TextView
+        updateFilterCounts();
         dbAdapter.deleteAllUsers();
         insertSampleData();
         showData();
@@ -132,6 +159,56 @@ public class ListPersonFragment extends Fragment {
 
             return convertView;
         }
+    }
+
+    // Phương thức thay đổi trạng thái khi Button được chọn
+    private void onFilterClicked(TextView newSelectedTextView) {
+        /// Đặt lại trạng thái của TextView trước đó nếu có
+        if (selectedTextView != null) {
+            selectedTextView.setSelected(false);
+            selectedTextView.setTextColor(getResources().getColor(R.color.black));
+        }
+
+        // Đặt trạng thái được chọn cho TextView mới
+        newSelectedTextView.setSelected(true);
+        newSelectedTextView.setTextColor(getResources().getColor(R.color.blue_dark));
+        selectedTextView = newSelectedTextView;
+    }
+
+    private void updateFilterCounts() {
+        // Lấy số lượng khách hàng cho từng bộ lọc
+        countAll = dbAdapter.getCountByFilter("Tất cả");
+        countNew = dbAdapter.getCountByFilter("Mới");
+        countNotApproach = dbAdapter.getCountByFilter("Chưa tiếp");
+        countApproach = dbAdapter.getCountByFilter("Tiếp cận");
+        countHot = dbAdapter.getCountByFilter("Nóng");
+        countPotential = dbAdapter.getCountByFilter("Tiềm năng");
+
+        // Cập nhật số lượng vào các TextView với cấu trúc hiển thị như trong ảnh
+        tvFilterAll.setText(" Tất cả " + formatCount(countAll));
+        tvFilterNew.setText(" Mới " + formatCount(countNew));
+        tvFilterNotApproach.setText(" Chưa tiếp cận " + formatCount(countNotApproach));
+        tvFilterApproach.setText(" Tiếp cận " + formatCount(countApproach));
+        tvFilterHot.setText(" Nóng " + formatCount(countHot));
+        tvFilterPotential.setText(" Tiềm năng " + formatCount(countPotential));
+    }
+
+    private String formatCount(int count) {
+        return "(" + (count > 0 ? String.valueOf(count) : "0") + ")";
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        dbAdapter.close(); // Đóng kết nối khi view bị hủy
+    }
+
+    private void openAddCustomerFragment() {
+        com.example.doan.AddCustomerFragment addCustomerFragment = new com.example.doan.AddCustomerFragment();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout3, addCustomerFragment);
+        transaction.addToBackStack(null); // Để quay lại khi nhấn nút Back
+        transaction.commit();
     }
 }
 
