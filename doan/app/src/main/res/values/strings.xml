@@ -1,5 +1,11 @@
 <resources>
     <string name="app_name">do an</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="language_options">
+        <item>English</item>
+        <item>Tiếng Việt</item>
+    </string-array>
+    <string-array name="dialing_code">
+        <item>+84</item>
+    </string-array>
 </resources>

@@ -7,7 +7,8 @@
     <color name="pale_turquoise">#AFEEEE</color>
     <color name="blue_dark">#1E88E5</color>
     <color name="blue_light">#E3F2FD</color>
-
+    <color name="black_weak">#1a1a1a</color>
+    <color name="blue">#1e90ff</color>
 
     <color name="orange_light">#FFCC80</color>
     <color name="orange">#FF9800</color>

@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ic_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/title"
+        />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Create new account"
+        android:textSize="30sp"
+        android:fontFamily="sans-serif-medium"
+        app:layout_constraintTop_toTopOf="@id/ic_back"
+        app:layout_constraintBottom_toTopOf="@+id/profile_icon"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Profile Icon -->
+
+    <!-- Employee ID Input -->
+
+    <ImageView
+        android:id="@+id/profile_icon"
+        android:layout_width="72dp"
+        android:layout_height="72dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/ic_person_add"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/title" />
+
+    <TextView
+        android:id="@+id/tv_employee_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employee ID"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/profile_icon"
+        app:layout_constraintBottom_toTopOf="@id/employee_id"
+        />
+    <EditText
+        android:id="@+id/employee_id"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Employee ID"
+        app:layout_constraintTop_toBottomOf="@id/tv_employee_id"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textPersonName" />
+    <TextView
+        android:id="@+id/tv_full_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Full Name"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/employee_id"
+        app:layout_constraintBottom_toTopOf="@id/full_name"
+        />
+    <!-- Full Name Input -->
+    <EditText
+        android:id="@+id/full_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Full Name"
+        app:layout_constraintTop_toBottomOf="@id/tv_full_name"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textPersonName" />
+    <TextView
+        android:id="@+id/tv_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/full_name"
+        app:layout_constraintBottom_toTopOf="@id/email"
+        />
+    <!-- Email Input -->
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        app:layout_constraintTop_toBottomOf="@id/tv_email"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:inputType="textEmailAddress" />
+    <TextView
+        android:id="@+id/tv_phone_number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phone Number"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        app:layout_constraintBottom_toTopOf="@id/phone_number_container"
+        />
+    <!-- Phone Number Input -->
+    <LinearLayout
+        android:id="@+id/phone_number_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/tv_phone_number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Country Code Spinner -->
+        <Spinner
+            android:id="@+id/country_code_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:backgroundTint="@color/white"
+            />
+
+        <!-- Phone Number EditText -->
+        <EditText
+            android:id="@+id/phone_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="Phone Number"
+            android:inputType="phone"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+    <!-- Sign Up Button -->
+    <Button
+        android:id="@+id/sign_up_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Sign Up"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:backgroundTint="@color/blue"
+        android:fontFamily="sans-serif-black"
+        app:layout_constraintTop_toBottomOf="@id/phone_number_container"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

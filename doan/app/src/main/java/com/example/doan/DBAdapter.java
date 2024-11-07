@@ -60,42 +60,42 @@ public class DBAdapter {
         values.put(KEY_ADDRESS, address);
         return sqLiteDatabase.update(DATABASE_TABLE, values, KEY_MAKH + "=?", new String[]{maKH}) > 0;
     }
-    public int getCountByFilter(String filter) {
-        String query = "";
-
-        // Tạo điều kiện truy vấn dựa trên bộ lọc
-        switch (filter) {
-            case "Tất cả":
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE;
-                break;
-            case "Mới":
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'new'";
-                break;
-            case "Chưa tiếp cận":
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'pending'";
-                break;
-            case "Tiếp cận":
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'approach'";
-                break;
-            case "Nóng":
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'hot'";
-                break;
-            case "Tiềm năng":
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'potential'";
-                break;
-            default:
-                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE;
-                break;
-        }
-
-        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
-        int count = 0;
-        if (cursor != null) {
-            if (cursor.moveToFirst()) {
-                count = cursor.getInt(0);
-            }
-            cursor.close();
-        }
-        return 0;
-    }
+//    public int getCountByFilter(String filter) {
+//        String query = "";
+//
+//        // Tạo điều kiện truy vấn dựa trên bộ lọc
+//        switch (filter) {
+//            case "Tất cả":
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE;
+//                break;
+//            case "Mới":
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'new'";
+//                break;
+//            case "Chưa tiếp cận":
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'pending'";
+//                break;
+//            case "Tiếp cận":
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'approach'";
+//                break;
+//            case "Nóng":
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'hot'";
+//                break;
+//            case "Tiềm năng":
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE + " WHERE status = 'potential'";
+//                break;
+//            default:
+//                query = "SELECT COUNT(*) FROM " + DATABASE_TABLE;
+//                break;
+//        }
+//
+//        Cursor cursor = sqLiteDatabase.rawQuery(query, null);
+//        int count = 0;
+//        if (cursor != null) {
+//            if (cursor.moveToFirst()) {
+//                count = cursor.getInt(0);
+//            }
+//            cursor.close();
+//        }
+//        return 0;
+//    }
 }

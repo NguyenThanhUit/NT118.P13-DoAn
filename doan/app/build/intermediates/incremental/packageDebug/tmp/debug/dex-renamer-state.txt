@@ -1,8 +1,8 @@
-#Wed Nov 06 10:53:28 ICT 2024
-base.0=C\:\\Users\\Legion\\Documents\\doan\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
-base.1=C\:\\Users\\Legion\\Documents\\doan\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
-base.2=C\:\\Users\\Legion\\Documents\\doan\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
-base.3=C\:\\Users\\Legion\\Documents\\doan\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
+#Thu Nov 07 12:23:55 ICT 2024
+base.0=C\:\\Users\\duyth\\AndroidStudioProjects\\Đồ án\\NT118.P13-DoAn\\doan\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.1=C\:\\Users\\duyth\\AndroidStudioProjects\\Đồ án\\NT118.P13-DoAn\\doan\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\0\\classes.dex
+base.2=C\:\\Users\\duyth\\AndroidStudioProjects\\Đồ án\\NT118.P13-DoAn\\doan\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\12\\classes.dex
+base.3=C\:\\Users\\duyth\\AndroidStudioProjects\\Đồ án\\NT118.P13-DoAn\\doan\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\7\\classes.dex
 path.0=classes.dex
 path.1=0/classes.dex
 path.2=12/classes.dex

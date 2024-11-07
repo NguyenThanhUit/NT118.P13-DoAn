@@ -24,42 +24,15 @@ public final class HomeFragmentBinding implements ViewBinding {
   public final ListView lvPerson;
 
   @NonNull
-  public final TextView tvFilterAll;
-
-  @NonNull
-  public final TextView tvFilterApproach;
-
-  @NonNull
-  public final TextView tvFilterHot;
-
-  @NonNull
-  public final TextView tvFilterNew;
-
-  @NonNull
-  public final TextView tvFilterNotApproach;
-
-  @NonNull
-  public final TextView tvFilterPotential;
-
-  @NonNull
   public final TextView tvLoaiNV;
 
   @NonNull
   public final TextView tvTenNV;
 
   private HomeFragmentBinding(@NonNull LinearLayout rootView, @NonNull ListView lvPerson,
-      @NonNull TextView tvFilterAll, @NonNull TextView tvFilterApproach,
-      @NonNull TextView tvFilterHot, @NonNull TextView tvFilterNew,
-      @NonNull TextView tvFilterNotApproach, @NonNull TextView tvFilterPotential,
       @NonNull TextView tvLoaiNV, @NonNull TextView tvTenNV) {
     this.rootView = rootView;
     this.lvPerson = lvPerson;
-    this.tvFilterAll = tvFilterAll;
-    this.tvFilterApproach = tvFilterApproach;
-    this.tvFilterHot = tvFilterHot;
-    this.tvFilterNew = tvFilterNew;
-    this.tvFilterNotApproach = tvFilterNotApproach;
-    this.tvFilterPotential = tvFilterPotential;
     this.tvLoaiNV = tvLoaiNV;
     this.tvTenNV = tvTenNV;
   }
@@ -97,42 +70,6 @@ public final class HomeFragmentBinding implements ViewBinding {
         break missingId;
       }
 
-      id = R.id.tvFilterAll;
-      TextView tvFilterAll = ViewBindings.findChildViewById(rootView, id);
-      if (tvFilterAll == null) {
-        break missingId;
-      }
-
-      id = R.id.tvFilterApproach;
-      TextView tvFilterApproach = ViewBindings.findChildViewById(rootView, id);
-      if (tvFilterApproach == null) {
-        break missingId;
-      }
-
-      id = R.id.tvFilterHot;
-      TextView tvFilterHot = ViewBindings.findChildViewById(rootView, id);
-      if (tvFilterHot == null) {
-        break missingId;
-      }
-
-      id = R.id.tvFilterNew;
-      TextView tvFilterNew = ViewBindings.findChildViewById(rootView, id);
-      if (tvFilterNew == null) {
-        break missingId;
-      }
-
-      id = R.id.tvFilterNotApproach;
-      TextView tvFilterNotApproach = ViewBindings.findChildViewById(rootView, id);
-      if (tvFilterNotApproach == null) {
-        break missingId;
-      }
-
-      id = R.id.tvFilterPotential;
-      TextView tvFilterPotential = ViewBindings.findChildViewById(rootView, id);
-      if (tvFilterPotential == null) {
-        break missingId;
-      }
-
       id = R.id.tvLoaiNV;
       TextView tvLoaiNV = ViewBindings.findChildViewById(rootView, id);
       if (tvLoaiNV == null) {
@@ -145,9 +82,7 @@ public final class HomeFragmentBinding implements ViewBinding {
         break missingId;
       }
 
-      return new HomeFragmentBinding((LinearLayout) rootView, lvPerson, tvFilterAll,
-          tvFilterApproach, tvFilterHot, tvFilterNew, tvFilterNotApproach, tvFilterPotential,
-          tvLoaiNV, tvTenNV);
+      return new HomeFragmentBinding((LinearLayout) rootView, lvPerson, tvLoaiNV, tvTenNV);
     }
     String missingId = rootView.getResources().getResourceName(id);
     throw new NullPointerException("Missing required view with ID: ".concat(missingId));

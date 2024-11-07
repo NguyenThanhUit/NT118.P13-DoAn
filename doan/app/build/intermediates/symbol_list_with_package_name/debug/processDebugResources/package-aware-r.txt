@@ -77,6 +77,8 @@ animator mtrl_fab_hide_motion_spec
 animator mtrl_fab_show_motion_spec
 animator mtrl_fab_transformation_sheet_collapse_spec
 animator mtrl_fab_transformation_sheet_expand_spec
+array dialing_code
+array language_options
 attr SharedValue
 attr SharedValueId
 attr actionBarDivider
@@ -1374,6 +1376,8 @@ color background_floating_material_light
 color background_material_dark
 color background_material_light
 color black
+color black_weak
+color blue
 color blue_dark
 color blue_light
 color bright_foreground_disabled_material_dark
@@ -3043,6 +3047,7 @@ drawable design_snackbar_background
 drawable email_icon
 drawable filter_tag_background
 drawable ic_arrow_back_black_24
+drawable ic_back
 drawable ic_call_answer
 drawable ic_call_answer_low
 drawable ic_call_answer_video
@@ -3063,10 +3068,12 @@ drawable ic_mtrl_checked_circle
 drawable ic_mtrl_chip_checked_black
 drawable ic_mtrl_chip_checked_circle
 drawable ic_mtrl_chip_close_circle
+drawable ic_person_add
 drawable ic_search
 drawable ic_search_black_24
 drawable ic_settings
 drawable indeterminate_static
+drawable logo
 drawable m3_avd_hide_password
 drawable m3_avd_show_password
 drawable m3_bottom_sheet_drag_handle
@@ -3254,6 +3261,10 @@ id bounceBoth
 id bounceEnd
 id bounceStart
 id btnUpdate
+id btn_createaccount
+id btn_login
+id btn_logout
+id btn_notifications
 id btnedit
 id buttonPanel
 id cache_measures
@@ -3268,6 +3279,7 @@ id center_vertical
 id chain
 id chain2
 id chains
+id chb_saveLogin
 id checkbox
 id checked
 id chronometer
@@ -3289,7 +3301,9 @@ id continuousVelocity
 id coordinator
 id cos
 id counterclockwise
+id country_code_spinner
 id cradle
+id create_account_card
 id currentState
 id custom
 id customPanel
@@ -3336,7 +3350,9 @@ id editTextPhone
 id edit_query
 id edit_text_id
 id elastic
+id email
 id embed
+id employee_id
 id end
 id endToStart
 id enterAlways
@@ -3362,6 +3378,7 @@ id forever
 id fragment_container_view_tag
 id frameLayout3
 id frost
+id full_name
 id fullscreen_header
 id ghost_view
 id ghost_view_holder
@@ -3371,6 +3388,7 @@ id graph_wrap
 id group_divider
 id grouping
 id groups
+id header
 id header_title
 id hide_ime_id
 id hideable
@@ -3380,6 +3398,7 @@ id honorRequest
 id horizontal
 id horizontal_only
 id ibtnBack
+id ic_back
 id icon
 id icon_group
 id ifRoom
@@ -3399,6 +3418,8 @@ id item_touch_helper_previous_elevation
 id jumpToEnd
 id jumpToStart
 id labeled
+id language_card
+id language_spinner
 id layout
 id left
 id leftToRight
@@ -3411,6 +3432,7 @@ id list_item
 id list_person
 id lvPerson
 id m3_side_sheet
+id main
 id marquee
 id masked
 id match_constraint
@@ -3480,6 +3502,7 @@ id navigation_header_container
 id never
 id neverCompleteToEnd
 id neverCompleteToStart
+id night_mode_switch
 id noScroll
 id noState
 id none
@@ -3488,6 +3511,7 @@ id north
 id notification_background
 id notification_main_column
 id notification_main_column_container
+id notifications_card
 id off
 id on
 id onInterceptTouchReturnSwipe
@@ -3519,10 +3543,13 @@ id path
 id pathRelative
 id peekHeight
 id percent
+id phone_number
+id phone_number_container
 id pin
 id position
 id postLayout
 id pressed
+id profile_icon
 id progress_circular
 id progress_horizontal
 id radio
@@ -3546,7 +3573,6 @@ id scrollIndicatorDown
 id scrollIndicatorUp
 id scrollView
 id scrollable
-id search
 id search_badge
 id search_bar
 id search_button
@@ -3567,6 +3593,7 @@ id shortcut
 id showCustom
 id showHome
 id showTitle
+id sign_up_button
 id sin
 id skipCollapsed
 id skipped
@@ -3632,6 +3659,10 @@ id textinput_helper_text
 id textinput_placeholder
 id textinput_prefix_text
 id textinput_suffix_text
+id tie_password
+id tie_username
+id til_password
+id til_username
 id time
 id title
 id titleDividerNoCustom
@@ -3653,17 +3684,15 @@ id transition_transform
 id triangle
 id tvAddress
 id tvEmail
-id tvFilterAll
-id tvFilterApproach
-id tvFilterHot
-id tvFilterNew
-id tvFilterNotApproach
-id tvFilterPotential
 id tvLoaiNV
 id tvMAKH
 id tvName
 id tvPhone
 id tvTenNV
+id tv_email
+id tv_employee_id
+id tv_full_name
+id tv_phone_number
 id unchecked
 id uniform
 id unlabeled
@@ -3802,7 +3831,9 @@ layout abc_search_dropdown_item_icons_2line
 layout abc_search_view
 layout abc_select_dialog_material
 layout abc_tooltip
+layout activity_login
 layout activity_main
+layout create_account
 layout custom_dialog
 layout design_bottom_navigation_item
 layout design_bottom_sheet_dialog
@@ -3820,7 +3851,7 @@ layout design_navigation_menu_item
 layout design_text_input_end_icon
 layout design_text_input_start_icon
 layout fragment_list_person
-layout fragment_search
+layout fragment_login
 layout fragment_settings
 layout home_fragment
 layout ime_base_split_test_activity
