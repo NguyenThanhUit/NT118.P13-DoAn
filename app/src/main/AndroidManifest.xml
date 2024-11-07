@@ -12,6 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
+        <activity
+            android:name=".ui.createTask"
+            android:exported="false" />
+        <activity
+            android:name=".ui.assignTask"
+            android:exported="false" />
+        <activity
+            android:name=".ui.createAccountEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".ui.manageEmployee"
+            android:exported="false" />
+        <activity
+            android:name=".ui.adminHome"
+            android:exported="false" />
         <activity android:name=".ModifyContact" />
         <activity
             android:name=".MainActivity"
