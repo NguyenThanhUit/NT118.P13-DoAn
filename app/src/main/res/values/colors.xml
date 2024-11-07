@@ -40,4 +40,8 @@
 
     <!-- Màu vàng Gold nhạt -->
     <color name="gold_soft">#F0E68C</color>
+
+    <color name="blue">#0000FF</color>
+
+    <color name="cyan">#00FFFF</color>
 </resources>
