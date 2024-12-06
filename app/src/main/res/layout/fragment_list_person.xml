@@ -1,24 +1,10 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="15dp"
     android:background="@color/white">
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="@color/light_sky_blue"
-        android:drawableLeft="@drawable/baseline_contact_page_24"
-        android:gravity="center"
-        android:text="Thông tin khách hàng"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
-<<<<<<< Updated upstream
-=======
         <!-- Title TextView -->
         <SearchView
             android:layout_width="match_parent"
@@ -119,11 +105,9 @@
     </LinearLayout>
 
     <!-- ListView hiển thị danh sách khách hàng -->
->>>>>>> Stashed changes
     <ListView
         android:id="@+id/lvPerson"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/textView"
-        android:layout_marginTop="50dp" /><!-- This line ensures the ListView is positioned below the TextView -->
-</FrameLayout>
+        android:layout_below="@id/headerLayout" />
+</RelativeLayout>

@@ -1,0 +1,128 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <!-- Tiêu đề -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Thêm khách hàng"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingBottom="16dp" />
+        <!-- Mã KH -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Mã KH"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/edtMaKH"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập nội dung"
+            android:backgroundTint="@color/gray"
+            android:background="@drawable/edittext_border"
+            android:padding="10dp" />
+        <!-- Tên khách hàng -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tên khách hàng (*)"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/edtName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập nội dung"
+            android:backgroundTint="@color/gray"
+            android:background="@drawable/edittext_border"
+            android:padding="10dp" />
+        <!-- Số điện thoại -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Số điện thoại (*)"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/edtPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập nội dung"
+            android:backgroundTint="@color/gray"
+            android:padding="10dp"
+            android:background="@drawable/edittext_border"
+            android:inputType="phone" />
+        <!-- Điện thoại khách hàng -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Điện thoại khách hàng"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/edtCustomerPhone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập nội dung"
+            android:backgroundTint="@color/gray"
+            android:padding="10dp"
+            android:background="@drawable/edittext_border"
+            android:inputType="phone" />
+        <!-- Địa chỉ -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Địa chỉ"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <EditText
+            android:id="@+id/edtAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Nhập nội dung"
+            android:backgroundTint="@color/gray"
+            android:background="@drawable/edittext_border"
+            android:padding="10dp" />
+        <!-- Loại khách hàng -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Loại khách hàng"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:paddingTop="8dp" />
+        <!-- TextView hiển thị lựa chọn, khi nhấn vào sẽ mở Dialog -->
+        <TextView
+            android:id="@+id/tvCustomerType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:background="@drawable/edittext_border"
+            android:hint="Vui lòng chọn"
+            android:drawableEnd="@drawable/ic_arrow_drop_down_small"
+            android:gravity="center_vertical|start" />
+        <!-- Nút Lưu -->
+        <Button
+            android:id="@+id/btnSave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="Tạo khách hàng"
+            android:backgroundTint="@color/blue_dark"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+</ScrollView>

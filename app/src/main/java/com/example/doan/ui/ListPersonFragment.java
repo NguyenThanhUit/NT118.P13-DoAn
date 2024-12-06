@@ -11,15 +11,22 @@ import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.example.doan.domain.contact.ContactDto;
+import com.example.doan.domain.contact.ModifyContactActivity;
+import com.example.doan.R;
+import com.example.doan.data.DBAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,7 +36,13 @@ public class ListPersonFragment extends Fragment {
     private DBAdapter dbAdapter;
     private ListView lvContacts;
     private ContactsAdapter contactsAdapter;
-    private List<Contacts> contactsData;
+    private List<ContactDto> contactsData;
+
+    private int countAll, countNew, countNotApproach, countApproach, countHot, countPotential;
+    private TextView selectedTextView; // Lưu trữ TextView được chọn hiện tại
+    private TextView tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential;
+    private FloatingActionButton fabAdd;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -43,6 +56,23 @@ public class ListPersonFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_list_person, container, false);
         lvContacts = view.findViewById(R.id.lvPerson);
 
+        // Tìm các TextView
+        tvFilterAll = view.findViewById(R.id.tvFilterAll);
+        tvFilterNew = view.findViewById(R.id.tvFilterNew);
+        tvFilterApproach = view.findViewById(R.id.tvFilterApproach);
+        tvFilterNotApproach = view.findViewById(R.id.tvFilterNotApproach);
+        tvFilterHot = view.findViewById(R.id.tvFilterHot);
+        tvFilterPotential = view.findViewById(R.id.tvFilterPotential);
+        fabAdd = view.findViewById(R.id.fabAdd);
+        fabAdd.setOnClickListener(v -> openAddCustomerFragment());
+
+        // Đặt sự kiện nhấn cho mỗi TextView
+        TextView[] filters = {tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential};
+        for (TextView filter : filters) {
+            filter.setOnClickListener(v -> onFilterClicked(filter));
+        }
+        // Lấy số lượng khách hàng cho từng bộ lọc và cập nhật TextView
+        updateFilterCounts();
         dbAdapter.deleteAllUsers();
         insertSampleData();
         showData();
@@ -70,8 +100,8 @@ public class ListPersonFragment extends Fragment {
     }
 
 
-    private List<Contacts> getData() {
-        List<Contacts> contacts = new ArrayList<>();
+    private List<ContactDto> getData() {
+        List<ContactDto> contacts = new ArrayList<>();
         Cursor cursor = dbAdapter.getAllUsers(null);
         if (cursor != null) {
             while (cursor.moveToNext()) {
@@ -79,7 +109,7 @@ public class ListPersonFragment extends Fragment {
                 String name = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_HOTEN));
                 String phone = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_PHONE));
                 String addr = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_ADDRESS));
-                contacts.add(new Contacts(maKH, name, phone, addr));
+                contacts.add(new ContactDto(maKH, name, phone, addr));
             }
             cursor.close();
         }
@@ -97,10 +127,10 @@ public class ListPersonFragment extends Fragment {
         lvContacts.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                Contacts selectedContact = (Contacts) parent.getItemAtPosition(position);
+                ContactDto selectedContact = (ContactDto) parent.getItemAtPosition(position);
                 Toast.makeText(getActivity(), "Đã chọn: " + selectedContact.getName(), Toast.LENGTH_SHORT).show();
 
-                Intent intent = new Intent(getActivity(), ModifyContact.class);
+                Intent intent = new Intent(getActivity(), ModifyContactActivity.class);
                 intent.putExtra("MAKH", selectedContact.getMaKH());
                 startActivityForResult(intent, 1);
                 return true;
@@ -116,9 +146,9 @@ public class ListPersonFragment extends Fragment {
         }
     }
 
-    public static class ContactsAdapter extends ArrayAdapter<Contacts> {
+    public static class ContactsAdapter extends ArrayAdapter<ContactDto> {
 
-        public ContactsAdapter(Context context, List<Contacts> contacts) {
+        public ContactsAdapter(Context context, List<ContactDto> contacts) {
             super(context, 0, contacts);
         }
 
@@ -128,7 +158,7 @@ public class ListPersonFragment extends Fragment {
                 convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
             }
 
-            Contacts contact = getItem(position);
+            ContactDto contact = getItem(position);
             TextView textViewMAKH = convertView.findViewById(R.id.tvMAKH);
             TextView textViewName = convertView.findViewById(R.id.tvName);
             if (contact != null) {
@@ -139,20 +169,18 @@ public class ListPersonFragment extends Fragment {
             return convertView;
         }
     }
-<<<<<<< Updated upstream
-=======
 
     // Phương thức thay đổi trạng thái khi Button được chọn
     private void onFilterClicked(TextView newSelectedTextView) {
         /// Đặt lại trạng thái của TextView trước đó nếu có
         if (selectedTextView != null) {
             selectedTextView.setSelected(false);
-            selectedTextView.setTextColor(getResources().getColor(R.color.color2));
+            selectedTextView.setTextColor(getResources().getColor(R.color.black));
         }
 
         // Đặt trạng thái được chọn cho TextView mới
         newSelectedTextView.setSelected(true);
-        newSelectedTextView.setTextColor(getResources().getColor(R.color.color3));
+        newSelectedTextView.setTextColor(getResources().getColor(R.color.blue_dark));
         selectedTextView = newSelectedTextView;
     }
 
@@ -191,6 +219,4 @@ public class ListPersonFragment extends Fragment {
         transaction.addToBackStack(null); // Để quay lại khi nhấn nút Back
         transaction.commit();
     }
->>>>>>> Stashed changes
 }
-
