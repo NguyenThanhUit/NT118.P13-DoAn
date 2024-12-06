@@ -1,9 +1,10 @@
 package com.example.doan.ui;
 
-import com.example.doan.ModifyContact;
+
 import com.example.doan.R;
 import com.example.doan.data.DBAdapter;
-import com.example.doan.domain.contact.Contacts;
+import com.example.doan.domain.contact.ContactDto;
+import com.example.doan.domain.contact.ModifyContactActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
