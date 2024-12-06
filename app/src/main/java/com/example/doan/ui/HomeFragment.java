@@ -12,10 +12,16 @@ import com.example.doan.R;
 
 public class HomeFragment extends Fragment {
 
+<<<<<<< Updated upstream
+=======
+    private List<ContactDto> contactsData;
+
+>>>>>>> Stashed changes
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
 
+<<<<<<< Updated upstream
         // Lấy các CardView
         CardView cardTaskLookup = view.findViewById(R.id.card_view_task);
         CardView cardReportLookup = view.findViewById(R.id.card_view_report);
@@ -25,6 +31,11 @@ public class HomeFragment extends Fragment {
 
         // Xử lý sự kiện nhấn cho "Tra cứu báo cáo"
         cardReportLookup.setOnClickListener(v -> replaceFragment(new ReportLookupFragment()));
+=======
+        DBAdapter dbAdapter = new DBAdapter(getContext());
+        dbAdapter.open();
+        dbAdapter.deleteAllUsers();
+>>>>>>> Stashed changes
 
         return view;
     }

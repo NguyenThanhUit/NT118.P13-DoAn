@@ -8,6 +8,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
+
+import androidx.activity.EdgeToEdge;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -137,5 +139,58 @@ public class ListPersonFragment extends Fragment {
             return convertView;
         }
     }
+<<<<<<< Updated upstream
+=======
+
+    // Phương thức thay đổi trạng thái khi Button được chọn
+    private void onFilterClicked(TextView newSelectedTextView) {
+        /// Đặt lại trạng thái của TextView trước đó nếu có
+        if (selectedTextView != null) {
+            selectedTextView.setSelected(false);
+            selectedTextView.setTextColor(getResources().getColor(R.color.color2));
+        }
+
+        // Đặt trạng thái được chọn cho TextView mới
+        newSelectedTextView.setSelected(true);
+        newSelectedTextView.setTextColor(getResources().getColor(R.color.color3));
+        selectedTextView = newSelectedTextView;
+    }
+
+    private void updateFilterCounts() {
+        // Lấy số lượng khách hàng cho từng bộ lọc
+        countAll = dbAdapter.getCountByFilter("Tất cả");
+        countNew = dbAdapter.getCountByFilter("Mới");
+        countNotApproach = dbAdapter.getCountByFilter("Chưa tiếp");
+        countApproach = dbAdapter.getCountByFilter("Tiếp cận");
+        countHot = dbAdapter.getCountByFilter("Nóng");
+        countPotential = dbAdapter.getCountByFilter("Tiềm năng");
+
+        // Cập nhật số lượng vào các TextView với cấu trúc hiển thị như trong ảnh
+        tvFilterAll.setText(" Tất cả " + formatCount(countAll));
+        tvFilterNew.setText(" Mới " + formatCount(countNew));
+        tvFilterNotApproach.setText(" Chưa tiếp cận " + formatCount(countNotApproach));
+        tvFilterApproach.setText(" Tiếp cận " + formatCount(countApproach));
+        tvFilterHot.setText(" Nóng " + formatCount(countHot));
+        tvFilterPotential.setText(" Tiềm năng " + formatCount(countPotential));
+    }
+
+    private String formatCount(int count) {
+        return "(" + (count > 0 ? String.valueOf(count) : "0") + ")";
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        dbAdapter.close(); // Đóng kết nối khi view bị hủy
+    }
+
+    private void openAddCustomerFragment() {
+        AddCustomerFragment addCustomerFragment = new AddCustomerFragment();
+        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.frameLayout3, addCustomerFragment);
+        transaction.addToBackStack(null); // Để quay lại khi nhấn nút Back
+        transaction.commit();
+    }
+>>>>>>> Stashed changes
 }
 
