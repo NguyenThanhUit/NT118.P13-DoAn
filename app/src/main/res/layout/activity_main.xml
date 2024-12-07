@@ -20,5 +20,4 @@
         app:itemIconTint="@drawable/bottom_navigation_selector"
         app:itemTextColor="@color/color3"
         app:menu="@menu/bottom_nav_menu" />
-
 </LinearLayout>

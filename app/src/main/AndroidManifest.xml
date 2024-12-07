@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
+
         <activity
             android:name=".domain.employee.CreateTaskActivity"
             android:exported="false" />
@@ -33,14 +34,16 @@
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
-        <activity android:name=".domain.auth.LogInActivity"
-            android:exported="true">
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".domain.auth.LogInActivity"
+            android:exported="false">
+
         </activity>
     </application>
 

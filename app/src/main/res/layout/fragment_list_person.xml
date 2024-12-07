@@ -1,6 +1,5 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
@@ -50,11 +49,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/filter_tag_background"
-                    android:drawableLeft="@drawable/square_blue_icon_for_filter_textview"
                     android:padding="8dp"
                     android:text=" Mới"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:drawableLeftCompat="@drawable/oval_blue_icon_for_filter_textview" />
 
                 <!-- Filter Tag "Chưa tiếp Cận" -->
                 <TextView
@@ -63,11 +62,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/filter_tag_background"
-                    android:drawableLeft="@drawable/square_orange_icon_for_filter_textview"
                     android:padding="8dp"
                     android:text=" Chưa tiếp cận"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:drawableLeftCompat="@drawable/oval_orange_icon_for_filter_textview" />
 
                 <!-- Filter Tag "Tiếp Cận" -->
                 <TextView
@@ -76,11 +75,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/filter_tag_background"
-                    android:drawableLeft="@drawable/square_green_icon_for_filter_textview"
                     android:padding="8dp"
                     android:text=" Tiếp cận"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:drawableStartCompat="@drawable/oval_green_icon_for_filter_textview" />
 
                 <!-- Filter Tag "Nóng" -->
                 <TextView
@@ -89,11 +88,11 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/filter_tag_background"
-                    android:drawableLeft="@drawable/square_red_icon_for_filter_textview"
                     android:padding="8dp"
                     android:text=" Nóng"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:drawableLeftCompat="@drawable/oval_red_icon_for_filter_textview" />
                 <!-- Filter Tag "Tiềm Năng" -->
                 <TextView
                     android:id="@+id/tvFilterPotential"
@@ -101,31 +100,33 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="8dp"
                     android:background="@drawable/filter_tag_background"
-                    android:drawableLeft="@drawable/square_gold_icon_for_filter_textview"
                     android:padding="8dp"
                     android:text=" Tiềm năng"
                     android:textColor="@color/black"
-                    android:textSize="16sp" />
+                    android:textSize="16sp"
+                    app:drawableLeftCompat="@drawable/oval_gold_icon_for_filter_textview" />
             </LinearLayout>
         </HorizontalScrollView>
 
         <ListView
             android:id="@+id/lvPerson"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-        <!-- Floating Action Button (FAB) tròn cố định ở góc dưới bên phải -->
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/fabAdd"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
-            android:tint="@color/white"
-            android:src="@drawable/plus_icon"
-            app:backgroundTint="@color/blue_dark"
-            app:fabSize="mini" />
+            android:layout_height="match_parent"
+            android:divider="@android:color/transparent"
+            android:dividerHeight="15dp"/>
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:src="@drawable/ic_add"
+        app:tint="@color/color4"
+        app:backgroundTint="@color/color3"
+        app:fabSize="normal" />
 
 </RelativeLayout>
 

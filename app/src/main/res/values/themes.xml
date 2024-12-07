@@ -2,7 +2,10 @@
     <!-- Base application theme. -->
     <style name="Base.Theme.DoAn" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/color3</item>
+        <item name="colorPrimaryDark">@color/color2</item>
+        <item name="colorAccent">@color/color4</item>
+        <item name="colorSecondaryContainer">@color/color4</item>
     </style>
 
     <style name="Theme.DoAn" parent="Base.Theme.DoAn" />

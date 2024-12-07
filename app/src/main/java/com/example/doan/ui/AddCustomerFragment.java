@@ -5,14 +5,17 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.example.doan.R;
 import com.example.doan.data.DatabaseHelper;
@@ -21,21 +24,31 @@ public class AddCustomerFragment extends Fragment {
 
     private EditText edtMaKH, edtName, edtPhone, edtAddress;
     private TextView tvCustomerType;
-    private Button btnSave;
     private DatabaseHelper databaseHelper;
 
     @Nullable
     @Override
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_add_customer, container, false);
 
+        // Toolbar
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        ((AppCompatActivity) requireActivity()).setSupportActionBar(toolbar);
+
+        // Hiển thị nút back
+        if (((AppCompatActivity) requireActivity()).getSupportActionBar() != null) {
+            ((AppCompatActivity) requireActivity()).getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+        toolbar.getNavigationIcon().setTint(getResources().getColor(android.R.color.white));
+        // Xử lý sự kiện nút back
+        toolbar.setNavigationOnClickListener(v -> navigateBackToListPerson());
+
         // Khởi tạo các view
-        edtMaKH = view.findViewById(R.id.edtMaKH);
         edtName = view.findViewById(R.id.edtName);
-        edtPhone = view.findViewById(R.id.edtPhone);
+        edtPhone = view.findViewById(R.id.edtPhoneNumber);
         edtAddress = view.findViewById(R.id.edtAddress);
         tvCustomerType = view.findViewById(R.id.tvCustomerType);
-        btnSave = view.findViewById(R.id.btnSave);
 
         // Khởi tạo DatabaseHelper
         databaseHelper = new DatabaseHelper(getActivity(), "ContactsDB", null, 1);
@@ -46,6 +59,16 @@ public class AddCustomerFragment extends Fragment {
         // Gọi hàm hiển thị Dialog khi nhấn vào tvCustomerType
         tvCustomerType.setOnClickListener(v -> showCustomerTypeDialog());
         return view;
+    }
+
+    private void navigateBackToListPerson() {
+        ListPersonFragment listPersonFragment = new ListPersonFragment();
+        requireActivity().getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.frameLayout3, listPersonFragment) // `fragment_container` là ID của container chứa Fragment
+                .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                .addToBackStack(null)
+                .commit();
     }
 
     private void saveCustomer() {
@@ -72,7 +95,10 @@ public class AddCustomerFragment extends Fragment {
     // Hàm riêng để hiển thị Dialog chọn loại khách hàng
     private void showCustomerTypeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-        builder.setTitle("Chọn loại khách hàng");
+
+        // Inflate custom title view
+        View customTitle = LayoutInflater.from(requireContext()).inflate(R.layout.dialog_title_custom, null);
+        builder.setCustomTitle(customTitle);
 
         // Danh sách các loại khách hàng
         String[] customerTypes = {"Mới", "Chưa tiếp cận", "Tiếp cận", "Nóng", "Tiềm năng"};
@@ -86,4 +112,5 @@ public class AddCustomerFragment extends Fragment {
         // Hiển thị Dialog
         builder.create().show();
     }
+
 }

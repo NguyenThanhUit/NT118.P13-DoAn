@@ -176,12 +176,12 @@ public class ListPersonFragment extends Fragment {
         /// Đặt lại trạng thái của TextView trước đó nếu có
         if (selectedTextView != null) {
             selectedTextView.setSelected(false);
-            selectedTextView.setTextColor(getResources().getColor(R.color.black));
+            selectedTextView.setTextColor(getResources().getColor(R.color.color2));
         }
 
         // Đặt trạng thái được chọn cho TextView mới
         newSelectedTextView.setSelected(true);
-        newSelectedTextView.setTextColor(getResources().getColor(R.color.blue_dark));
+        newSelectedTextView.setTextColor(getResources().getColor(R.color.color3));
         selectedTextView = newSelectedTextView;
     }
 
