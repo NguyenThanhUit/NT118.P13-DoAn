@@ -5,76 +5,55 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.manageEmployee">
-
-    <ListView
-        android:id="@+id/lvEmployees"
-        android:layout_width="409dp"
-        android:layout_height="569dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvListEmployee" />
+    android:padding="16dp">
 
     <ImageButton
         android:id="@+id/imgBtnBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="24dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lvEmployees"
-        app:layout_constraintVertical_bias="0.851"
-        app:srcCompat="?attr/homeAsUpIndicator" />
-
+        android:src="@drawable/ic_back"
+        android:backgroundTint="@color/background"/>
     <TextView
         android:id="@+id/tvListEmployee"
-        android:layout_width="0dp"
-        android:layout_height="41dp"
-        android:text="Danh sách nhân viên"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Employees"
         android:gravity="center"
         android:textStyle="bold"
-        android:textSize="20sp"
-        android:background="@color/cyan"
+        android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/btnAdd0"
-        android:layout_width="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/tl_search_employee"/>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tl_search_employee"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="36dp"
-        android:text="Thêm"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imgBtnBack"
-        app:layout_constraintTop_toBottomOf="@+id/lvEmployees"
-        app:layout_constraintVertical_bias="0.135" />
-
-    <Button
-        android:id="@+id/btnDelete0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
-        android:text="Xóa"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btnAdd0"
-        app:layout_constraintTop_toBottomOf="@+id/lvEmployees"
-        app:layout_constraintVertical_bias="0.03" />
-
-    <Button
-        android:id="@+id/btnEdit0"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:text="Sửa"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tvListEmployee"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Search employee name">
+        </com.google.android.material.textfield.TextInputEditText>
+    </com.google.android.material.textfield.TextInputLayout>
+    <ListView
+        android:id="@+id/lv_employee"
+        android:layout_width="match_parent"
+        android:layout_height="551dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tl_search_employee">
+    </ListView>
+    <ImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_add"
+        android:background="@drawable/rounded_corner"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.542"
-        app:layout_constraintStart_toEndOf="@+id/btnDelete0"
-        app:layout_constraintTop_toBottomOf="@+id/lvEmployees"
-        app:layout_constraintVertical_bias="0.03" />
-
+        app:layout_constraintBottom_toBottomOf="parent">
+    </ImageView>
 </androidx.constraintlayout.widget.ConstraintLayout>

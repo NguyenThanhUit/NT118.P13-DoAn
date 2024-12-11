@@ -42,7 +42,7 @@
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginEnd="16dp"
-            android:src="@drawable/custom_icon" />
+            android:src="@drawable/avatar" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -54,8 +54,8 @@
                 android:id="@+id/tvTenNV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tên nhân viên"
-                android:textSize="16sp"
+                android:text="Phan Duy Thọ"
+                android:textSize="24sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -63,8 +63,8 @@
                 android:id="@+id/tvLoaiNV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nhân viên kinh doanh"
-                android:textSize="16sp"
+                android:text="Salesman"
+                android:textSize="18sp"
                 android:textColor="@color/black" />
         </LinearLayout>
     </LinearLayout>
@@ -91,7 +91,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/task" />
+                android:src="@drawable/report" />
 
             <TextView
                 android:layout_width="0dp"
@@ -99,7 +99,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Tra cứu báo cáo"
+                android:text="Reports"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -136,7 +136,7 @@
                 android:layout_marginStart="16dp"
                 android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:text="Tra cứu nhiệm vụ"
+                android:text="Tasks"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -163,7 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="6"
-                android:text="Thông báo"
+                android:text="Notifications"
                 android:textAlignment="center"
                 android:textSize="30sp"
                 android:textStyle="bold" />

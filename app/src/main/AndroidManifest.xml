@@ -25,7 +25,7 @@
             android:name=".domain.employee.ManageEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.AdminHomeActivity"
+            android:name=".domain.admin.AdminHomeActivity"
             android:exported="false" />
         <activity android:name=".domain.contact.ModifyContactActivity" />
         <activity

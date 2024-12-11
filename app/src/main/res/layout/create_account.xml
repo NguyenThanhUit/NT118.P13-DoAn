@@ -177,7 +177,7 @@
             android:inputType="textPassword"
             />
     </com.google.android.material.textfield.TextInputLayout>
-    <!-- Sign Up Button -->
+    <!-- Create Button -->
     <Button
         android:id="@+id/sign_up_button"
         android:layout_width="wrap_content"

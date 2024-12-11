@@ -149,7 +149,7 @@ public class ListPersonFragment extends Fragment {
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_customer, parent, false);
             }
 
             ContactDto contact = getItem(position);
