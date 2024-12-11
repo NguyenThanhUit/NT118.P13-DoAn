@@ -2,195 +2,256 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
-    android:layout_marginTop="40dp">
+    android:padding="16dp">
 
     <!-- Header với Icon Settings và nút Chuyển đổi chế độ ban ngày / ban đêm -->
-    <LinearLayout
-        android:id="@+id/header"
+    <TextView
+        android:id="@+id/tv_setting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:textSize="40sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/tv_account"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Account"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/tv_setting"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/account_card"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/account_card"
         android:layout_width="0dp"
-        android:layout_height="40dp"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_background"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <TextView
+        app:layout_constraintTop_toBottomOf="@id/tv_account">
+        <LinearLayout
+            android:id="@+id/ll_security"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="sans-serif-medium"
-            android:paddingStart="8dp"
-            android:paddingEnd="215dp"
-            android:text="Settings"
-            android:textSize="30sp" />
-
-        <Switch
-            android:id="@+id/night_mode_switch"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textOff="🌙"
-            android:textOn="☀️"
-            android:thumbTint="@color/black"
-            android:trackTint="@color/gray"
-            app:layout_constraintEnd_toEndOf="parent" />
-    </LinearLayout>
-
-    <!-- Card cho mục Notifications -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/notifications_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header">
-
-        <LinearLayout
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:id="@+id/img_security"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:src="@drawable/img_security"
+                android:paddingEnd="30sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Security"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/img_security"
+                app:layout_constraintTop_toTopOf="@+id/img_security"
+                app:layout_constraintBottom_toBottomOf="@+id/img_security"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_notifications"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@id/ll_security">
+
+            <ImageView
+                android:id="@+id/img_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="28sp"
+                android:src="@drawable/img_notifications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_security"></ImageView>
+
+            <TextView
+                android:id="@+id/tv_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Notifications"
-                android:textSize="22sp" />
+                android:textSize="16sp"
+                android:textStyle="bold"
 
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_change_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@+id/ll_notifications">
+            <ImageView
+                android:id="@+id/img_change_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_change_password"
+                android:paddingEnd="30sp"
+                app:layout_constraintTop_toBottomOf="@id/img_notifications"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+            </ImageView>
             <TextView
+                android:id="@+id/tv_change_password"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Enable Notifications"
-                android:textSize="18sp"
-                app:layout_constraintBottom_toBottomOf="@+id/notifications_card"
-                app:layout_constraintTop_toTopOf="@+id/btn_notifications"
-
-                />
-
-            <Button
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:id="@+id/btn_notifications"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:backgroundTint="@color/blue"
-                android:text="Enabled"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:text="Change password"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
 
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <!-- Card cho mục Language -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/language_card"
+    <TextView
+        android:id="@+id/tv_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Options"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/account_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/options_card"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/options_card"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="8dp"
+        android:background="@drawable/rounded_background"
+        android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/notifications_card">
-
+        app:layout_constraintTop_toBottomOf="@id/tv_options">
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/ll_language"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
+            android:clickable="true"
+            app:layout_constraintStart_toStartOf="parent">
+            <ImageView
+                android:id="@+id/img_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_language"
+                android:paddingEnd="30sp"
+                >
+            </ImageView>
             <TextView
+                android:id="@+id/tv_security"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
-                android:text="Language"
-                android:textSize="22sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Select language"
-                android:textSize="18sp" />
-
-            <Spinner
-                android:id="@+id/language_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:background="@color/blue"
-                android:padding="8dp"
-                android:spinnerMode="dropdown"
-                android:textAlignment="center"
-                android:textColor="@color/black" />
+                android:layout_gravity="center_vertical"
+                android:text="Language - English"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                >
+            </TextView>
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
-
-    <!-- Card cho mục Create Account -->
-    <com.google.android.material.card.MaterialCardView
-        android:id="@+id/create_account_card"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        app:cardCornerRadius="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/language_card">
-
         <LinearLayout
-            android:layout_width="match_parent"
+            android:id="@+id/ll_report"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="16dp">
-
-            <TextView
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@id/ll_language">
+            <ImageView
+                android:id="@+id/img_report"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="sans-serif-medium"
+                android:paddingEnd="28sp"
+                android:src="@drawable/img_report"
+                >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Report proplems"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/ll_create_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@+id/ll_report">
+            <ImageView
+                android:id="@+id/img_create_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_create_account"
+                android:paddingEnd="30sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_change_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:text="Create account"
-                android:textSize="22sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="New account for employee"
-                android:textSize="18sp" />
-
-            <Button
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:id="@+id/btn_createaccount"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="end"
-                android:backgroundTint="@color/blue"
-                android:text="Create"
-                android:textAllCaps="false"
-                android:textColor="@color/white" />
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
         </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+        <LinearLayout
+            android:id="@+id/ll_log_out"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintTop_toBottomOf="@+id/ll_create_account">
+            <ImageView
+                android:id="@+id/img_log_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/img_log_out"
+                android:paddingEnd="30sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_change_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log out"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+<com.google.android.material.bottomnavigation.BottomNavigationView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:layout_constraintBottom_toBottomOf="parent"
+    app:menu="@menu/bottom_nav_menu">
 
-    <!-- Bottom Navigation -->
-
-    <Button
-        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-        android:id="@+id/btn_logout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:backgroundTint="@color/blue"
-        android:text="Log out"
-        android:textSize="22sp"
-        app:layout_constraintTop_toBottomOf="@+id/create_account_card"
-        android:textColor="@color/white"
-        android:fontFamily="sans-serif-medium"
-        >
-
-    </Button>
-
+</com.google.android.material.bottomnavigation.BottomNavigationView>
 </androidx.constraintlayout.widget.ConstraintLayout>

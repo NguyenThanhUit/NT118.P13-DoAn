@@ -37,7 +37,7 @@ android {
 dependencies {
     val room_version = "2.6.1"
     val lifecycle_version = "2.8.5"
-
+    implementation ("com.google.android.material:material:1.12.0")
     // ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // LiveData

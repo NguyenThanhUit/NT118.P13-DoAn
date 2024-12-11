@@ -29,13 +29,13 @@
             android:exported="false" />
         <activity android:name=".domain.contact.ModifyContactActivity" />
         <activity
-            android:name=".domain.auth.CreateAccountActivity"
+            android:name=".domain.admin.CreateAccountActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".domain.auth.LogInActivity"
+        <activity android:name=".domain.admin.LogInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
