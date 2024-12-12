@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -16,6 +17,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doan.R;
+import com.example.doan.ui.HomeFragment;
 
 import java.util.ArrayList;
 
@@ -35,7 +37,17 @@ public class ManageEmployeeActivity extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_manage_employee);
 
-        lvEmployees = findViewById(R.id.lvEmployees);
+        ImageView backButton = findViewById(R.id.ic_back);
+        backButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ManageEmployeeActivity.this, HomeFragment.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        lvEmployees = findViewById(R.id.lv_employee);
         employeeList = new ArrayList<>();
 
         employeeList.add("001. Nguyễn Văn A");
@@ -62,42 +74,6 @@ public class ManageEmployeeActivity extends AppCompatActivity {
                 selectedPosition = position;
             }
         });
-
-        btnDelete0 = findViewById(R.id.btnDelete0);
-        // Thiết lập sự kiện cho nút Xoá
-        btnDelete0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteEmpoyee();
-            }
-        });
-
-        btnEdit0 = findViewById(R.id.btnEdit0);
-        // Thiết lập sự kiện cho nút Sửa
-        btnEdit0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                editEmployee();
-            }
-        });
-
-        imgBtnBack = findViewById(R.id.imgBtnBack);
-        imgBtnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-
-        btnAdd0 = findViewById(R.id.btnAdd0);
-        btnAdd0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ManageEmployeeActivity.this, CreateAccountEmployeeActivity.class);
-                startActivity(intent);
-            }
-        });
-
     }
 
     private void deleteEmpoyee() {
