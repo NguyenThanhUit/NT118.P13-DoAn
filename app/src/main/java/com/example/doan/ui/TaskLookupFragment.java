@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 import com.example.doan.R;
@@ -15,9 +15,12 @@ public class TaskLookupFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.task_lookup, container, false);
 
-        // Nút Quay Lại
-        Button btnBack = view.findViewById(R.id.btnBackToHomeFromTask);
-        btnBack.setOnClickListener(v -> replaceFragment(new HomeFragment()));
+        Toolbar toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle("Task Lookup");
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back);
+
+        toolbar.getNavigationIcon().setTint(getResources().getColor(android.R.color.white));
+        toolbar.setNavigationOnClickListener(v -> replaceFragment(new HomeFragment()));
 
         return view;
     }
