@@ -1,4 +1,4 @@
-package com.example.doan.domain.employee;
+package com.example.doan.domain.admin;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,6 +9,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.doan.R;
+import com.example.doan.domain.employee.AssignTaskActivity;
+import com.example.doan.domain.employee.ManageEmployeeActivity;
 
 public class AdminHomeActivity extends AppCompatActivity {
 

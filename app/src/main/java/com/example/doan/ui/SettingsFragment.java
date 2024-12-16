@@ -16,8 +16,8 @@ import androidx.fragment.app.Fragment;
 import android.widget.Switch;
 
 import com.example.doan.R;
-import com.example.doan.domain.auth.CreateAccountActivity;
-import com.example.doan.domain.auth.LogInActivity;
+import com.example.doan.domain.admin.CreateAccountActivity;
+import com.example.doan.domain.admin.LogInActivity;
 
 
 import com.example.doan.R;
