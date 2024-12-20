@@ -3,120 +3,100 @@ package com.example.doan.domain.employee;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan.R;
-import com.example.doan.ui.HomeFragment;
+import com.example.doan.databinding.ActivityManageEmployeeBinding;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class ManageEmployeeActivity extends AppCompatActivity {
-
-    int selectedPosition = -1;
-    ListView lvEmployees;
-    ArrayList<String> employeeList;
-    ArrayAdapter<String> adapter;
-    Button btnDelete0, btnEdit0;
-    ImageButton imgBtnBack;
-    Button btnAdd0;
+    private AdapterForEmployee myAdapter;
+    private EmployeeViewModel myViewModel;
+    private ActivityManageEmployeeBinding binding;
+    private AddNewEmployeeClick addNewEmployeeClick;
+    ImageButton btnadd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_manage_employee);
 
-        ImageView backButton = findViewById(R.id.ic_back);
-        backButton.setOnClickListener(new View.OnClickListener() {
+        binding = ActivityManageEmployeeBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
+
+        btnadd = findViewById(R.id.btnAddEmployee);
+        btnadd.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ManageEmployeeActivity.this, HomeFragment.class);
-                startActivity(intent);
+            public void onClick(View view) {
+                Intent i = new Intent(ManageEmployeeActivity.this, AddNewEmployeeActivity.class);
+                startActivity(i);
                 finish();
             }
         });
 
-        lvEmployees = findViewById(R.id.lv_employee);
-        employeeList = new ArrayList<>();
+        // Khởi tạo RecyclerView
+        RecyclerView recyclerView = binding.rvEmployees;
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setHasFixedSize(true);
 
-        employeeList.add("001. Nguyễn Văn A");
-        employeeList.add("002. Nguyễn Văn A");
-        employeeList.add("003. Nguyễn Văn A");
-        employeeList.add("004. Nguyễn Văn A");
-        employeeList.add("005. Nguyễn Văn A");
-        employeeList.add("006. Nguyễn Văn A");
-        employeeList.add("007. Nguyễn Văn A");
-        employeeList.add("008. Nguyễn Văn A");
-        employeeList.add("009. Nguyễn Văn A");
-        employeeList.add("010. Nguyễn Văn A");
 
-        adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                employeeList
-        );
-        lvEmployees.setAdapter(adapter);
 
-        lvEmployees.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+        myAdapter = new AdapterForEmployee(new ArrayList<>());
+        recyclerView.setAdapter(myAdapter);
+
+
+        myViewModel = new ViewModelProvider(this).get(EmployeeViewModel.class);
+
+
+        addNewEmployeeClick = new AddNewEmployeeClick(null, this, myViewModel);
+
+        LiveData<List<Employees>> employeesLiveData = myViewModel.getAllemployees();
+        employeesLiveData.observe(this, new Observer<List<Employees>>() {
             @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                selectedPosition = position;
+            public void onChanged(List<Employees> employees) {
+                if (employees != null) {
+                    myAdapter.setEmployeeLists((ArrayList<Employees>) employees);
+                    myAdapter.notifyDataSetChanged();
+                } else {
+
+                    myAdapter.setEmployeeLists(new ArrayList<>());
+                }
             }
         });
-    }
+        ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
+                return false; // Không xử lý sự kiện di chuyển
+            }
 
-    private void deleteEmpoyee() {
-        if (selectedPosition != -1) {
-            employeeList.remove(selectedPosition);
-            adapter.notifyDataSetChanged();
-            selectedPosition = -1;
-            Toast.makeText(this, "Đã xóa nhân viên", Toast.LENGTH_SHORT).show();
-        } else {
-            Toast.makeText(this, "Vui lòng chọn nhân viên", Toast.LENGTH_SHORT).show();
-        }
-    }
+            @Override
+            public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
+                // Lấy nhân viên đã được chọn
+                int position = viewHolder.getAdapterPosition();
+                Employees employeeToDelete = myAdapter.getEmployeeLists().get(position);
 
-    private void editEmployee() {
-        if (selectedPosition != -1) {
-            // Hiển thị dialog để nhập thông tin mới cho nhân viên
-            AlertDialog.Builder builder = new AlertDialog.Builder(this);
-            builder.setTitle("Sửa nhân viên");
+                // Xóa nhân viên từ cơ sở dữ liệu
+                myViewModel.deleteEmployee(employeeToDelete);
 
-            // Tạo EditText để nhập tên mới
-            final EditText input = new EditText(this);
-            input.setText(employeeList.get(selectedPosition));
-            builder.setView(input);
+                // Hiển thị thông báo
+                Toast.makeText(ManageEmployeeActivity.this, "Employee deleted", Toast.LENGTH_SHORT).show();
+            }
+        };
 
-            // Nút lưu thay đổi
-            builder.setPositiveButton("Lưu", (dialog, which) -> {
-                String newName = input.getText().toString();
-                if (!newName.isEmpty()) {
-                    employeeList.set(selectedPosition, newName);
-                    adapter.notifyDataSetChanged();
-                    selectedPosition = -1;
-                    Toast.makeText(this, "Đã sửa nhân viên", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(this, "Tên không được để trống", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            // Nút hủy
-            builder.setNegativeButton("Hủy", (dialog, which) -> dialog.cancel());
-
-            builder.show();
-        } else {
-            Toast.makeText(this, "Vui lòng chọn nhân viên", Toast.LENGTH_SHORT).show();
-        }
+        // Áp dụng ItemTouchHelper vào RecyclerView
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
     }
 }

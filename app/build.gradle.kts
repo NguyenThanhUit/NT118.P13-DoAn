@@ -31,20 +31,21 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        dataBinding = true
     }
 }
 
 dependencies {
     val room_version = "2.6.1"
     val lifecycle_version = "2.8.5"
-    implementation ("com.google.android.material:material:1.12.0")
+
+
     // ViewModel
-    implementation (libs.androidx.lifecycle.viewmodel.ktx)
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // LiveData
-    implementation (libs.lifecycle.livedata.ktx)
-    implementation(libs.material.v190)
-    implementation (libs.androidx.room.runtime)
-    annotationProcessor (libs.androidx.room.compiler)
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
+    implementation ("androidx.room:room-runtime:$room_version")
+    annotationProcessor ("androidx.room:room-compiler:$room_version")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.activity)

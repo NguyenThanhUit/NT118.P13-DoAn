@@ -1,22 +1,21 @@
 package com.example.doan;
 
-import android.database.Cursor;
 import android.os.Bundle;
-import android.view.View;
-import android.view.WindowInsets;
+import android.os.Parcelable;
 import android.widget.ListView;
 
 import androidx.activity.EdgeToEdge;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.doan.databinding.ActivityMainBinding;
+import com.example.doan.tasks.Tasks;
 import com.example.doan.ui.ListPersonFragment;
 import com.example.doan.ui.SettingsFragment;
 import com.example.doan.ui.HomeFragment;
+import com.example.doan.ui.TaskLookupFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,23 +28,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        View decorView = getWindow().getDecorView();
-        decorView.setOnApplyWindowInsetsListener(new View.OnApplyWindowInsetsListener() {
-            @NonNull
-            @Override
-            public WindowInsets onApplyWindowInsets(@NonNull View v, @NonNull WindowInsets insets) {
-                int left = insets.getSystemWindowInsetLeft();
-                int top = insets.getSystemWindowInsetTop();
-                int right = insets.getSystemWindowInsetRight();
-                int bottom = insets.getSystemWindowInsetBottom();
-                v.setPadding(left, top, right, bottom);
-                return insets.consumeSystemWindowInsets();
-            }
-        });
-
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new HomeFragment());
+
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
                 replaceFragment(new HomeFragment());
@@ -62,11 +48,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void replaceFragment(Fragment fragment) {
+
+        String userName = getIntent().getStringExtra("USER_NAME");
+        ArrayList<Parcelable> tasklists = getIntent().getParcelableArrayListExtra("TASKS");
+
+
+        Bundle bundle = new Bundle();
+
+
+        if (userName != null) {
+            bundle.putString("USER_NAME", userName);
+        }
+        if (tasklists != null) {
+            bundle.putParcelableArrayList("TASKS", tasklists);
+        }
+
+
+        fragment.setArguments(bundle);
+
+
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.frameLayout3, fragment);
         fragmentTransaction.addToBackStack(null);
         fragmentTransaction.commit();
     }
-
 }

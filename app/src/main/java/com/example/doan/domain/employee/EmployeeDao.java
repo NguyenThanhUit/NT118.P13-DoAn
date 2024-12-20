@@ -5,26 +5,26 @@ import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
-import androidx.room.Update;
 
 import java.util.List;
-import java.util.Optional;
 
 @Dao
 public interface EmployeeDao {
 
-    @Query("SELECT * FROM t_employee")
-    LiveData<List<EmployeeEntity>> findAll();
+    @Query("SELECT * FROM EMPLOYEES_INFORMATION")
+    LiveData<List<Employees>> getALLEmloyees();
 
-    @Query("SELECT * FROM t_employee as t where t.id = :id")
-    LiveData<Optional<EmployeeEntity>> findById(Long id);
 
     @Insert
-    void insert(EmployeeEntity newEmployee);
-
-    @Update
-    EmployeeEntity update(EmployeeEntity updatedEmployee);
+    void insertEmployeee(Employees employees);
 
     @Delete
-    void delete(Long id);
+    void deleteEmployee(Employees employees);
+
+    @Query("SELECT * FROM EMPLOYEES_INFORMATION WHERE employee_username = :username LIMIT 1")
+    LiveData<List<Employees>> getEmployeesByUsername(String username);
+
+    @Query("SELECT *  FROM employees_information")
+    LiveData<List<Employees>> getallEID();
+
 }

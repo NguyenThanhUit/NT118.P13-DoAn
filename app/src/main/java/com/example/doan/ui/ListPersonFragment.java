@@ -1,223 +1,148 @@
 package com.example.doan.ui;
 
-
-import com.example.doan.R;
-import com.example.doan.data.DBAdapter;
-import com.example.doan.domain.contact.ContactDto;
-import com.example.doan.domain.contact.ModifyContactActivity;
-import android.content.Context;
-import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
-
-import androidx.activity.EdgeToEdge;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.widget.Button;
 import android.widget.Toast;
 
-import com.example.doan.domain.contact.ContactDto;
-import com.example.doan.domain.contact.ModifyContactActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.LiveData;
+import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.ItemTouchHelper;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.doan.R;
-import com.example.doan.data.DBAdapter;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.example.doan.customers.AddNewCustomerClick;
+import com.example.doan.customers.Customers;
+import com.example.doan.customers.AdapterForCustomer;
+import com.example.doan.customers.CustomerViewModel;
+import com.example.doan.customers.CustomerClickHandler;
+import com.example.doan.databinding.FragmentListPersonBinding;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ListPersonFragment extends Fragment {
+    private AdapterForCustomer myAdapter;
+    private CustomerViewModel myViewModel;
+    private FragmentListPersonBinding binding;
+    private CustomerClickHandler personClickHandler;
+    private AddNewCustomerClick addNewCustomerClick;
 
-    private DBAdapter dbAdapter;
-    private ListView lvContacts;
-    private ContactsAdapter contactsAdapter;
-    private List<ContactDto> contactsData;
-
-    private int countAll, countNew, countNotApproach, countApproach, countHot, countPotential;
-    private TextView selectedTextView; // Lưu trữ TextView được chọn hiện tại
-    private TextView tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential;
-    private FloatingActionButton fabAdd;
-
+    private Button fabAll, fabNew, fabNA, fabA, fabHot, fabPotential;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        dbAdapter = new DBAdapter(getContext());
-        dbAdapter.open();
-    }
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_list_person, container, false);
-        lvContacts = view.findViewById(R.id.lvPerson);
+        binding = FragmentListPersonBinding.inflate(inflater, container, false);
 
-        // Tìm các TextView
-        tvFilterAll = view.findViewById(R.id.tvFilterAll);
-        tvFilterNew = view.findViewById(R.id.tvFilterNew);
-        tvFilterApproach = view.findViewById(R.id.tvFilterApproach);
-        tvFilterNotApproach = view.findViewById(R.id.tvFilterNotApproach);
-        tvFilterHot = view.findViewById(R.id.tvFilterHot);
-        tvFilterPotential = view.findViewById(R.id.tvFilterPotential);
-        fabAdd = view.findViewById(R.id.fabAdd);
-        fabAdd.setOnClickListener(v -> openAddCustomerFragment());
-
-        // Đặt sự kiện nhấn cho mỗi TextView
-        TextView[] filters = {tvFilterAll, tvFilterNew, tvFilterApproach, tvFilterNotApproach, tvFilterHot, tvFilterPotential};
-        for (TextView filter : filters) {
-            filter.setOnClickListener(v -> onFilterClicked(filter));
-        }
-        // Lấy số lượng khách hàng cho từng bộ lọc và cập nhật TextView
-        updateFilterCounts();
-        dbAdapter.deleteAllUsers();
-        insertSampleData();
-        showData();
-        setupListViewLongClickListener();
-
-        return view;
-    }
-
-    private void insertSampleData() {
-        for (int i = 0; i < 10; i++) {
-            String maKH = "MAKH" + i;
-            String name = "Nguyễn Văn An " + i;
-            String phone = "012345678" + i;
-            String address = "123" + i;
+        // Set up RecyclerView
+        RecyclerView recyclerView = binding.recycview;
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
 
 
-            Cursor cursor = dbAdapter.getUserByMAKH(maKH);
-            if (cursor != null && cursor.getCount() == 0) {
-                dbAdapter.createContacts(maKH, name, address, phone);
-            }
-            if (cursor != null) {
-                cursor.close();
-            }
-        }
-    }
+        myAdapter = new AdapterForCustomer(new ArrayList<>());
+        recyclerView.setAdapter(myAdapter);
 
 
-    private List<ContactDto> getData() {
-        List<ContactDto> contacts = new ArrayList<>();
-        Cursor cursor = dbAdapter.getAllUsers(null);
-        if (cursor != null) {
-            while (cursor.moveToNext()) {
-                String maKH = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_MAKH));
-                String name = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_HOTEN));
-                String phone = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_PHONE));
-                String addr = cursor.getString(cursor.getColumnIndexOrThrow(DBAdapter.KEY_ADDRESS));
-                contacts.add(new ContactDto(maKH, name, phone, addr));
-            }
-            cursor.close();
-        }
-        return contacts;
-    }
+        myViewModel = new ViewModelProvider(this).get(CustomerViewModel.class);
 
-    private void showData() {
-        contactsData = getData();
-        contactsAdapter = new ContactsAdapter(getActivity(), contactsData);
-        lvContacts.setAdapter(contactsAdapter);
-        contactsAdapter.notifyDataSetChanged();
-    }
+        personClickHandler = new CustomerClickHandler(getContext());
+        addNewCustomerClick = new AddNewCustomerClick(new Customers(), getContext(), myViewModel);
 
-    private void setupListViewLongClickListener() {
-        lvContacts.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+        binding.setClickHandler(personClickHandler);
+
+
+        fabAll = binding.getRoot().findViewById(R.id.btnFilterAll);
+        fabNew = binding.getRoot().findViewById(R.id.btnFilterNew);
+        fabNA = binding.getRoot().findViewById(R.id.btnFilterNotApproach);
+        fabA = binding.getRoot().findViewById(R.id.btnFilterApproach);
+        fabHot = binding.getRoot().findViewById(R.id.btnFilterHot);
+        fabPotential = binding.getRoot().findViewById(R.id.btnFilterPotential);
+
+
+        fabAll.setOnClickListener(v -> filterCustomers("Tất cả"));
+        fabNew.setOnClickListener(v -> filterCustomers("Mới"));
+        fabNA.setOnClickListener(v -> filterCustomers("Chưa tiếp cận"));
+        fabA.setOnClickListener(v -> filterCustomers("Tiếp cận"));
+        fabHot.setOnClickListener(v -> filterCustomers("Nóng"));
+        fabPotential.setOnClickListener(v -> filterCustomers("Tiềm năng"));
+
+
+        ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                ContactDto selectedContact = (ContactDto) parent.getItemAtPosition(position);
-                Toast.makeText(getActivity(), "Đã chọn: " + selectedContact.getName(), Toast.LENGTH_SHORT).show();
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false; // No need to support drag-and-drop
+            }
 
-                Intent intent = new Intent(getActivity(), ModifyContactActivity.class);
-                intent.putExtra("MAKH", selectedContact.getMaKH());
-                startActivityForResult(intent, 1);
-                return true;
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                int position = viewHolder.getAdapterPosition();
+                Customers customerToDelete = myAdapter.getCustomerList().get(position);
+                myViewModel.deleteCustomer(customerToDelete);
+                Toast.makeText(getContext(), "Customer deleted", Toast.LENGTH_SHORT).show();
+            }
+        };
+
+        ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
+        itemTouchHelper.attachToRecyclerView(recyclerView);
+
+        return binding.getRoot();
+    }
+    private void filterCustomers(String category) {
+        LiveData<List<Customers>> customersLiveData = myViewModel.getAllcustomer();
+        customersLiveData.observe(getViewLifecycleOwner(), customers -> {
+            ArrayList<Customers> filteredCustomers = new ArrayList<>();
+            for (Customers customer : customers) {
+                if ("Tất cả".equalsIgnoreCase(category)) {
+                    filteredCustomers.add(customer);
+                } else if ("Mới".equalsIgnoreCase(category) && "Mới".equalsIgnoreCase(customer.getCategory())) {
+                    filteredCustomers.add(customer);
+                } else if ("Chưa tiếp cận".equalsIgnoreCase(category) && "Chưa tiếp cận".equalsIgnoreCase(customer.getCategory())) {
+                    filteredCustomers.add(customer);
+                } else if ("Tiếp cận".equalsIgnoreCase(category) && "Tiếp cận".equalsIgnoreCase(customer.getCategory())) {
+                    filteredCustomers.add(customer);
+                } else if ("Nóng".equalsIgnoreCase(category) && "Nóng".equalsIgnoreCase(customer.getCategory())) {
+                    filteredCustomers.add(customer);
+                } else if ("Tiềm năng".equalsIgnoreCase(category) && "Tiềm năng".equalsIgnoreCase(customer.getCategory())) {
+                    filteredCustomers.add(customer);
+                }
+            }
+
+
+            myAdapter.setCustomer(filteredCustomers);
+            myAdapter.notifyDataSetChanged();
+        });
+
+        Toast.makeText(getContext(), "Filtered by: " + category, Toast.LENGTH_SHORT).show();
+    }
+
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        // Observe the LiveData from the ViewModel
+        LiveData<List<Customers>> customersLiveData = myViewModel.getAllcustomer();
+        customersLiveData.observe(getViewLifecycleOwner(), new Observer<List<Customers>>() {
+            @Override
+            public void onChanged(List<Customers> customers) {
+                myAdapter.setCustomer(new ArrayList<>(customers));
+                myAdapter.notifyDataSetChanged();
             }
         });
-        showData();
-    }
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
-            showData();
-        }
-    }
-
-    public static class ContactsAdapter extends ArrayAdapter<ContactDto> {
-
-        public ContactsAdapter(Context context, List<ContactDto> contacts) {
-            super(context, 0, contacts);
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(getContext()).inflate(R.layout.item_customer, parent, false);
-            }
-
-            ContactDto contact = getItem(position);
-            TextView textViewMAKH = convertView.findViewById(R.id.tvMAKH);
-            TextView textViewName = convertView.findViewById(R.id.tvName);
-            if (contact != null) {
-                textViewMAKH.setText(contact.getMaKH());
-                textViewName.setText(contact.getName());
-            }
-
-            return convertView;
-        }
-    }
-
-    // Phương thức thay đổi trạng thái khi Button được chọn
-    private void onFilterClicked(TextView newSelectedTextView) {
-        /// Đặt lại trạng thái của TextView trước đó nếu có
-        if (selectedTextView != null) {
-            selectedTextView.setSelected(false);
-            selectedTextView.setTextColor(getResources().getColor(R.color.color2));
-        }
-
-        // Đặt trạng thái được chọn cho TextView mới
-        newSelectedTextView.setSelected(true);
-        newSelectedTextView.setTextColor(getResources().getColor(R.color.color3));
-        selectedTextView = newSelectedTextView;
-    }
-
-    private void updateFilterCounts() {
-        // Lấy số lượng khách hàng cho từng bộ lọc
-        countAll = dbAdapter.getCountByFilter("Tất cả");
-        countNew = dbAdapter.getCountByFilter("Mới");
-        countNotApproach = dbAdapter.getCountByFilter("Chưa tiếp");
-        countApproach = dbAdapter.getCountByFilter("Tiếp cận");
-        countHot = dbAdapter.getCountByFilter("Nóng");
-        countPotential = dbAdapter.getCountByFilter("Tiềm năng");
-
-        // Cập nhật số lượng vào các TextView với cấu trúc hiển thị như trong ảnh
-        tvFilterAll.setText(" Tất cả " + formatCount(countAll));
-        tvFilterNew.setText(" Mới " + formatCount(countNew));
-        tvFilterNotApproach.setText(" Chưa tiếp cận " + formatCount(countNotApproach));
-        tvFilterApproach.setText(" Tiếp cận " + formatCount(countApproach));
-        tvFilterHot.setText(" Nóng " + formatCount(countHot));
-        tvFilterPotential.setText(" Tiềm năng " + formatCount(countPotential));
-    }
-
-    private String formatCount(int count) {
-        return "(" + (count > 0 ? String.valueOf(count) : "0") + ")";
     }
 
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        dbAdapter.close(); // Đóng kết nối khi view bị hủy
-    }
-
-    private void openAddCustomerFragment() {
-        AddCustomerFragment addCustomerFragment = new AddCustomerFragment();
-        FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.frameLayout3, addCustomerFragment);
-        transaction.addToBackStack(null); // Để quay lại khi nhấn nút Back
-        transaction.commit();
+        binding = null;
     }
 }

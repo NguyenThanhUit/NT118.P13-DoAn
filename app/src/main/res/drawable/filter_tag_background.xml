@@ -2,9 +2,9 @@
     <!-- Trạng thái khi được chọn -->
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="@color/color4" />
-            <corners android:radius="30dp" />
-            <stroke android:width="2dp" android:color="@color/color3" />
+            <solid android:color="@color/blue_light" />
+            <corners android:radius="10dp" />
+            <stroke android:width="2dp" android:color="@color/blue_dark" />
         </shape>
     </item>
 
@@ -12,7 +12,7 @@
     <item>
         <shape android:shape="rectangle">
             <solid android:color="@android:color/white" />
-            <corners android:radius="30dp" />
+            <corners android:radius="10dp" />
             <stroke android:width="2dp" android:color="@color/gray_light" />
         </shape>
     </item>

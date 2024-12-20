@@ -1,0 +1,113 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.example.doan.tasks.AddNewTaskClick" />
+        <variable
+            name="task"
+            type="com.example.doan.tasks.Tasks" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp"
+            tools:context=".ui.createTask">
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Thiết kế nhiệm vụ"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:background="@color/cyan"
+                android:padding="8dp" />
+
+            <!-- Task ID -->
+            <EditText
+                android:id="@+id/taskId"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Mã nhiệm vụ"
+                android:text="@={task.taskID}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Employee ID"
+                android:layout_marginTop="16dp" />
+
+            <Spinner
+                android:id="@+id/spinnerEmployeeList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp" />
+
+            <EditText
+                android:id="@+id/taskDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Mô tả nhiệm vụ"
+                android:text="@={task.taskDecription}" />
+
+            <!-- Button Ngày giao -->
+            <Button
+                android:id="@+id/btnAssignDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Ngày giao"
+                android:onClick="@{clickHandler::onAssignDateClicked}" />
+
+            <!-- Button Ngày hết hạn -->
+            <Button
+                android:id="@+id/btnDueDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chọn ngày hết hạn"
+                android:onClick="@{clickHandler::onDueDateClicked}" />
+
+            <!-- Notes -->
+            <EditText
+                android:id="@+id/taskNotes"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:hint="Ghi chú"
+                android:text="@={task.taskNotes}" />
+
+            <!-- Assign Task Button -->
+            <Button
+                android:onClick="@{clickHandler::onSubmitBtnClicked}"
+                android:id="@+id/assignTaskButton"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:layout_gravity="center"
+                android:text="Giao nhiệm vụ" />
+
+            <!-- Back Button -->
+            <ImageButton
+                android:id="@+id/imgBtnBack4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_gravity="center"
+                app:srcCompat="?attr/homeAsUpIndicator" />
+
+        </LinearLayout>
+    </ScrollView>
+</layout>

@@ -22,6 +22,7 @@
             android:src="@drawable/avatar" />
 
         <LinearLayout
+            android:id="@+id/lnTask"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:orientation="vertical"
