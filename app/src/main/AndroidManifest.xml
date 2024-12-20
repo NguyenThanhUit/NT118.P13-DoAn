@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <application
+
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -13,30 +15,38 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
 
+        <activity android:name=".domain.employee.AddNewEmployeeActivity">
+        </activity>
+
         <activity
-            android:name=".domain.employee.CreateTaskActivity"
+            android:name=".tasks.AddnewTaskActivity"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.AssignTaskActivity"
-            android:exported="false" />
-        <activity
-            android:name=".domain.employee.CreateAccountEmployeeActivity"
+            android:name=".tasks.AssignTaskActivity"
             android:exported="false" />
         <activity
             android:name=".domain.employee.ManageEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".domain.admin.AdminHomeActivity"
+            android:name=".order.AddNewGoodsActivity"
             android:exported="false" />
-        <activity android:name=".domain.contact.ModifyContactActivity" />
         <activity
-            android:name=".domain.admin.CreateAccountActivity"
+            android:name=".domain.employee.AdminHomeActivity"
             android:exported="false" />
+        <activity android:name=".customers.AddNewCustomerActivity">
+        </activity>
+        <activity android:name=".domain.employee.AddNewEmployeeClick">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".domain.admin.LogInActivity"
+        <activity
+            android:name=".MainActivityForSaleEmployee"
+            android:exported="true">
+        </activity>
+
+        <activity android:name=".domain.auth.LogInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

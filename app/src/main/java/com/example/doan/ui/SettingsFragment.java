@@ -1,5 +1,6 @@
 package com.example.doan.ui;
 
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,11 +17,8 @@ import androidx.fragment.app.Fragment;
 import android.widget.Switch;
 
 import com.example.doan.R;
-import com.example.doan.domain.admin.CreateAccountActivity;
-import com.example.doan.domain.admin.LogInActivity;
+import com.example.doan.domain.auth.LogInActivity;
 
-
-import com.example.doan.R;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -75,7 +73,8 @@ public class SettingsFragment extends Fragment {
         nightModeSwitch = view.findViewById(R.id.night_mode_switch);
 
         // Kiểm tra chế độ hiện tại của ứng dụng và thiết lập trạng thái cho Switch
-        SharedPreferences preferences = getActivity().getSharedPreferences("settings", getContext().MODE_PRIVATE);
+        getContext();
+        SharedPreferences preferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
         boolean nightMode = preferences.getBoolean("night_mode", false);
 
         // Cập nhật trạng thái cho Switch
@@ -115,18 +114,6 @@ public class SettingsFragment extends Fragment {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         languageSpinner.setAdapter(adapter);
 
-        // Find the "Create" button
-        Button btnCreateAccount = view.findViewById(R.id.btn_createaccount);
-
-        // Set an onClickListener on the button
-        btnCreateAccount.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Start the CreateAccountActivity
-                Intent intent = new Intent(getActivity(), CreateAccountActivity.class);
-                startActivity(intent);
-            }
-        });
         // Ánh xạ nút "Log out"
         btnLogout = view.findViewById(R.id.btn_logout);
         // Gán sự kiện cho nút "Log out"

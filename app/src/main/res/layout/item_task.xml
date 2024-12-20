@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="task"
+            type="com.example.doan.tasks.Tasks" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <!-- ID reports -->
+        <TextView
+            android:id="@+id/tvTaskID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{task.taskID}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:hint="ID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:hint="Tinh trạng"
+            android:id="@+id/tvTasksStatus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{task.taskStatus}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTaskID" />
+        <TextView
+            android:hint="Ngày hết hạn"
+            android:id="@+id/tvTaskDueDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{task.taskDueDate}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTasksStatus" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
