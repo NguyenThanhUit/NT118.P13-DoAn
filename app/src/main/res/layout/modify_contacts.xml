@@ -183,11 +183,13 @@
         android:orientation="horizontal"
         android:paddingTop="30dp"
         android:layout_height="wrap_content">
+
         <ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
-            android:src="@drawable/address_icon"
-            android:paddingEnd="20dp"/>
+            android:paddingEnd="20dp"
+            android:src="@drawable/address_icon" />
+
         <TextView
             android:id="@+id/tvAddress"
             android:textSize="30sp"

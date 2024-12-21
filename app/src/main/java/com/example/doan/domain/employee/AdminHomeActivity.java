@@ -16,7 +16,7 @@ public class AdminHomeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_admin_home);
+        setContentView(R.layout.admin_home_fragment);
 
         Button btnManageEmployee = findViewById(R.id.btnManageEmployee);
         btnManageEmployee.setOnClickListener(new View.OnClickListener() {

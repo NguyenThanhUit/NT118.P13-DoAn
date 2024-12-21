@@ -160,7 +160,7 @@
                 >
             </ImageView>
             <TextView
-                android:id="@+id/tv_security"
+                android:id="@+id/tv_language"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
@@ -186,7 +186,7 @@
             </ImageView>
 
             <TextView
-                android:id="@+id/tv_notifications"
+                android:id="@+id/tv_report"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Report proplems"
@@ -211,7 +211,7 @@
                 >
             </ImageView>
             <TextView
-                android:id="@+id/tv_change_password"
+                android:id="@+id/tv_create_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Create account"
@@ -236,7 +236,7 @@
                 >
             </ImageView>
             <TextView
-                android:id="@+id/tv_change_password"
+                android:id="@+id/tv_log_out"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Log out"

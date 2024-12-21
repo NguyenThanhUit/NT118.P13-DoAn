@@ -21,7 +21,7 @@ public class HomeFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        View view = inflater.inflate(R.layout.employee_home_fragment, container, false);
 
         dbAdapter = new DBAdapter(getContext());
         dbAdapter.open();

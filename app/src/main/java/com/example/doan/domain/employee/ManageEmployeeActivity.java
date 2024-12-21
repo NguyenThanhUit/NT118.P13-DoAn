@@ -33,7 +33,7 @@ public class ManageEmployeeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_manage_employee);
+        setContentView(R.layout.admin_manage_employee);
 
         lvEmployees = findViewById(R.id.lvEmployees);
         employeeList = new ArrayList<>();
