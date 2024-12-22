@@ -29,7 +29,6 @@
             android:layout_height="wrap_content"
             android:hint="Nhập nội dung"
             android:backgroundTint="@color/gray"
-            android:background="@drawable/edittext_border"
             android:padding="10dp" />
         <!-- Tên khách hàng -->
         <TextView
@@ -45,7 +44,6 @@
             android:layout_height="wrap_content"
             android:hint="Nhập nội dung"
             android:backgroundTint="@color/gray"
-            android:background="@drawable/edittext_border"
             android:padding="10dp" />
         <!-- Số điện thoại -->
         <TextView
@@ -62,7 +60,6 @@
             android:hint="Nhập nội dung"
             android:backgroundTint="@color/gray"
             android:padding="10dp"
-            android:background="@drawable/edittext_border"
             android:inputType="phone" />
         <!-- Điện thoại khách hàng -->
         <TextView
@@ -79,7 +76,6 @@
             android:hint="Nhập nội dung"
             android:backgroundTint="@color/gray"
             android:padding="10dp"
-            android:background="@drawable/edittext_border"
             android:inputType="phone" />
         <!-- Địa chỉ -->
         <TextView
@@ -95,7 +91,6 @@
             android:layout_height="wrap_content"
             android:hint="Nhập nội dung"
             android:backgroundTint="@color/gray"
-            android:background="@drawable/edittext_border"
             android:padding="10dp" />
         <!-- Loại khách hàng -->
         <TextView
@@ -111,12 +106,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:background="@drawable/edittext_border"
             android:hint="Vui lòng chọn"
-            android:drawableEnd="@drawable/ic_arrow_drop_down_small"
+            android:drawableEnd="@drawable/ic_drop_down"
             android:gravity="center_vertical|start" />
         <!-- Nút Lưu -->
         <Button
+            style="@style/ButtonStyle"
             android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
