@@ -13,29 +13,28 @@
         android:theme="@style/Theme.DoAn"
         tools:targetApi="31">
         <activity
-            android:name=".domain.employee.CreateTaskActivity"
+            android:name=".domain.admin.AdminEmployeeList"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.AssignTaskActivity"
+            android:name=".domain.admin.AdminReportList"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.CreateAccountEmployeeActivity"
+            android:name=".domain.admin.AdminTaskList"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.ManageEmployeeActivity"
+            android:name=".domain.employee.EmployeeReportList"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.AdminHomeActivity"
+            android:name=".domain.employee.EmployeeTaskList"
             android:exported="false" />
-        <activity android:name=".domain.contact.ModifyContactActivity" />
         <activity
-            android:name=".domain.admin.CreateAccountActivity"
+            android:name=".domain.admin.AdminHomeFragment"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
-        <activity android:name=".domain.admin.LogInActivity"
+        <activity android:name=".ui.LogInActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/background"
     android:padding="16dp">
 
     <LinearLayout
@@ -28,19 +27,19 @@
             android:layout_weight="1">
 
             <TextView
-                android:id="@+id/tvTenNV"
+                android:id="@+id/tv_admin_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tên nhân viên"
+                android:text="Phan Duy Thọ"
                 android:textSize="32sp"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/tvLoaiNV"
+                android:id="@+id/tv_admin_role"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Salesman"
+                android:text="Admin"
                 android:textSize="16sp"
                 android:textColor="@color/black" />
         </LinearLayout>
@@ -69,8 +68,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_group"
-                />
+                android:src="@drawable/ic_group" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -113,7 +111,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_report" />
+                android:src="@drawable/ic_reports" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -178,6 +176,7 @@
 
     <!-- CardView cho phần "Xem thông báo" -->
     <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -214,10 +213,5 @@
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-    <com.google.android.material.bottomnavigation.BottomNavigationView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:menu="@menu/bottom_nav_menu"
-        />
 
 </LinearLayout>
