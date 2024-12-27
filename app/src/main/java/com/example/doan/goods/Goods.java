@@ -1,12 +1,15 @@
-package com.example.doan.order;
+package com.example.doan.goods;
+
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-@Entity(tableName = "goods_order")
-public class Goods {
+@Entity(tableName = "goods_information")
+public class Goods implements Parcelable {
 
     @NonNull
     @PrimaryKey
@@ -26,9 +29,9 @@ public class Goods {
     private String gQuantity;
 
     @ColumnInfo(name = "goods_order_quantity")
-    private int gOQuantity ;
+    private int gOQuantity;
 
-    public Goods(@NonNull String gID, String gName, String gImage, String gPrice, String gQuantity, int gOQuantity ) {
+    public Goods(@NonNull String gID, String gName, String gImage, String gPrice, String gQuantity, int gOQuantity) {
         this.gID = gID;
         this.gName = gName;
         this.gImage = gImage;
@@ -38,9 +41,29 @@ public class Goods {
     }
 
     public Goods() {
-
+        this.gOQuantity = 0;
     }
 
+    protected Goods(Parcel in) {
+        gID = in.readString();
+        gName = in.readString();
+        gImage = in.readString();
+        gPrice = in.readString();
+        gQuantity = in.readString();
+        gOQuantity = in.readInt();
+    }
+
+    public static final Creator<Goods> CREATOR = new Creator<Goods>() {
+        @Override
+        public Goods createFromParcel(Parcel in) {
+            return new Goods(in);
+        }
+
+        @Override
+        public Goods[] newArray(int size) {
+            return new Goods[size];
+        }
+    };
 
     @NonNull
     public String getGID() {
@@ -82,12 +105,28 @@ public class Goods {
     public void setGQuantity(String gQuantity) {
         this.gQuantity = gQuantity;
     }
+
     public int getGOQuantity() {
         return gOQuantity;
     }
 
     public void setGOQuantity(int gOQuantity) {
         this.gOQuantity = gOQuantity;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0; // Not used, so we return 0
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int flags) {
+        parcel.writeString(gID);
+        parcel.writeString(gName);
+        parcel.writeString(gImage);
+        parcel.writeString(gPrice);
+        parcel.writeString(gQuantity);
+        parcel.writeInt(gOQuantity);
     }
 
 }

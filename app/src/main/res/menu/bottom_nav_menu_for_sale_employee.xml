@@ -11,6 +11,9 @@
     <item android:title="Order"
         android:icon="@drawable/order_1_svgrepo_com"
         android:id="@+id/order"/>
+    <item android:title="Goods"
+        android:id="@+id/goods"
+        android:icon="@drawable/goods_svgrepo_com"></item>
     <item android:title="Settings"
         android:icon="@drawable/ic_settings"
         android:id="@+id/settings"

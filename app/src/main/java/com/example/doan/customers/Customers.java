@@ -9,9 +9,9 @@ import androidx.annotation.NonNull;
 public class Customers {
 
     @NonNull
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey()
     @ColumnInfo(name = "customer_id")
-    private int cid;
+    private String cid;
 
     @ColumnInfo(name = "customer_name")
     private String name;
@@ -34,11 +34,11 @@ public class Customers {
     @ColumnInfo(name = "customer_updatedat")
     private String updatedat;
 
-    public Customers(){
-
+    public Customers() {
     }
 
-    public Customers( String name,String phone, String email, String address, String category, String createdat, String updatedat) {
+    public Customers(String cid, String name, String phone, String email, String address, String category, String createdat, String updatedat) {
+        this.cid = cid;
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -48,13 +48,11 @@ public class Customers {
         this.updatedat = updatedat;
     }
 
-
-    // Getters and Setters
-    public int getCid() {
+    public String getCid() {
         return cid;
     }
 
-    public void setCid(int cid) {
+    public void setCid(String cid) {
         this.cid = cid;
     }
 
@@ -112,5 +110,10 @@ public class Customers {
 
     public void setUpdatedat(String updatedat) {
         this.updatedat = updatedat;
+    }
+
+    @Override
+    public String toString() {
+        return name;
     }
 }

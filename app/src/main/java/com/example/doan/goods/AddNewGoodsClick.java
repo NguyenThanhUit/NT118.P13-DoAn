@@ -1,4 +1,4 @@
-package com.example.doan.order;
+package com.example.doan.goods;
 
 
 
@@ -10,7 +10,6 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
-import com.example.doan.MainActivityForSaleEmployee;
 
 public class AddNewGoodsClick {
 
@@ -58,7 +57,7 @@ public class AddNewGoodsClick {
                     goods.getGQuantity(),
                     goods.getGOQuantity()
             );
-            goodsViewModel.addnewGoods(newGoods);  // Thêm hàng hóa vào ViewModel
+            goodsViewModel.addnewGoods(newGoods);
             Toast.makeText(context, "Thêm hàng hóa thành công", Toast.LENGTH_SHORT).show();
         }
     }

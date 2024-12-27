@@ -45,7 +45,7 @@ public class ManageEmployeeActivity extends AppCompatActivity {
             }
         });
 
-        // Khởi tạo RecyclerView
+
         RecyclerView recyclerView = binding.rvEmployees;
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
@@ -78,24 +78,22 @@ public class ManageEmployeeActivity extends AppCompatActivity {
         ItemTouchHelper.SimpleCallback simpleCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(RecyclerView recyclerView, RecyclerView.ViewHolder viewHolder, RecyclerView.ViewHolder target) {
-                return false; // Không xử lý sự kiện di chuyển
+                return false;
             }
 
             @Override
             public void onSwiped(RecyclerView.ViewHolder viewHolder, int direction) {
-                // Lấy nhân viên đã được chọn
                 int position = viewHolder.getAdapterPosition();
                 Employees employeeToDelete = myAdapter.getEmployeeLists().get(position);
 
-                // Xóa nhân viên từ cơ sở dữ liệu
+
                 myViewModel.deleteEmployee(employeeToDelete);
 
-                // Hiển thị thông báo
                 Toast.makeText(ManageEmployeeActivity.this, "Employee deleted", Toast.LENGTH_SHORT).show();
             }
         };
 
-        // Áp dụng ItemTouchHelper vào RecyclerView
+
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
     }

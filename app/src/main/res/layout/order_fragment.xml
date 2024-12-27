@@ -3,14 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
-
-        <variable
-            name="goods"
-            type="com.example.doan.order.Goods" />
-
         <variable
             name="clickHandles"
-            type="com.example.doan.order.OrderFragment" />
+            type="com.example.doan.ui.OrderFragment" />
     </data>
 
     <LinearLayout
@@ -80,7 +75,6 @@
             android:layout_gravity="end"
             android:layout_margin="16dp"
             android:onClick="@{clickHandles::onFABClicked}"
-            android:src="@drawable/plus_icon"
             android:tint="@color/white"
             app:backgroundTint="@color/blue_dark"
             app:fabSize="mini" />

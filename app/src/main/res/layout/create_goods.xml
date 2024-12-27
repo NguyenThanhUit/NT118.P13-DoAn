@@ -5,10 +5,10 @@
     <data>
         <variable
             name="clickHandler"
-            type="com.example.doan.order.AddNewGoodsClick" />
+            type="com.example.doan.goods.AddNewGoodsClick" />
         <variable
             name="goods"
-            type="com.example.doan.order.Goods" />
+            type="com.example.doan.goods.Goods" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -40,8 +40,9 @@ public class AddNewCustomerClick {
         }
 
 
-        // Create a new customer with the updated category
+
         Customers newCustomer = new Customers(
+                customer.getCid(),
                 customer.getName(),
                 customer.getPhone(),
                 customer.getEmail(),
@@ -51,7 +52,7 @@ public class AddNewCustomerClick {
                 getCurrentDateTime()
         );
 
-        // Add the new customer
+
         myViewModel.addnewCustomer(newCustomer);
         Toast.makeText(context, "Thêm khách hàng thành công", Toast.LENGTH_SHORT).show();
 

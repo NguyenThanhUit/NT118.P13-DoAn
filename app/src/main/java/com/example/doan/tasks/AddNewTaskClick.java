@@ -34,7 +34,6 @@ public class AddNewTaskClick {
     public void onDueDateClicked(View view) {
         Calendar calendar = Calendar.getInstance();
         new DatePickerDialog(context, (datePicker, year, month, day) -> {
-            // Khi người dùng chọn ngày
             calendar.set(Calendar.YEAR, year);
             calendar.set(Calendar.MONTH, month);
             calendar.set(Calendar.DAY_OF_MONTH, day);

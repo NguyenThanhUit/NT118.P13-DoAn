@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <!-- Tiêu đề -->
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="Danh Sách Đơn Hàng"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@color/purple_500"
+        android:textColor="@android:color/white" />
+
+    <!-- Thanh tìm kiếm -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+        <EditText
+            android:id="@+id/etSearch"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Tìm kiếm đơn hàng..."
+            android:padding="8dp"
+            android:drawableLeft="@android:drawable/ic_menu_search"
+            android:drawablePadding="8dp"
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/btnSearch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tìm"
+            android:padding="8dp"
+            android:layout_marginStart="8dp"
+            android:backgroundTint="@color/purple_500"
+            android:textColor="@android:color/white" />
+    </LinearLayout>
+
+    <!-- RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewOrders"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:layout_marginTop="4dp" />
+</LinearLayout>

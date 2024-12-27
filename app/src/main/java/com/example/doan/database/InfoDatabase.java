@@ -10,14 +10,16 @@ import com.example.doan.customers.CustomerDAO;
 import com.example.doan.customers.Customers;
 import com.example.doan.domain.employee.EmployeeDao;
 import com.example.doan.domain.employee.Employees;
-import com.example.doan.order.Goods;
-import com.example.doan.order.GoodsDAO;
+import com.example.doan.goods.Goods;
+import com.example.doan.goods.GoodsDAO;
+import com.example.doan.orders.Orders;
+import com.example.doan.orders.OrdersDAO;
 import com.example.doan.reports.Reports;
 import com.example.doan.reports.ReportsDAO;
 import com.example.doan.tasks.Tasks;
 import com.example.doan.tasks.TasksDAO;
 
-@Database(entities = {Employees.class, Customers.class, Reports.class, Tasks.class, Goods.class}, version = 15)
+@Database(entities = {Employees.class, Customers.class, Reports.class, Tasks.class, Goods.class, Orders.class}, version = 17)
 public abstract class InfoDatabase extends RoomDatabase {
 
     //Chi mot query duoc thuc hien cung mot luc
@@ -37,6 +39,9 @@ public abstract class InfoDatabase extends RoomDatabase {
 
     //Getter for GoodDAO
     public abstract GoodsDAO getGDAO();
+
+    //Getter for OderDAO
+    public abstract OrdersDAO getODAO();
 
     public static synchronized InfoDatabase getInstance(Context context) {
         if (dbInstance == null) {

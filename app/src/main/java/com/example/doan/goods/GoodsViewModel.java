@@ -1,6 +1,7 @@
-package com.example.doan.order;
+package com.example.doan.goods;
 
 import android.app.Application;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -12,12 +13,18 @@ import com.example.doan.database.Repository;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.Executor;
+import java.util.concurrent.Executors;
 
 public class GoodsViewModel extends AndroidViewModel {
-    public Repository repository;
-    public LiveData<List<Goods>> allGoods;
+    private Repository repository;
+    private LiveData<List<Goods>> allGoods;
+    private static final String TAG = "GoodsViewModel";
 
     private MutableLiveData<Map<String, Integer>> goodsQuantityMap = new MutableLiveData<>(new HashMap<>());
+
+
+    private Executor executor = Executors.newSingleThreadExecutor();
 
     public GoodsViewModel(@NonNull Application application) {
         super(application);
@@ -38,12 +45,18 @@ public class GoodsViewModel extends AndroidViewModel {
     }
 
     public void updateGoodsQuantity(String goodsId, int newQuantity) {
-        Map<String, Integer> currentMap = goodsQuantityMap.getValue();
-        if (currentMap != null) {
-            currentMap.put(goodsId, newQuantity);
-            goodsQuantityMap.setValue(currentMap);
+        if (newQuantity < 0) {
+            throw new IllegalArgumentException("Quantity cannot be negative");
         }
+        Log.d(TAG, "Updating quantity for Goods ID: " + goodsId + " to: " + newQuantity);
+
+        executor.execute(() -> {
+            Map<String, Integer> currentMap = goodsQuantityMap.getValue();
+            if (currentMap != null) {
+                currentMap.put(goodsId, newQuantity);
+                goodsQuantityMap.postValue(currentMap);
+            }
+            repository.updateGoodsQuantity(goodsId, newQuantity);
+        });
     }
-
-
 }

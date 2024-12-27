@@ -1,202 +1,201 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.example.doan.orders.AddNewOrdersClick" />
+        <variable
+            name="orders"
+            type="com.example.doan.orders.Orders" />
+    </data>
 
-    <!-- Header -->
+
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:orientation="horizontal"
-        android:background="@color/green"
-        android:gravity="center_vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:background="@color/green"
+            android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/order_id"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DH000030"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:textColor="@color/white" />
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
+            <TextView
+                android:id="@+id/order_id"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DH000030"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:textColor="@color/white" />
 
-        <TextView
-            android:paddingEnd="16dp"
-            android:id="@+id/save_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Lưu"
-            android:textSize="16sp"
-            android:textColor="@color/white" />
-    </LinearLayout>
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
 
-    <!-- Other inputs -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal">
+            <TextView
+                android:paddingEnd="16dp"
+                android:id="@+id/save_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Lưu"
+                android:textSize="16sp"
+                android:textColor="@color/white" />
+        </LinearLayout>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:textSize="20sp"
-            android:text="Khach hang"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
 
-        <Spinner
-            android:layout_width="280dp"
-            android:layout_height="40dp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textSize="20sp"
+                android:text="Khach hang"
+                android:textStyle="bold" />
+
+            <Spinner
+                android:id="@+id/spinnerforCustomerOrder"
+                android:layout_width="280dp"
+                android:layout_height="40dp" />
+        </LinearLayout>
+
+        <!-- More rows -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/gray_light"
+            android:text="Hang hoa"
+            android:gravity="center_vertical" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_order"
+            android:layout_width="match_parent"
+            android:layout_height="280dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@color/gray_light"
+            android:text="Thanh toan"
+            android:gravity="center_vertical" />
+
+        <!-- Payment rows -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Tong tien hang" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_money"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="So tien"
+
+                android:gravity="end" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Giam gia" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/edt_sale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="So tien"
+                android:text="@={orders.OSale}"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Thu khac" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <EditText
+                android:id="@+id/edt_anothercost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="So tien"
+                android:text="@={orders.OVAT}"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Khach can tra" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+            <TextView
+                android:id="@+id/tv_totalcost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="So tien"
+                android:gravity="end" />
+        </LinearLayout>
+
+        <Button
+            android:onClick="@{clickHandler::onSubmitBtnClicked}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tao hoa don" />
     </LinearLayout>
-
-    <!-- More rows -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/gray_light"
-        android:text="Hang hoa"
-        android:gravity="center_vertical" />
-
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="280dp" />
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:background="@color/gray_light"
-        android:text="Thanh toan"
-        android:gravity="center_vertical" />
-
-    <!-- Payment rows -->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tong tien hang" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="So tien"
-            android:gravity="end" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Giam gia" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="So tien"
-            android:gravity="end" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Thu khac" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="So tien"
-            android:gravity="end" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Khach can tra" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="So tien"
-            android:gravity="end" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Khach thanh toan" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:hint="So tien"
-            android:gravity="end" />
-    </LinearLayout>
-
-    <!-- Button -->
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Tao hoa don" />
-</LinearLayout>
+</layout>

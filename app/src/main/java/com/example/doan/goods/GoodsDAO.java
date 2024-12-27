@@ -1,4 +1,4 @@
-package com.example.doan.order;
+package com.example.doan.goods;
 
 
 import androidx.lifecycle.LiveData;
@@ -11,7 +11,7 @@ import java.util.List;
 
 @Dao
 public interface GoodsDAO {
-    @Query("SELECT * FROM GOODS_ORDER")
+    @Query("SELECT * FROM goods_information")
     LiveData<List<Goods>> getALLGoods();
 
     @Insert
@@ -20,7 +20,7 @@ public interface GoodsDAO {
     @Delete
     void deleteGoods(Goods goods);
 
-    @Query("UPDATE GOODS_ORDER SET goods_order_quantity = :quantity WHERE goods_id = :goodsId")
+    @Query("UPDATE goods_information SET goods_order_quantity = :quantity WHERE goods_id = :goodsId")
     void updateGoodsQuantity(String goodsId, int quantity);
 
 }

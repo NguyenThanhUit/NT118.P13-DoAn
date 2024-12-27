@@ -17,7 +17,6 @@ public class AdminHomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_home);
 
-        // Khởi tạo Button quản lý nhân viên
         Button btnManageEmployee = findViewById(R.id.btnManageEmployee);
         if (btnManageEmployee != null) {
             btnManageEmployee.setOnClickListener(new View.OnClickListener() {

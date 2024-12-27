@@ -27,7 +27,6 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        // Inflate layout cho Fragment
         View view = inflater.inflate(R.layout.home_fragment, container, false);
 
         textViewName = view.findViewById(R.id.tvTenNV);
@@ -61,11 +60,10 @@ public class HomeFragment extends Fragment {
                 TaskLookupFragment taskLookupFragment = new TaskLookupFragment();
 
                 taskLookupFragment.setArguments(getArguments());
-                //Neu la activity cua nhan vien cham soc khach hang
                 if (getActivity() instanceof MainActivity) {
                     transaction.replace(R.id.frameLayout3, taskLookupFragment);
 
-                }//Neu la activity cua nhan vien ban hang
+                }
                 else if (getActivity() instanceof MainActivityForSaleEmployee) {
 
                     transaction.replace(R.id.frameLayout4, taskLookupFragment);

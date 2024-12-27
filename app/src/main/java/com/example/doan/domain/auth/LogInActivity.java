@@ -19,6 +19,7 @@ import com.example.doan.domain.employee.AdminHomeActivity;
 import com.example.doan.domain.employee.Employees;
 import com.example.doan.database.InfoDatabase;
 import com.example.doan.tasks.Tasks;
+import com.example.doan.ui.AdminHomeFragment;
 import com.example.doan.ui.TasksLookUP;
 
 import java.util.ArrayList;
@@ -41,7 +42,6 @@ public class LogInActivity extends AppCompatActivity {
         etpassword = findViewById(R.id.tie_password);
         Button loginButton = findViewById(R.id.btn_login);
 
-        // Khởi tạo cơ sở dữ liệu
         database = InfoDatabase.getInstance(this);
 
         loginButton.setOnClickListener(new View.OnClickListener() {
@@ -51,7 +51,7 @@ public class LogInActivity extends AppCompatActivity {
                 String password = etpassword.getText().toString();
 
                 if ("admin".equals(username)) {
-                    Intent intent = new Intent(LogInActivity.this, AdminHomeActivity.class);
+                    Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
@@ -70,6 +70,7 @@ public class LogInActivity extends AppCompatActivity {
 
 
                                                 Intent intent = new Intent(LogInActivity.this, MainActivityForSaleEmployee.class);
+                                                intent.putExtra("EMPLOYEE_ID", employee.getEid());
                                                 intent.putExtra("USER_NAME", employee.getName());
                                                 intent.putParcelableArrayListExtra("TASKS", tasksLookUPList);
                                                 startActivity(intent);

@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -21,6 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.doan.R;
 import com.example.doan.databinding.ActivityAssignTaskBinding;
 import com.example.doan.domain.employee.Employees;
+import com.example.doan.ui.AdminHomeFragment;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +32,7 @@ public class AssignTaskActivity extends AppCompatActivity {
     private TasksViewModel myViewModel;
     private ActivityAssignTaskBinding binding;
     private AddNewTaskClick addNewTaskClick;
-    Button btnDelete, btnEdit, btnAdd;
-    ImageButton imgBtnBack;
+    ImageButton imgBtnBack, btnAdd, btnBack;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +43,11 @@ public class AssignTaskActivity extends AppCompatActivity {
 
 
         RecyclerView rvAssign = findViewById(R.id.lvAssign);
-        rvAssign.setLayoutManager(new LinearLayoutManager(this)); // Sử dụng LinearLayout
+        rvAssign.setLayoutManager(new LinearLayoutManager(this));
         rvAssign.setHasFixedSize(true);
+
+
+
 
         myAdapter = new AdapterForTask(new ArrayList<>());
         rvAssign.setAdapter(myAdapter);
@@ -64,16 +68,25 @@ public class AssignTaskActivity extends AppCompatActivity {
         });
 
 
-
-        imgBtnBack = findViewById(R.id.imgBtnBack3);
-        imgBtnBack.setOnClickListener(new View.OnClickListener() {
+        myAdapter.setOnItemClickListener(new AdapterForTask.OnItemClickListener() {
             @Override
-            public void onClick(View view) {
-                finish();
+            public void onItemClick(Tasks task) {
+                showTaskInfo(task);
             }
         });
 
-        btnAdd = findViewById(R.id.btnAdd);
+
+        btnBack = findViewById(R.id.ic_back);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AssignTaskActivity.this, AdminHomeFragment.class);
+                startActivity(i);
+            }
+        });
+
+
+        btnAdd = findViewById(R.id.btnadd);
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,7 +95,38 @@ public class AssignTaskActivity extends AppCompatActivity {
             }
         });
 
+
+
     }
+    public void showTaskInfo(Tasks task) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View dialogView = getLayoutInflater().inflate(R.layout.task_infor, null);
+
+
+        TextView tvTaskId = dialogView.findViewById(R.id.tv_task_id);
+        TextView tvTaskTitle = dialogView.findViewById(R.id.tv_task_title);
+        TextView tvTaskDirection = dialogView.findViewById(R.id.tv_task_direction);
+        TextView tvTaskStart = dialogView.findViewById(R.id.tv_task_start);
+        TextView tvTaskEnd = dialogView.findViewById(R.id.tv_task_end);
+        TextView tvTaskDescription = dialogView.findViewById(R.id.tv_task_description);
+
+
+        tvTaskId.setText(task.getTaskID());
+        tvTaskTitle.setText(task.getTaskNotes());
+        tvTaskDirection.setText(task.getTaskDecription());
+        tvTaskStart.setText(task.getTaskAssignedDate());
+        tvTaskEnd.setText(task.getTaskDueDate());
+//        tvTaskDescription.setText(task.getTaskDescription());
+
+
+        builder.setView(dialogView)
+                .setPositiveButton("Close", (dialog, which) -> dialog.dismiss())
+                .setCancelable(true);
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
+
 
 
 }

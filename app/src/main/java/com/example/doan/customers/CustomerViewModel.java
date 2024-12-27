@@ -33,4 +33,9 @@ public class CustomerViewModel extends AndroidViewModel {
         repository.deleteCustomer(customer);
     }
 
+    public void updateCustomer(Customers customers) {
+        repository.updateCustomer(customers);
+    }
+
+
 }

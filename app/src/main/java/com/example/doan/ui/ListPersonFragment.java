@@ -1,10 +1,15 @@
 package com.example.doan.ui;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageButton;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -42,7 +47,7 @@ public class ListPersonFragment extends Fragment {
 
         binding = FragmentListPersonBinding.inflate(inflater, container, false);
 
-        // Set up RecyclerView
+
         RecyclerView recyclerView = binding.recycview;
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
         recyclerView.setHasFixedSize(true);
@@ -94,6 +99,13 @@ public class ListPersonFragment extends Fragment {
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(itemTouchHelperCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
 
+        myAdapter.setOnItemClickListener(new AdapterForCustomer.OnItemClickListener() {
+            @Override
+            public void onItemClick(Customers customers) {
+                showCustomersInfo(customers);
+            }
+        });
+
         return binding.getRoot();
     }
     private void filterCustomers(String category) {
@@ -129,7 +141,7 @@ public class ListPersonFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        // Observe the LiveData from the ViewModel
+
         LiveData<List<Customers>> customersLiveData = myViewModel.getAllcustomer();
         customersLiveData.observe(getViewLifecycleOwner(), new Observer<List<Customers>>() {
             @Override
@@ -139,7 +151,84 @@ public class ListPersonFragment extends Fragment {
             }
         });
     }
+    public void showCustomersInfo(Customers customers) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        View dialogView = getLayoutInflater().inflate(R.layout.customer_infor, null);
+        TextView tvCustomerName = dialogView.findViewById(R.id.tv_customer_name);
+        TextView tvCustomerPhone = dialogView.findViewById(R.id.tv_customer_phone_number);
+        TextView tvCustomerEmail = dialogView.findViewById(R.id.tv_customer_email);
+        TextView tvCustomerAddr = dialogView.findViewById(R.id.tv_customer_adress);
+        TextView tvCustomerCate = dialogView.findViewById(R.id.tv_customer_filter);
 
+
+        tvCustomerName.setText(customers.getName());
+        tvCustomerPhone.setText(customers.getPhone());
+        tvCustomerEmail.setText(customers.getEmail());
+        tvCustomerAddr.setText(customers.getAddress());
+        tvCustomerCate.setText(customers.getCategory());
+
+        ImageButton btnEdit = dialogView.findViewById(R.id.ic_edit);
+        btnEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Thay đổi TextView thành EditText để người dùng có thể chỉnh sửa
+                EditText etCustomerName = new EditText(getContext());
+                etCustomerName.setText(customers.getName());
+
+                EditText etCustomerPhone = new EditText(getContext());
+                etCustomerPhone.setText(customers.getPhone());
+
+                EditText etCustomerEmail = new EditText(getContext());
+                etCustomerEmail.setText(customers.getEmail());
+
+                EditText etCustomerAddr = new EditText(getContext());
+                etCustomerAddr.setText(customers.getAddress());
+
+                EditText etCustomerCate = new EditText(getContext());
+                etCustomerCate.setText(customers.getCategory());
+
+                // Thay thế các TextView cũ bằng EditText mới
+                tvCustomerName.setVisibility(View.GONE);
+                tvCustomerPhone.setVisibility(View.GONE);
+                tvCustomerEmail.setVisibility(View.GONE);
+                tvCustomerAddr.setVisibility(View.GONE);
+                tvCustomerCate.setVisibility(View.GONE);
+
+
+                LinearLayout layout = dialogView.findViewById(R.id.layout_edit_fields);
+                layout.addView(etCustomerName);
+                layout.addView(etCustomerPhone);
+                layout.addView(etCustomerEmail);
+                layout.addView(etCustomerAddr);
+                layout.addView(etCustomerCate);
+
+                // Hiển thị nút Lưu để cập nhật dữ liệu
+                Button btnSave = dialogView.findViewById(R.id.btn_save);
+                btnSave.setVisibility(View.VISIBLE);
+
+                // Khi nhấn nút Lưu, cập nhật thông tin và lưu vào cơ sở dữ liệu
+                btnSave.setOnClickListener(v -> {
+                    // Cập nhật dữ liệu vào đối tượng customers
+                    customers.setName(etCustomerName.getText().toString());
+                    customers.setPhone(etCustomerPhone.getText().toString());
+                    customers.setEmail(etCustomerEmail.getText().toString());
+                    customers.setAddress(etCustomerAddr.getText().toString());
+                    customers.setCategory(etCustomerCate.getText().toString());
+
+                    // Lưu thông tin vào cơ sở dữ liệu
+                    myViewModel.updateCustomer(customers);
+
+                    Toast.makeText(getContext(), "Information updated", Toast.LENGTH_SHORT).show();
+
+                });
+            }
+        });
+
+        builder.setView(dialogView)
+                .setPositiveButton("Close", (dialog, which) -> dialog.dismiss())
+                .create()
+                .show();
+    }
     @Override
     public void onDestroyView() {
         super.onDestroyView();

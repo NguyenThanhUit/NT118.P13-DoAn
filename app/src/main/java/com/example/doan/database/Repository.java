@@ -10,8 +10,10 @@ import com.example.doan.customers.CustomerDAO;
 import com.example.doan.customers.Customers;
 import com.example.doan.domain.employee.EmployeeDao;
 import com.example.doan.domain.employee.Employees;
-import com.example.doan.order.Goods;
-import com.example.doan.order.GoodsDAO;
+import com.example.doan.goods.Goods;
+import com.example.doan.goods.GoodsDAO;
+import com.example.doan.orders.Orders;
+import com.example.doan.orders.OrdersDAO;
 import com.example.doan.reports.Reports;
 import com.example.doan.reports.ReportsDAO;
 import com.example.doan.tasks.Tasks;
@@ -34,6 +36,8 @@ public class Repository {
 
     private final GoodsDAO gDao;
 
+    private final OrdersDAO oDao;
+
     Handler handler = new Handler(Looper.myLooper());
 
     public Repository(Application application) {
@@ -53,6 +57,9 @@ public class Repository {
 
         //GoodsDAO
         this.gDao = infoDatabase.getGDAO();
+
+        //OdersDAO
+        this.oDao = infoDatabase.getODAO();
 
 
         this.executorService = Executors.newSingleThreadExecutor();
@@ -85,17 +92,17 @@ public class Repository {
     }
 
 
-    // Lấy danh sách tất cả người dùng
+
     public LiveData<List<Employees>> getAllEmployees() {
         return edao.getALLEmloyees();
     }
 
-    // Lấy danh sách tất cả khách hàng
+
     public LiveData<List<Customers>> getAllCustomers() {
         return dbdao.getAllCustomers();
     }
 
-    //Them mot report moi
+
     public void addnewReport(Reports reports){
         executorService.execute(() -> rdao.insertReport(reports));
     }
@@ -126,6 +133,21 @@ public class Repository {
     }
     public void updateGoodsQuantity(String goodsId, int newQuantity) {
         gDao.updateGoodsQuantity(goodsId, newQuantity);
+    }
+
+    public void addnewOrders(Orders orders){
+        executorService.execute(() -> oDao.insertOrder(orders));
+    }
+    public void deleteOrders(Orders orders){
+        executorService.execute(()-> oDao.deleteOrder(orders));
+    }
+
+    public LiveData<List<Orders>> getALLOrders(){
+        return oDao.getALLOrders();
+    }
+
+    public void updateCustomer(Customers customer) {
+        executorService.execute(() -> dbdao.updateCustomer(customer));
     }
 
 

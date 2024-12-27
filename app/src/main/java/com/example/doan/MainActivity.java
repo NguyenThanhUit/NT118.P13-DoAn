@@ -2,7 +2,7 @@ package com.example.doan;
 
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.widget.ListView;
+
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +10,11 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.doan.databinding.ActivityMainBinding;
+
+import com.example.doan.databinding.ActivityMainForAdminBinding;
 import com.example.doan.tasks.Tasks;
+import com.example.doan.ui.AdminHomeFragment;
+import com.example.doan.ui.AdminSettingFragment;
 import com.example.doan.ui.ListPersonFragment;
 import com.example.doan.ui.SettingsFragment;
 import com.example.doan.ui.HomeFragment;
@@ -22,25 +25,22 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    ActivityMainBinding binding;
+    ActivityMainForAdminBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        binding = ActivityMainForAdminBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new HomeFragment());
+        replaceFragment(new AdminHomeFragment());
 
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
             if (item.getItemId() == R.id.home) {
-                replaceFragment(new HomeFragment());
-                return true;
-            } else if (item.getItemId() == R.id.list_person) {
-                replaceFragment(new ListPersonFragment());
+                replaceFragment(new AdminHomeFragment());
                 return true;
             } else if (item.getItemId() == R.id.settings) {
-                replaceFragment(new SettingsFragment());
+                replaceFragment(new AdminSettingFragment());
                 return true;
             }
             return false;

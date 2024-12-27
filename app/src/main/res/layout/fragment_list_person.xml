@@ -116,11 +116,12 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
-            tools:listitem="@layout/customer_list_item"
             android:id="@+id/recycview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_below="@id/headerLayout" />
+            android:layout_below="@id/headerLayout"
+            android:layout_marginTop="-3dp"
+            tools:listitem="@layout/customer_list_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:onClick="@{clickHandler::onFABClicked}"
@@ -130,7 +131,6 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="16dp"
             android:tint="@color/white"
-            android:src="@drawable/plus_icon"
             app:backgroundTint="@color/blue_dark"
             app:fabSize="mini" />
     </RelativeLayout>

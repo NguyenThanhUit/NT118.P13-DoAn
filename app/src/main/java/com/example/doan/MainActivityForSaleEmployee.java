@@ -9,9 +9,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.example.doan.databinding.ActivityMainBinding;
 import com.example.doan.databinding.ActivityMainForSaleEmployeeBinding;
-import com.example.doan.order.OrderFragment;
+import com.example.doan.ui.GoodsFragment;
+import com.example.doan.ui.OrderFragment;
 import com.example.doan.ui.HomeFragment;
 import com.example.doan.ui.ListPersonFragment;
 import com.example.doan.ui.SettingsFragment;
@@ -37,11 +37,16 @@ public class MainActivityForSaleEmployee extends AppCompatActivity
             } else if (item.getItemId() == R.id.list_person) {
                 replaceFragment(new ListPersonFragment());
                 return true;
-            } else if (item.getItemId() == R.id.settings) {
+            }else if(item.getItemId() == R.id.order){
+                replaceFragment(new GoodsFragment());
+                return true;
+            }else if(item.getItemId() == R.id.goods){
+                replaceFragment(new OrderFragment() );
+                return true;
+            }
+            else if (item.getItemId() == R.id.settings) {
                 replaceFragment(new SettingsFragment());
                 return true;
-            } else if(item.getItemId() == R.id.order){
-                replaceFragment(new OrderFragment());
             }
             return false;
         });
@@ -51,6 +56,7 @@ public class MainActivityForSaleEmployee extends AppCompatActivity
 
         String userName = getIntent().getStringExtra("USER_NAME");
         ArrayList<Parcelable> tasklists = getIntent().getParcelableArrayListExtra("TASKS");
+        String employeeID = getIntent().getStringExtra("EMPLOYEE_ID");
 
 
         Bundle bundle = new Bundle();
@@ -61,6 +67,9 @@ public class MainActivityForSaleEmployee extends AppCompatActivity
         }
         if (tasklists != null) {
             bundle.putParcelableArrayList("TASKS", tasklists);
+        }
+        if(employeeID != null){
+            bundle.putString("EMPLOYEE_ID", employeeID);
         }
 
 

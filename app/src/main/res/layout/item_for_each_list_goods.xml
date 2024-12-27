@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="orders"
+            type="com.example.doan.orders.Orders" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="Order ID"
+            android:text="@{orders.OVAT}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <!-- Cột 2: Nhân viên đặt hàng -->
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:hint="Nhân viên đặt hàng"
+            android:text="@{orders.employeeID}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@android:color/black" />
+
+        <!-- Cột 3: Giá và Tên khách hàng -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <TextView
+                android:hint="Gia"
+                android:id="@+id/tvGoodsPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{orders.goodsPrice}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tvCustomerID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Tên khách hàng"
+                android:text="@{orders.customerID}"
+                android:textSize="16sp"
+                android:gravity="center" />
+        </LinearLayout>
+    </LinearLayout>
+</layout>

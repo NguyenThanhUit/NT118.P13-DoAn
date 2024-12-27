@@ -35,7 +35,7 @@ public class AdapterForEmployee extends RecyclerView.Adapter<AdapterForEmployee.
     @Override
     public void onBindViewHolder(@NonNull EmployeeViewHolder holder, int position) {
         Employees currentEmployee = employeeList.get(position);
-        holder.binding.setEmployee(currentEmployee); // Liên kết với biến 'employee' trong layout
+        holder.binding.setEmployee(currentEmployee);
         holder.binding.executePendingBindings();
     }
 

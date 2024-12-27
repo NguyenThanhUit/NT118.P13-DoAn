@@ -17,10 +17,14 @@
 
         <activity android:name=".domain.employee.AddNewEmployeeActivity">
         </activity>
+        
+        <activity android:name=".ui.AdminHomeFragment"></activity>
 
         <activity
             android:name=".tasks.AddnewTaskActivity"
             android:exported="false" />
+        <activity android:name=".orders.OrderTotal"
+            android:exported="false"/>
         <activity
             android:name=".tasks.AssignTaskActivity"
             android:exported="false" />
@@ -28,7 +32,7 @@
             android:name=".domain.employee.ManageEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".order.AddNewGoodsActivity"
+            android:name=".goods.AddNewGoodsActivity"
             android:exported="false" />
         <activity
             android:name=".domain.employee.AdminHomeActivity"
