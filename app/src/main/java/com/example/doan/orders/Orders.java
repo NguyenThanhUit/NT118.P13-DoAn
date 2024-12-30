@@ -55,7 +55,7 @@ public class Orders {
         private String oCP;
 
         @ColumnInfo(name = "customer_id")
-        private String customerID;
+        private int customerID;
 
         @ColumnInfo(name = "goods_price")
         private String goodsPrice;
@@ -66,7 +66,7 @@ public class Orders {
         @ColumnInfo(name = "employee_id")
         private String employeeID;
 
-        public Orders(@NonNull  String oPrice, String oSale, String oVAT, String oTotal, String oCP, String customerID, String goodsPrice, String goodsID, String employeeID) {
+        public Orders(@NonNull  String oPrice, String oSale, String oVAT, String oTotal, String oCP, int customerID, String goodsPrice, String goodsID, String employeeID) {
                 this.oID  = generateOID();
                 this.oPrice = oPrice;
                 this.oSale = oSale;
@@ -135,11 +135,11 @@ public class Orders {
                 this.oCP = oCP;
         }
 
-        public String getCustomerID() {
+        public int getCustomerID() {
                 return customerID;
         }
 
-        public void setCustomerID(String customerID) {
+        public void setCustomerID(int customerID) {
                 this.customerID = customerID;
         }
 

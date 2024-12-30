@@ -9,61 +9,136 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@android:color/white">
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp">
 
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:hint="Order ID"
-            android:text="@{orders.OVAT}"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
-
-        <!-- Cột 2: Nhân viên đặt hàng -->
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:hint="Nhân viên đặt hàng"
-            android:text="@{orders.employeeID}"
-            android:textSize="16sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black" />
-
-        <!-- Cột 3: Giá và Tên khách hàng -->
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            android:gravity="center">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="8dp">
 
             <TextView
-                android:hint="Gia"
-                android:id="@+id/tvGoodsPrice"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="Order ID:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:paddingEnd="8dp"
+                android:gravity="start" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{orders.OID}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Employee ID:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:paddingEnd="8dp"
+                android:gravity="start" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{orders.employeeID}"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Goods Price:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:paddingEnd="8dp"
+                android:gravity="start" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:text="@{orders.goodsPrice}"
                 android:textSize="16sp"
                 android:textStyle="bold"
-                android:gravity="center" />
+                android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="start"
+            android:layout_marginBottom="8dp">
 
             <TextView
-                android:id="@+id/tvCustomerID"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:hint="Tên khách hàng"
-                android:text="@{orders.customerID}"
-                android:textSize="16sp"
-                android:gravity="center" />
+                android:text="OPrice:"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/darker_gray"
+                android:paddingEnd="8dp"
+                android:gravity="start" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@{orders.OPrice}"
+                android:textSize="14sp"
+                android:textColor="@android:color/black"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true" />
         </LinearLayout>
+
     </LinearLayout>
 </layout>

@@ -1,6 +1,7 @@
 package com.example.doan.ui;
 
 import android.content.Intent;
+import android.media.MediaTimestamp;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -40,6 +41,29 @@ public class OrderFragment extends Fragment  {
 
         myAdapter = new AdapterForGoods(new ArrayList<>(), myViewModel);
         recyclerView.setAdapter(myAdapter);
+
+        binding.btnEdt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchKeyWord = binding.edtOrder.getText().toString().toLowerCase();
+                if (!searchKeyWord.isEmpty()) {
+                    myViewModel.getAllGoods().observe(getViewLifecycleOwner(), goodsList -> {
+                        ArrayList<Goods> filteredGoods = new ArrayList<>();
+                        for (Goods goods : goodsList) {
+                            if (goods.getGName().toLowerCase().contains(searchKeyWord)) {
+                                filteredGoods.add(goods);
+                            }
+                        }
+                        myAdapter.setData(filteredGoods);
+                    });
+                } else {
+
+                    myViewModel.getAllGoods().observe(getViewLifecycleOwner(), goodsList -> {
+                        myAdapter.setData(new ArrayList<>(goodsList));
+                    });
+                }
+            }
+        });
 
         String employeeID;
         if (getArguments() != null) {

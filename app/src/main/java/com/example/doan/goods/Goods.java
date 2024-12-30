@@ -116,7 +116,7 @@ public class Goods implements Parcelable {
 
     @Override
     public int describeContents() {
-        return 0; // Not used, so we return 0
+        return 0;
     }
 
     @Override

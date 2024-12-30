@@ -10,11 +10,20 @@ public class AddNewOrdersClick {
     private Orders orders;
     private Context context;
     private OrdersViewModel ordersViewModel;
+    private OnOrderCreatedListener listener;
 
     public AddNewOrdersClick(Orders orders, Context context, OrdersViewModel ordersViewModel) {
         this.orders = orders;
         this.context = context;
         this.ordersViewModel = ordersViewModel;
+    }
+
+    public interface OnOrderCreatedListener {
+        void onOrderCreated();
+    }
+
+    public void setOnOrderCreatedListener(OnOrderCreatedListener listener) {
+        this.listener = listener;
     }
 
     public void onSubmitBtnClicked(View view) {
@@ -26,12 +35,13 @@ public class AddNewOrdersClick {
         Log.d("AddNewOrdersClick", "Customer ID: " + orders.getCustomerID());
         Log.d("AddNewOrdersClick", "Goods Price: " + orders.getGoodsPrice());
         Log.d("AddNewOrdersClick", "Employee ID: " + orders.getEmployeeID());
+
         if (TextUtils.isEmpty(orders.getGoodsID()) ||
                 TextUtils.isEmpty(orders.getOPrice()) ||
                 TextUtils.isEmpty(orders.getOSale()) ||
                 TextUtils.isEmpty(orders.getOVAT()) ||
                 TextUtils.isEmpty(orders.getOTotal()) ||
-                TextUtils.isEmpty(orders.getCustomerID()) ||
+                TextUtils.isEmpty(String.valueOf(orders.getCustomerID())) ||
                 TextUtils.isEmpty(orders.getGoodsPrice()) ||
                 TextUtils.isEmpty(orders.getEmployeeID())) {
 
@@ -50,11 +60,13 @@ public class AddNewOrdersClick {
             );
             ordersViewModel.addnewOrdcer(newOrder);
             Toast.makeText(context, "Thêm đơn hàng thành công!", Toast.LENGTH_SHORT).show();
+
+
+            if (listener != null) {
+                listener.onOrderCreated();
+            }
         }
-
-
-
-
-        }
+    }
 }
+
 

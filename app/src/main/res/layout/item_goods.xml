@@ -11,102 +11,164 @@
             type="com.example.doan.goods.AddRemoveNewQuantityForEachItem" />
     </data>
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:orientation="horizontal"
-        android:padding="8dp">
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@color/white">
 
+        <!-- Hình ảnh sản phẩm -->
         <ImageView
             android:id="@+id/imgGoods"
             android:layout_width="70dp"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop" />
+            android:layout_height="70dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+             />
 
-        <!-- Goods Info Section -->
+        <!-- Thông tin sản phẩm -->
         <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:orientation="vertical">
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp"
+            app:layout_constraintStart_toEndOf="@id/imgGoods"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/quantityControl"
+            android:gravity="center_vertical">
 
-            <TextView
-                android:id="@+id/goodsName"
+            <!-- Tên sản phẩm -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{goods.GName}"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tên sản phẩm:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/goodsName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{goods.GName}"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
 
-            <TextView
-                android:id="@+id/goodsID"
+            <!-- Mã sản phẩm -->
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@{goods.GID}"
-                android:textColor="@color/green_light"
-                android:textSize="14sp" />
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mã sản phẩm:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/goodsID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{goods.GID}"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Giá:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/goodsPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{goods.GPrice}"
+                    android:textColor="@color/green"
+                    android:textSize="14sp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <!-- Số lượng hiện tại -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Số lượng:"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/goodsQuantity"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{goods.GQuantity}"
+                    android:textColor="@color/gray"
+                    android:textSize="14sp"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
         </LinearLayout>
 
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center_vertical|end"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/goodsPrice"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{goods.GPrice}"
-                android:textColor="@color/green"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/goodsQuantity"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@{goods.GQuantity}"
-                android:textColor="@color/black"
-                android:textSize="12sp" />
-        </LinearLayout>
-
-        <!-- Quantity Control Section -->
-        <LinearLayout
+            android:id="@+id/quantityControl"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center">
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnDecrease"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginEnd="8dp"
+                android:backgroundTint="@color/gray_light"
                 android:onClick="@{modify::onUpdateBtnClicked}"
-                app:srcCompat="@drawable/ic_remove" />
+                app:srcCompat="@drawable/ic_minus" />
+
 
             <TextView
                 android:id="@+id/quantityText"
                 android:layout_width="40dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginHorizontal="8dp"
                 android:text="@{String.valueOf(goods.GOQuantity)}"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
+
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnIncrease"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:layout_marginStart="8dp"
+                android:backgroundTint="@color/primary"
                 android:onClick="@{modify::onUpdateBtnClicked}"
                 app:srcCompat="@drawable/ic_add" />
         </LinearLayout>
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

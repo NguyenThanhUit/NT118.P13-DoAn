@@ -3,15 +3,13 @@ package com.example.doan.customers;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
-import androidx.annotation.NonNull;
 
 @Entity(tableName = "customers_information")
 public class Customers {
 
-    @NonNull
-    @PrimaryKey()
+    @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "customer_id")
-    private String cid;
+    private int cid;
 
     @ColumnInfo(name = "customer_name")
     private String name;
@@ -37,8 +35,7 @@ public class Customers {
     public Customers() {
     }
 
-    public Customers(String cid, String name, String phone, String email, String address, String category, String createdat, String updatedat) {
-        this.cid = cid;
+    public Customers(String name, String phone, String email, String address, String category, String createdat, String updatedat) {
         this.name = name;
         this.phone = phone;
         this.email = email;
@@ -48,11 +45,11 @@ public class Customers {
         this.updatedat = updatedat;
     }
 
-    public String getCid() {
+    public int getCid() {
         return cid;
     }
 
-    public void setCid(String cid) {
+    public void setCid(int cid) {
         this.cid = cid;
     }
 

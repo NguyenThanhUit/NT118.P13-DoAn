@@ -1,7 +1,7 @@
 package com.example.doan.ui;
 
 import android.os.Bundle;
-import android.util.Log; // Import Log
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,9 +27,10 @@ public class GoodsFragment extends Fragment {
     private OrdersViewModel myViewModel;
     private RecyclerView recyclerView;
     private AdapterForOrder myAdapter;
+    private List<Orders> allOrders = new ArrayList<>();
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         binding = GoodsFragmentBinding.inflate(inflater, container, false);
         myViewModel = new ViewModelProvider(this).get(OrdersViewModel.class);
 
@@ -47,15 +48,35 @@ public class GoodsFragment extends Fragment {
                 Log.d("GoodsFragment", "onChanged: Orders list updated");
                 if (orders != null) {
                     Log.d("GoodsFragment", "Orders size: " + orders.size());
-                    // Log details of each order for debugging
-                    for (Orders order : orders) {
-                        Log.d("GoodsFragment", "Order ID: " + order.getOID() + ", Price: " + order.getEmployeeID());
-                    }
+                    allOrders = orders;
                     myAdapter.setOrders((ArrayList<Orders>) orders);
                     myAdapter.notifyDataSetChanged();
                 } else {
                     Log.d("GoodsFragment", "No orders found");
                     myAdapter.setOrders(new ArrayList<>());
+                }
+            }
+        });
+
+        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String searchKeyword = binding.etSearch.getText().toString().trim();
+
+                if (!searchKeyword.isEmpty()) {
+                    ArrayList<Orders> filterOrders = new ArrayList<>();
+
+                    for (Orders orders : allOrders) {
+                        if (orders.getOID().toLowerCase().contains(searchKeyword.toLowerCase())) {
+                            filterOrders.add(orders);
+                        }
+                    }
+                    myAdapter.setOrders(filterOrders);
+                    myAdapter.notifyDataSetChanged();
+                } else {
+
+                    myAdapter.setOrders((ArrayList<Orders>) allOrders);
+                    myAdapter.notifyDataSetChanged();
                 }
             }
         });

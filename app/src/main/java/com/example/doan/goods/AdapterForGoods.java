@@ -44,27 +44,32 @@ public class AdapterForGoods extends RecyclerView.Adapter<AdapterForGoods.GoodsV
         holder.binding.setGoods(currentGoods);
 
 
+
         ImageView imageView = holder.binding.imgGoods;
         if (currentGoods.getGImage() != null && !currentGoods.getGImage().isEmpty()) {
             imageView.setImageURI(Uri.parse(currentGoods.getGImage()));
         } else {
-            imageView.setImageResource(R.drawable.custom_icon);
+            imageView.setImageResource(R.drawable.goods);
         }
 
         int count = currentGoods.getGOQuantity();
         holder.binding.btnDecrease.setVisibility(count > 0 ? View.VISIBLE : View.GONE);
 
+        int currentQuantity = Integer.parseInt(currentGoods.getGQuantity());
+        holder.binding.btnIncrease.setVisibility(currentQuantity > 0 ? View.VISIBLE : View.GONE);
+
 
         holder.binding.executePendingBindings();
 
 
-        Log.d("GoodsAdapter", "Before increase, GOQuantity: " + currentGoods.getGOQuantity());
 
         AddRemoveNewQuantityForEachItem addremoveNewQuantityForEachItem = new AddRemoveNewQuantityForEachItem(
                 currentGoods,
                 holder.itemView.getContext(),
                 goodsViewModel
         );
+
+
 
         holder.binding.btnIncrease.setOnClickListener(view -> {
 
@@ -73,7 +78,6 @@ public class AdapterForGoods extends RecyclerView.Adapter<AdapterForGoods.GoodsV
 
 
             Log.d("GoodsAdapter", "After increase, GOQuantity: " + newQuantity);
-
 
             holder.binding.quantityText.setText(String.valueOf(newQuantity));
 

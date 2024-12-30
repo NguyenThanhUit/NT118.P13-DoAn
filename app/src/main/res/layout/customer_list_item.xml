@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="160dp"
         android:orientation="vertical"
         android:padding="8dp">
 
@@ -43,16 +43,46 @@
                     android:id="@+id/tvMAKH"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@{customer.phone}"
-                    android:textSize="16sp"
+                    android:text="@{customer.name}"
+                    android:textAllCaps="true"
+                    android:textSize="20sp"
+                    android:hint="Name"
                     android:textStyle="bold" />
 
-                <TextView
-                    android:id="@+id/tvName"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="@{customer.name}"
-                    android:textSize="16sp" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:paddingTop="16dp"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_call"/>
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{customer.phone}"
+                        android:hint="Phone"
+                        android:textSize="12sp" />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:paddingTop="16dp"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_mail" />
+                    <TextView
+                        android:id="@+id/tvEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@{customer.email}"
+                        android:hint="Email"
+                        android:textSize="12sp" />
+                </LinearLayout>
             </LinearLayout>
         </LinearLayout>
     </LinearLayout>

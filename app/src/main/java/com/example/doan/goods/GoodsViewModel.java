@@ -8,6 +8,7 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
+import com.example.doan.database.InfoDatabase;
 import com.example.doan.database.Repository;
 
 import java.util.HashMap;
@@ -20,7 +21,8 @@ public class GoodsViewModel extends AndroidViewModel {
     private Repository repository;
     private LiveData<List<Goods>> allGoods;
     private static final String TAG = "GoodsViewModel";
-
+    private GoodsDAO gDao;
+    private InfoDatabase db;
     private MutableLiveData<Map<String, Integer>> goodsQuantityMap = new MutableLiveData<>(new HashMap<>());
 
 
@@ -30,6 +32,8 @@ public class GoodsViewModel extends AndroidViewModel {
         super(application);
         this.repository = new Repository(application);
         allGoods = repository.getALLGoods();
+        db = InfoDatabase.getInstance(application);
+        gDao = db.getGDAO();
     }
 
     public LiveData<List<Goods>> getAllGoods() {
@@ -59,4 +63,13 @@ public class GoodsViewModel extends AndroidViewModel {
             repository.updateGoodsQuantity(goodsId, newQuantity);
         });
     }
+    public void updateGoods(Goods goods) {
+        repository.updateGoods(goods);
+    }
+
+    public LiveData<Boolean> isGoodsIDExists(String id) {
+        return gDao.isIDExists(id);
+    }
+
+
 }

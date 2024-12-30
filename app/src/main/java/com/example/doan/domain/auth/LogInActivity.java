@@ -15,11 +15,9 @@ import androidx.lifecycle.Observer;
 import com.example.doan.MainActivity;
 import com.example.doan.MainActivityForSaleEmployee;
 import com.example.doan.R;
-import com.example.doan.domain.employee.AdminHomeActivity;
 import com.example.doan.domain.employee.Employees;
 import com.example.doan.database.InfoDatabase;
 import com.example.doan.tasks.Tasks;
-import com.example.doan.ui.AdminHomeFragment;
 import com.example.doan.ui.TasksLookUP;
 
 import java.util.ArrayList;
@@ -77,7 +75,7 @@ public class LogInActivity extends AppCompatActivity {
                                                 finish();
                                             }
                                         });
-                                    } else{
+                                    } else {
                                         database.getTDAO().getTasksForEmployee(employee.getEid()).observe(LogInActivity.this, new Observer<List<Tasks>>() {
                                             @Override
                                             public void onChanged(List<Tasks> tasks) {
@@ -107,25 +105,32 @@ public class LogInActivity extends AppCompatActivity {
     }
 
 
-    // Phương thức chuyển đổi từ Tasks sang TasksLookUP
-
     private ArrayList<TasksLookUP> convertTasksToTasksLookUP(List<Tasks> tasks) {
         ArrayList<TasksLookUP> tasksLookUPList = new ArrayList<>();
 
         if (tasks != null && !tasks.isEmpty()) {
             for (Tasks task : tasks) {
 
+                String taskName = task.getTaskID();
                 String taskDescription = task.getTaskDecription() != null ? task.getTaskDecription() : "No description available";
                 String taskAssignedDate = task.getTaskAssignedDate() != null ? task.getTaskAssignedDate() : "Not assigned";
                 String taskStatus = task.getTaskStatus() != null ? task.getTaskStatus() : "Chưa hoàn thành";
+                String taskDueDate = task.getTaskDueDate() != null ? task.getTaskDueDate() : "No due date";
+                String taskCompletedDate = task.getTaskCompletedDate() != null ? task.getTaskCompletedDate() : "Not completed";
+                String taskNotes = task.getTaskNotes() != null ? task.getTaskNotes() : "No notes available";
+
 
                 TasksLookUP tasksLookUP = new TasksLookUP(
-                        taskDescription,        // taskName
-                        taskAssignedDate,       // taskAssignedDate
-                        taskStatus              // taskStatus
+                        taskName,
+                        taskAssignedDate,
+                        taskStatus,
+                        taskDescription,
+                        taskDueDate,
+                        taskCompletedDate,
+                        taskNotes
                 );
 
-                Log.d("TaskConversion", "Task Added: " + task.getTaskDecription() + " | Assigned Date: " + task.getTaskAssignedDate() + " | Status: " + task.getTaskStatus());
+                Log.d("TaskConversion", "Task Added: " + taskName + " | Assigned Date: " + taskAssignedDate + " | Status: " + taskStatus);
 
                 tasksLookUPList.add(tasksLookUP);
             }
@@ -135,5 +140,4 @@ public class LogInActivity extends AppCompatActivity {
 
         return tasksLookUPList;
     }
-
 }

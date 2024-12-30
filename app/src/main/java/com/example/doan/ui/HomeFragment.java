@@ -11,12 +11,14 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.example.doan.MainActivity;
 import com.example.doan.MainActivityForSaleEmployee;
 import com.example.doan.R;
+import com.example.doan.customers.AddNewCustomerActivity;
 
 import java.util.ArrayList;
 
@@ -30,8 +32,6 @@ public class HomeFragment extends Fragment {
         View view = inflater.inflate(R.layout.home_fragment, container, false);
 
         textViewName = view.findViewById(R.id.tvTenNV);
-
-
         if (getArguments() != null) {
             String userName = getArguments().getString("USER_NAME");
             if (userName != null) {
@@ -42,6 +42,17 @@ public class HomeFragment extends Fragment {
 
 
             ArrayList<TasksLookUP> tasksLookUPList = getArguments().getParcelableArrayList("TASKS");
+
+
+            CardView cardViewcreateCustomer = view.findViewById(R.id.card_view_create_customer);
+            cardViewcreateCustomer.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(getContext(), AddNewCustomerActivity.class);
+                    startActivity(i);
+                }
+            });
+
 
 
             TaskLookupFragment fragment = new TaskLookupFragment();
@@ -70,7 +81,6 @@ public class HomeFragment extends Fragment {
                 }
                 transaction.addToBackStack(null);
                 transaction.commit();
-
             }
         });
 

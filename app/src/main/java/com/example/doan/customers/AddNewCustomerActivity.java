@@ -1,8 +1,6 @@
 package com.example.doan.customers;
 
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -13,10 +11,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.databinding.DataBindingUtil;
 import com.example.doan.R;
-import com.example.doan.databinding.FragmentAddCustomerBinding;
+import com.example.doan.databinding.CreateCustomerBinding;
+
 
 public class AddNewCustomerActivity extends AppCompatActivity {
-    private FragmentAddCustomerBinding addCustomerBinding;
+    private CreateCustomerBinding addCustomerBinding;
     private AddNewCustomerClick handlers;
     private Customers customers;
     private CustomerViewModel myViewModel;
@@ -32,7 +31,7 @@ public class AddNewCustomerActivity extends AppCompatActivity {
 
         addCustomerBinding = DataBindingUtil.setContentView(
                 this,
-                R.layout.fragment_add_customer
+                R.layout.create_customer
         );
 
         mySpinner = findViewById(R.id.spinnerCustomerType);

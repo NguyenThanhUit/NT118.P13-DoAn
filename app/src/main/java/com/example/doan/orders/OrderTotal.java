@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -44,7 +45,6 @@ public class OrderTotal extends AppCompatActivity {
 
         ordersViewModel = new ViewModelProvider(this).get(OrdersViewModel.class);
         goodsViewModel = new ViewModelProvider(this).get(GoodsViewModel.class);
-
         orders = new Orders();
         String employeeID = getIntent().getStringExtra("EMPLOYEE_ID");
         orders.setEmployeeID(employeeID);
@@ -63,6 +63,9 @@ public class OrderTotal extends AppCompatActivity {
         if (goodsList == null) {
             goodsList = new ArrayList<>();
         }
+        RecyclerView rv = findViewById(R.id.rv_order);
+
+        adapter = new AdapterForGoods(new ArrayList<>(), goodsViewModel);
 
         InfoDatabase db = InfoDatabase.getInstance(this);
         Spinner spinner = findViewById(R.id.spinnerforCustomerOrder);
@@ -85,23 +88,25 @@ public class OrderTotal extends AppCompatActivity {
             spinner.setAdapter(adapter);
         });
 
-        RecyclerView rv = findViewById(R.id.rv_order);
         rv.setLayoutManager(new LinearLayoutManager(this));
-
-        adapter = new AdapterForGoods(new ArrayList<>(), goodsViewModel);
         rv.setAdapter(adapter);
 
-        goodsViewModel.getAllGoods().observe(this, goodsList -> {
-            if (goodsList != null) {
-                adapter.setData(new ArrayList<>(goodsList));
-            }
-        });
-
+        ArrayList<Goods> displayGoodsList = new ArrayList<>();
         for (Goods goods : goodsList) {
             if (goods.getGOQuantity() > 0) {
                 try {
                     float price = Float.parseFloat(goods.getGPrice());
                     sum += goods.getGOQuantity() * price;
+
+                    Goods updatedGoods = new Goods();
+                    updatedGoods.setGID(goods.getGID());
+                    updatedGoods.setGName(goods.getGName());
+                    updatedGoods.setGPrice(goods.getGPrice());
+                    updatedGoods.setGOQuantity(goods.getGOQuantity());
+                    updatedGoods.setGQuantity(goods.getGQuantity());
+
+                    displayGoodsList.add(updatedGoods);
+
                     orders.setGoodsID(goods.getGID());
                     orders.setGoodsPrice(goods.getGPrice());
                 } catch (NumberFormatException e) {
@@ -109,11 +114,29 @@ public class OrderTotal extends AppCompatActivity {
                 }
             }
         }
+        OrderGoodsAdapter orderGoodsAdapter = new OrderGoodsAdapter(this, displayGoodsList);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+        rv.setAdapter(orderGoodsAdapter);
 
         TextView tvmoney = findViewById(R.id.tv_money);
         tvmoney.setText(String.valueOf(sum));
         String money = tvmoney.getText().toString();
         orders.setOPrice(money);
+
+        handlers.setOnOrderCreatedListener(() -> {
+            updateGoodsQuantities();
+            orders.setOSale("0");
+            orders.setOVAT("0");
+            orders.setOTotal("0");
+            sum = 0;
+            
+            createOrderBinding.invalidateAll();
+            TextView tvMoney = findViewById(R.id.tv_money);
+            tvMoney.setText("0");
+
+            TextView tvTotalCost = findViewById(R.id.tv_totalcost);
+            tvTotalCost.setText("0");
+        });
 
 
         EditText edtSale = findViewById(R.id.edt_sale);
@@ -187,4 +210,20 @@ public class OrderTotal extends AppCompatActivity {
             tvTotalcost.setText("Invalid cost");
         }
     }
+    private void updateGoodsQuantities() {
+        for (Goods goods : goodsList) {
+            if (goods.getGOQuantity() > 0) {
+                int updatedQuantity = Integer.parseInt(goods.getGQuantity()) - goods.getGOQuantity();
+                if (updatedQuantity < 0) {
+                    updatedQuantity = 0;
+                }
+                goods.setGQuantity(String.valueOf(updatedQuantity));
+                goods.setGOQuantity(0);
+                goodsViewModel.updateGoods(goods);
+            }
+        }
+
+        adapter.notifyDataSetChanged();
+    }
+
 }

@@ -31,7 +31,6 @@ public class AddNewCustomerClick {
     }
 
     public void onSubmitBtnClicked(View view) {
-
         if (TextUtils.isEmpty(customer.getName()) || TextUtils.isEmpty(customer.getPhone()) ||
                 TextUtils.isEmpty(customer.getEmail()) || TextUtils.isEmpty(customer.getAddress()) ||
                 TextUtils.isEmpty(customer.getCategory())) {
@@ -42,7 +41,6 @@ public class AddNewCustomerClick {
 
 
         Customers newCustomer = new Customers(
-                customer.getCid(),
                 customer.getName(),
                 customer.getPhone(),
                 customer.getEmail(),

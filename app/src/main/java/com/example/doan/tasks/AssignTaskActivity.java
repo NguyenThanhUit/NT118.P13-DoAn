@@ -48,12 +48,12 @@ public class AssignTaskActivity extends AppCompatActivity {
 
 
 
-
         myAdapter = new AdapterForTask(new ArrayList<>());
         rvAssign.setAdapter(myAdapter);
 
         myViewModel = new ViewModelProvider(this).get(TasksViewModel.class);
         addNewTaskClick = new AddNewTaskClick(null, this, myViewModel);
+
 
         LiveData<List<Tasks>> tasksLiveData = myViewModel.getAlltasks();
         tasksLiveData.observe(this, new Observer<List<Tasks>>() {
@@ -66,7 +66,28 @@ public class AssignTaskActivity extends AppCompatActivity {
                 }
             }
         });
+        TextView tvTotalTask = findViewById(R.id.number_of_task);
+        TextView tvInProgressTask = findViewById(R.id.number_iprogress_task);
+        myViewModel.getAlltasks().observe(this, tasks -> {
+            if (tasks != null) {
+                myAdapter.setTasksLists(new ArrayList<>(tasks));
+                int inProgress = 0;
+                int totalTask = tasks.size();
+                for (Tasks task : tasks) {
+                    if (task.getTaskStatus().equals("Chưa hoàn thành")) {
+                        inProgress++;
+                    }
+                }
 
+
+                tvTotalTask.setText(String.valueOf(totalTask));
+                tvInProgressTask.setText(String.valueOf(inProgress));
+            } else {
+                myAdapter.setTasksLists(new ArrayList<>());
+                tvTotalTask.setText("0");
+                tvInProgressTask.setText("0");
+            }
+        });
 
         myAdapter.setOnItemClickListener(new AdapterForTask.OnItemClickListener() {
             @Override

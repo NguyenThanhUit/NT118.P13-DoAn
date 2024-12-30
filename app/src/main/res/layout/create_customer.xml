@@ -41,22 +41,6 @@
                     android:paddingBottom="16dp" />
 
             </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="ID khách hàng"
-                android:textColor="@color/black"
-                android:textStyle="bold"
-                android:paddingTop="8dp" />
-            <EditText
-                android:id="@+id/edtID"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nhập nội dung"
-                android:backgroundTint="@color/gray"
-                android:background="@drawable/edittext_border"
-                android:padding="10dp"
-                android:text="@={customer.cid}" />
 
 
             <TextView

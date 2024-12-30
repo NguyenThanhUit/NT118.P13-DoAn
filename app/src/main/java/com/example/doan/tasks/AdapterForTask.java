@@ -27,7 +27,7 @@ public class AdapterForTask extends RecyclerView.Adapter<AdapterForTask.TaskView
     }
 
 
-    //Xu li su kien click vao mot task trong recycleView
+
     public void setOnItemClickListener(OnItemClickListener listener) {
         this.listener = listener;
     }

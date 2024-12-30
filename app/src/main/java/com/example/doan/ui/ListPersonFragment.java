@@ -171,7 +171,7 @@ public class ListPersonFragment extends Fragment {
         btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // Thay đổi TextView thành EditText để người dùng có thể chỉnh sửa
+
                 EditText etCustomerName = new EditText(getContext());
                 etCustomerName.setText(customers.getName());
 
@@ -187,7 +187,7 @@ public class ListPersonFragment extends Fragment {
                 EditText etCustomerCate = new EditText(getContext());
                 etCustomerCate.setText(customers.getCategory());
 
-                // Thay thế các TextView cũ bằng EditText mới
+
                 tvCustomerName.setVisibility(View.GONE);
                 tvCustomerPhone.setVisibility(View.GONE);
                 tvCustomerEmail.setVisibility(View.GONE);
@@ -202,28 +202,24 @@ public class ListPersonFragment extends Fragment {
                 layout.addView(etCustomerAddr);
                 layout.addView(etCustomerCate);
 
-                // Hiển thị nút Lưu để cập nhật dữ liệu
+
                 Button btnSave = dialogView.findViewById(R.id.btn_save);
                 btnSave.setVisibility(View.VISIBLE);
 
-                // Khi nhấn nút Lưu, cập nhật thông tin và lưu vào cơ sở dữ liệu
+
                 btnSave.setOnClickListener(v -> {
-                    // Cập nhật dữ liệu vào đối tượng customers
                     customers.setName(etCustomerName.getText().toString());
                     customers.setPhone(etCustomerPhone.getText().toString());
                     customers.setEmail(etCustomerEmail.getText().toString());
                     customers.setAddress(etCustomerAddr.getText().toString());
                     customers.setCategory(etCustomerCate.getText().toString());
 
-                    // Lưu thông tin vào cơ sở dữ liệu
                     myViewModel.updateCustomer(customers);
-
                     Toast.makeText(getContext(), "Information updated", Toast.LENGTH_SHORT).show();
 
                 });
             }
         });
-
         builder.setView(dialogView)
                 .setPositiveButton("Close", (dialog, which) -> dialog.dismiss())
                 .create()

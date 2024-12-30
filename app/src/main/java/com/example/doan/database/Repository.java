@@ -149,6 +149,12 @@ public class Repository {
     public void updateCustomer(Customers customer) {
         executorService.execute(() -> dbdao.updateCustomer(customer));
     }
+    public void updateGoods(Goods goods) {
+        executorService.execute(() -> gDao.updateGoods(goods));
+    }
 
+    public void isIDExists(String id) {
+        executorService.execute(() -> gDao.isIDExists(id));
+    }
 
 }

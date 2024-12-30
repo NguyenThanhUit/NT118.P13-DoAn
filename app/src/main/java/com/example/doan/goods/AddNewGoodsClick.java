@@ -10,6 +10,8 @@ import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
+import androidx.lifecycle.LifecycleOwner;
+
 
 public class AddNewGoodsClick {
 
@@ -46,19 +48,30 @@ public class AddNewGoodsClick {
 
 
     public void onSubmitBtnClicked(View view) {
-        if (TextUtils.isEmpty(goods.getGID()) || TextUtils.isEmpty(goods.getGName()) || TextUtils.isEmpty(goods.getGPrice()) || TextUtils.isEmpty(goods.getGQuantity())) {
+        if (TextUtils.isEmpty(goods.getGID()) ||
+                TextUtils.isEmpty(goods.getGName()) ||
+                TextUtils.isEmpty(goods.getGPrice()) ||
+                TextUtils.isEmpty(goods.getGQuantity())) {
             Toast.makeText(context, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
-        } else {
-            Goods newGoods = new Goods(
-                    goods.getGID(),
-                    goods.getGName(),
-                    selectedImageUri != null ? selectedImageUri.toString() : "",
-                    goods.getGPrice(),
-                    goods.getGQuantity(),
-                    goods.getGOQuantity()
-            );
-            goodsViewModel.addnewGoods(newGoods);
-            Toast.makeText(context, "Thêm hàng hóa thành công", Toast.LENGTH_SHORT).show();
+            return;
         }
+
+        goodsViewModel.isGoodsIDExists(goods.getGID()).observe((LifecycleOwner) context, exists -> {
+            if (exists != null && exists) {
+                Toast.makeText(context, "ID này đã tồn tại! Vui lòng nhập ID khác.", Toast.LENGTH_SHORT).show();
+            } else {
+                Goods newGoods = new Goods(
+                        goods.getGID(),
+                        goods.getGName(),
+                        selectedImageUri != null ? selectedImageUri.toString() : "",
+                        goods.getGPrice(),
+                        goods.getGQuantity(),
+                        goods.getGOQuantity()
+                );
+                goodsViewModel.addnewGoods(newGoods);
+                Toast.makeText(context, "Thêm hàng hóa thành công", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
+
 }

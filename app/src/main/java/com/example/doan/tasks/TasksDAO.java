@@ -22,4 +22,7 @@ public interface TasksDAO {
 
     @Query("SELECT * FROM tasks_information WHERE employee_id = :employeeId")
     LiveData<List<Tasks>> getTasksForEmployee(String employeeId);
+
+    @Query("UPDATE tasks_information SET task_status = :taskStatus WHERE task_id = :taskID")
+    void updateTaskStatus(String taskID, String taskStatus);
 }

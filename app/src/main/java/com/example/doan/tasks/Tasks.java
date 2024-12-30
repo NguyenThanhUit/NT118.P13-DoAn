@@ -2,11 +2,14 @@ package com.example.doan.tasks;
 
 
 import androidx.annotation.NonNull;
+import androidx.databinding.BaseObservable;
+import androidx.databinding.Bindable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
+import com.example.doan.BR;
 import com.example.doan.domain.employee.Employees;
 
 @Entity(
@@ -18,7 +21,7 @@ import com.example.doan.domain.employee.Employees;
                 onDelete = ForeignKey.CASCADE
         )
 )
-public class Tasks {
+public class Tasks extends BaseObservable {
     @NonNull
     @PrimaryKey
     @ColumnInfo(name = "task_id")
@@ -27,8 +30,8 @@ public class Tasks {
     @ColumnInfo(name = "task_description")
     private String taskDecription;
 
-    @ColumnInfo(name = "task_status", defaultValue = "Chưa hoàn thành")
-    private String taskStatus = "Chưa hoàn thành";
+    @ColumnInfo(name = "task_status")
+    private String taskStatus ;
 
     @ColumnInfo(name = "task_assigneddate")
     private String taskAssignedDate;
@@ -57,9 +60,9 @@ public class Tasks {
     }
 
     public Tasks() {
-
     }
 
+    @Bindable
     @NonNull
     public String getTaskID() {
         return taskID;
@@ -67,62 +70,76 @@ public class Tasks {
 
     public void setTaskID(@NonNull String taskID) {
         this.taskID = taskID;
+        notifyPropertyChanged(BR.taskID);
     }
 
+    @Bindable
     public String getTaskStatus() {
         return taskStatus;
     }
 
     public void setTaskStatus(String taskStatus) {
         this.taskStatus = taskStatus;
+        notifyPropertyChanged(BR.taskStatus);
     }
 
+    @Bindable
     public String getTaskDecription() {
         return taskDecription;
     }
 
     public void setTaskDecription(String taskDecription) {
         this.taskDecription = taskDecription;
+        notifyPropertyChanged(BR.taskDecription);
     }
 
+    @Bindable
     public String getTaskAssignedDate() {
         return taskAssignedDate;
     }
 
     public void setTaskAssignedDate(String taskAssignedDate) {
         this.taskAssignedDate = taskAssignedDate;
+        notifyPropertyChanged(BR.taskAssignedDate);
     }
 
+    @Bindable
     public String getTaskDueDate() {
         return taskDueDate;
     }
 
     public void setTaskDueDate(String taskDueDate) {
         this.taskDueDate = taskDueDate;
+        notifyPropertyChanged(BR.taskDueDate);
     }
 
+    @Bindable
     public String getTaskCompletedDate() {
         return taskCompletedDate;
     }
 
     public void setTaskCompletedDate(String taskCompletedDate) {
         this.taskCompletedDate = taskCompletedDate;
+        notifyPropertyChanged(BR.taskCompletedDate);
     }
 
+    @Bindable
     public String getTaskNotes() {
         return taskNotes;
     }
 
     public void setTaskNotes(String taskNotes) {
         this.taskNotes = taskNotes;
+        notifyPropertyChanged(BR.taskNotes);
     }
 
+    @Bindable
     public String getEmployeeID() {
         return employeeID;
     }
 
     public void setEmployeeID(String employeeID) {
         this.employeeID = employeeID;
+        notifyPropertyChanged(BR.employeeID);
     }
-
 }
