@@ -3,20 +3,11 @@ package com.example.doan.reports;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
-import androidx.room.ForeignKey;
 import androidx.room.PrimaryKey;
 
-import com.example.doan.domain.employee.Employees;
+import java.util.Objects;
 
-@Entity(
-        tableName = "reports_information",
-        foreignKeys = @ForeignKey(
-                entity = Employees.class,
-                parentColumns = "employee_id",
-                childColumns = "employee_id",
-                onDelete = ForeignKey.CASCADE //Xoa bao cao khi nhan vien bi xoa
-        )
-)
+@Entity(tableName = "reports_information")
 public class Reports {
 
     @NonNull
@@ -30,19 +21,19 @@ public class Reports {
     @ColumnInfo(name = "report_content")
     private String reportContent;
 
-    @ColumnInfo(name = "report_createdAT")
-    private String createdAT;
+    @ColumnInfo(name = "report_start_date")
+    private String startDate;  // Ngày bắt đầu
 
-    @ColumnInfo(name = "employee_id")
-    private String employeeID;
+    @ColumnInfo(name = "report_end_date")
+    private String endDate;    // Ngày kết thúc
 
     // Constructors, Getters và Setters
-    public Reports(@NonNull String reportID, String reportTitle, String reportContent, String createdAT, String employeeID) {
+    public Reports(@NonNull String reportID, String reportTitle, String reportContent, String startDate, String endDate) {
         this.reportID = reportID;
         this.reportTitle = reportTitle;
         this.reportContent = reportContent;
-        this.createdAT = createdAT;
-        this.employeeID = employeeID;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     @NonNull
@@ -70,19 +61,32 @@ public class Reports {
         this.reportContent = reportContent;
     }
 
-    public String getCreatedAT() {
-        return createdAT;
+    public String getStartDate() {
+        return startDate;
     }
 
-    public void setCreatedAT(String createdAT) {
-        this.createdAT = createdAT;
+    public void setStartDate(String startDate) {
+        this.startDate = startDate;
     }
 
-    public String getEmployeeID() {
-        return employeeID;
+    public String getEndDate() {
+        return endDate;
     }
 
-    public void setEmployeeID(String employeeID) {
-        this.employeeID = employeeID;
+    public void setEndDate(String endDate) {
+        this.endDate = endDate;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Reports reports = (Reports) o;
+        return Objects.equals(reportID, reports.reportID) && Objects.equals(reportTitle, reports.reportTitle) && Objects.equals(reportContent, reports.reportContent) && Objects.equals(startDate, reports.startDate) && Objects.equals(endDate, reports.endDate);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(reportID, reportTitle, reportContent, startDate, endDate);
     }
 }

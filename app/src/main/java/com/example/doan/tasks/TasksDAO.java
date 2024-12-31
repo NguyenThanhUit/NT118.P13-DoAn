@@ -26,6 +26,12 @@ public interface TasksDAO {
     @Query("UPDATE tasks_information SET task_status = :taskStatus WHERE task_id = :taskID")
     void updateTaskStatus(String taskID, String taskStatus);
 
+    @Query("SELECT COUNT(*) FROM tasks_information")
+    LiveData<Integer> getTotalTaskCount();
+
+    @Query("SELECT COUNT(*) FROM tasks_information WHERE task_status = 'Hoàn thành'")
+    LiveData<Integer> getCompletedTaskCount();
+
     @Query("DELETE FROM tasks_information WHERE task_id = :taskID")
     void deleteTaskById(String taskID);
 }

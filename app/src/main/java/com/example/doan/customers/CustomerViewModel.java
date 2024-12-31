@@ -36,6 +36,11 @@ public class CustomerViewModel extends AndroidViewModel {
     public void updateCustomer(Customers customers) {
         repository.updateCustomer(customers);
     }
+    public LiveData<Integer> getCustomerCountByCategory(String category) {
+        return repository.getCustomerCountByCategory(category);
+    }
 
-
+    public LiveData<Integer> getTotalCustomerCount() {
+        return repository.getTotalCustomerCount();
+    }
 }

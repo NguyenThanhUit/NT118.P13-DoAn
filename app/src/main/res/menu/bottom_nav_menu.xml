@@ -5,9 +5,10 @@
         android:icon="@drawable/ic_home"
         android:id="@+id/home"
         />
-    <item android:title="Order"
-        android:icon="@drawable/order_1_svgrepo_com"
-        android:id="@+id/order"/>
+    <item android:title="Statistic"
+        android:icon="@drawable/ic_statistic"
+        android:id="@+id/statistic"
+        />
     <item android:title="Settings"
         android:icon="@drawable/ic_settings"
         android:id="@+id/settings"

@@ -19,7 +19,7 @@ import com.example.doan.reports.ReportsDAO;
 import com.example.doan.tasks.Tasks;
 import com.example.doan.tasks.TasksDAO;
 
-@Database(entities = {Employees.class, Customers.class, Reports.class, Tasks.class, Goods.class, Orders.class}, version = 19)
+@Database(entities = {Employees.class, Customers.class, Reports.class, Tasks.class, Goods.class, Orders.class}, version = 20    )
 public abstract class InfoDatabase extends RoomDatabase {
 
     //Chi mot query duoc thuc hien cung mot luc

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
-public class AdapterForReports extends RecyclerView.Adapter<AdapterForReports.ReportViewHolder> {
+public class AdminReportAdapter extends RecyclerView.Adapter<AdminReportAdapter.ReportViewHolder> {
 
     private List<Reports> reportsList;
     private OnReportLongClickListener longClickListener;
