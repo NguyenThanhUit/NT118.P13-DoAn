@@ -19,4 +19,6 @@ public interface OrdersDAO {
     @Delete
     void deleteOrder(Orders orders);
 
+    @Query("SELECT SUM(order_total) FROM orders_infomation")
+    LiveData<Float> getTotalOrderRevenue();
 }

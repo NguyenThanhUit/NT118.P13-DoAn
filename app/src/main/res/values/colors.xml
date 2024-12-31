@@ -7,7 +7,6 @@
     <color name="pale_turquoise">#AFEEEE</color>
     <color name="blue_dark">#1E88E5</color>
     <color name="blue_light">#E3F2FD</color>
-    <color name="purple_500">#6200EE</color>
 
 
     <color name="primary">#52616B</color>
@@ -55,4 +54,13 @@
 
     <color name="blue">#0000FF</color>
     <color name="cyan">#00FFFF</color>
+
+    <color name="teal_700">#00796B</color>
+    <color name="teal_200">#80CBC4</color>
+    <color name="purple_200">#CE93D8</color>
+    <color name="purple_500">#9C27B0</color>
+    <color name="purple_700">#7B1FA2</color>
+    <color name="blue_200">#90CAF9</color>
+    <color name="blue_500">#2196F3</color>
+    <color name="blue_700">#1976D2</color>
 </resources>

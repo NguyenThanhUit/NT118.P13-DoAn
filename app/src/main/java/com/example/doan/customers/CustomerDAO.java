@@ -28,4 +28,12 @@ public interface CustomerDAO {
 
     @Update
     void updateCustomer(Customers customer);
+
+    @Query("SELECT COUNT(*) FROM customers_information WHERE customer_category = :category")
+    LiveData<Integer> countCustomersByCategory(String category);
+
+    @Query("SELECT COUNT(*) FROM customers_information")
+    LiveData<Integer> countAllCustomers();
+
+
 }

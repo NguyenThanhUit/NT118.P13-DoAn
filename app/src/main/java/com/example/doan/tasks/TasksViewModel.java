@@ -28,4 +28,11 @@ public class TasksViewModel extends AndroidViewModel {
     public LiveData<List<Tasks>> getAlltasks(){
         return alltasks;
     }
+    public LiveData<Integer> getTotalTaskCount() {
+        return repository.getTotalTaskCount();
+    }
+
+    public LiveData<Integer> getCompletedTaskCount() {
+        return repository.getCompletedTaskCount();
+    }
 }

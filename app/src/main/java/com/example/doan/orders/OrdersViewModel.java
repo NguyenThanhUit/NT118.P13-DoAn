@@ -28,4 +28,7 @@ public class OrdersViewModel extends AndroidViewModel {
     public LiveData<List<Orders>> getAllOrders (){
         return allOders;
     }
+    public LiveData<Float> getTotalOrderRevenue() {
+        return repository.getTotalOrderRevenue();
+    }
 }
