@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
         String userName = getIntent().getStringExtra("USER_NAME");
         ArrayList<Parcelable> tasklists = getIntent().getParcelableArrayListExtra("TASKS");
-
+        ArrayList<Parcelable> notificationlists = getIntent().getParcelableArrayListExtra("NOTIFICATIONS");
 
         Bundle bundle = new Bundle();
 
@@ -61,6 +61,9 @@ public class MainActivity extends AppCompatActivity {
         }
         if (tasklists != null) {
             bundle.putParcelableArrayList("TASKS", tasklists);
+        }
+        if (notificationlists != null) {
+            bundle.putParcelableArrayList("NOTIFICATION", notificationlists);
         }
 
 

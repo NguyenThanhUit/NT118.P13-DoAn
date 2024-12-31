@@ -49,7 +49,7 @@ public class AddNewTaskClick {
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
     
-
+    // ngay giao lon hon ngay bat dau
     public void onSubmitBtnClicked(View view) {
         Log.d("DEBUG", "TaskID: " + tasks.getTaskID());
         Log.d("DEBUG", "Description: " + tasks.getTaskDecription());

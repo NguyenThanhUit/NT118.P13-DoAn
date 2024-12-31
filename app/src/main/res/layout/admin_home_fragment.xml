@@ -4,9 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.AdminHomeFragment"
     android:padding="16dp">
 
     <LinearLayout
@@ -47,8 +45,9 @@
         </LinearLayout>
     </LinearLayout>
 
+    <!-- CardView đầu tiên cho Nhân viên -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_customer"
+        android:id="@+id/card_view_employee"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -89,6 +88,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+    <!-- CardView thứ hai cho Báo cáo -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_report"
         android:layout_width="match_parent"
@@ -111,7 +111,7 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_gravity="center_vertical"
-                 />
+                android:src="@drawable/ic_reports" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -119,7 +119,7 @@
                 android:layout_marginStart="16dp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="Report"
+                android:text="Notification"
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
@@ -131,6 +131,7 @@
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+    <!-- CardView thứ ba cho Nhiệm vụ hôm nay -->
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_task"
         android:layout_width="match_parent"
@@ -201,14 +202,13 @@
                 android:background="@color/background"
                 android:textStyle="bold" />
 
-            <TextView
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_notifications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="- Notification content"
-                android:textColor="@color/black"
-                android:textSize="24sp"
                 android:background="@color/background"
-                android:textStyle="bold" />
+                android:paddingTop="8dp"
+                android:scrollbars="vertical" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

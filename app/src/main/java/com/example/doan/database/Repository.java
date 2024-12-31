@@ -102,16 +102,22 @@ public class Repository {
         return dbdao.getAllCustomers();
     }
 
-
+    // Report
     public void addnewReport(Reports reports){
         executorService.execute(() -> rdao.insertReport(reports));
     }
     public void deleteReport(Reports reports){
         executorService.execute(() -> rdao.deleteReport(reports));
     }
-    public LiveData<List<Reports>> getAllReports(){
-        return rdao.getALlReports();
+    public void updateReport(Reports report) {
+        executorService.execute(() -> rdao.updateReport(report));
     }
+
+    public LiveData<List<Reports>> getAllReports(){
+        return rdao.getAllReports();
+    }
+
+    // Task
     public void addnewTask(Tasks tasks){
         executorService.execute(() -> tdao.insertTask(tasks));
     }
@@ -122,6 +128,7 @@ public class Repository {
         return tdao.getALLTasks();
     }
 
+    // Goods
     public LiveData<List<Goods>> getALLGoods(){
         return gDao.getALLGoods();
     }
