@@ -13,9 +13,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white"
-        tools:context=".ListPersonFragment"
-        android:paddingTop="50dp"
-        android:paddingHorizontal="16dp">
+        tools:context=".ListPersonFragment">
 
         <!-- Layout chứa tiêu đề và các bộ lọc -->
         <LinearLayout
@@ -52,9 +50,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Tất cả"
+                        android:text="All"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -63,10 +62,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Mới"
+                        android:text="New"
                         android:drawableLeft="@drawable/ic_square_blue"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -75,10 +75,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Chưa tiếp cận"
+                        android:text="Uncontacted"
                         android:drawableLeft="@drawable/ic_square_orange"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -87,10 +88,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Tiếp cận"
+                        android:text="Contacted"
                         android:drawableLeft="@drawable/ic_square_green"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -99,10 +101,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Nóng"
+                        android:text="Close"
                         android:textColor="@color/black"
                         android:drawableLeft="@drawable/ic_square_red"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -111,10 +114,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Tiềm năng"
+                        android:text="Potential"
                         android:textColor="@color/black"
                         android:drawableLeft="@drawable/ic_square_golden"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
                 </LinearLayout>
             </HorizontalScrollView>

@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.AdminHomeFragment"
-    android:padding="16dp">
+    tools:context=".ui.AdminHomeFragment">
 
     <LinearLayout
         android:background="@drawable/border_white"
