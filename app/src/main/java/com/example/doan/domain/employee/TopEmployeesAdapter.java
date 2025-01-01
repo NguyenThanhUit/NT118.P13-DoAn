@@ -37,7 +37,7 @@ public class TopEmployeesAdapter extends RecyclerView.Adapter<TopEmployeesAdapte
         holder.name.setText(employee.employeeName);
         holder.phone.setText(employee.employeePhone);
         holder.email.setText(employee.employeeEmail);
-        holder.totalOrder.setText(String.format("%.2f", employee.totalOrder) + "đ");
+        holder.totalOrder.setText(formatCurrency(employee.totalOrder)); // Định dạng số tiền
     }
 
     @Override
@@ -54,6 +54,18 @@ public class TopEmployeesAdapter extends RecyclerView.Adapter<TopEmployeesAdapte
             phone = itemView.findViewById(R.id.employee_phone);
             email = itemView.findViewById(R.id.employee_email);
             totalOrder = itemView.findViewById(R.id.employee_total_order);
+        }
+    }
+
+    public static String formatCurrency(float amount) {
+        if (amount >= 1_000_000_000) {
+            return String.format("%.1f", amount / 1_000_000_000).replace(".0", "") + "t"; // Tỷ
+        } else if (amount >= 1_000_000) {
+            return String.format("%.1f", amount / 1_000_000).replace(".0", "") + "tr"; // Triệu
+        } else if (amount >= 1_000) {
+            return String.format("%.1f", amount / 1_000).replace(".0", "") + "k"; // Nghìn
+        } else {
+            return String.valueOf((int) amount); // Không định dạng nếu < 1,000
         }
     }
 }
