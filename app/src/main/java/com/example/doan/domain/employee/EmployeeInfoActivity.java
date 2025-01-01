@@ -64,6 +64,7 @@ public class EmployeeInfoActivity extends AppCompatActivity {
         });
 
         // Nhận dữ liệu từ intent
+        String employeeId = getIntent().getStringExtra("employeeId");
         String employeeName = getIntent().getStringExtra("employeeName");
         String role = getIntent().getStringExtra("role");
         String email = getIntent().getStringExtra("email");
@@ -74,6 +75,29 @@ public class EmployeeInfoActivity extends AppCompatActivity {
         if (role != null) tvRole.setText(role);
         if (email != null) tvEmail.setText("Email: " + email);
         if (phoneNumber != null) tvPhoneNumber.setText("Phone Number: " + phoneNumber);
+
+        btnUpdate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String newName = etName.getText().toString().trim();
+                String newPhone = etPhone.getText().toString().trim();
+                String newEmail = etEmail.getText().toString().trim();
+
+                if(!newName.isEmpty() && !newPhone.isEmpty() && !newEmail.isEmpty()){
+                    Employees updatedEmployee = new Employees();
+                    updatedEmployee.setEid(employeeId);
+                    updatedEmployee.setName(newName);
+                    updatedEmployee.setPhone(newPhone);
+                    updatedEmployee.setEmail(newEmail);
+                    myViewModel.updateEmployee(updatedEmployee);
+
+                    Toast.makeText(EmployeeInfoActivity.this, "Information updated", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    Toast.makeText(EmployeeInfoActivity.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
 

@@ -103,6 +103,7 @@ public class ManageEmployeeActivity extends AppCompatActivity {
             intent.putExtra("role", employee.getPosition());
             intent.putExtra("email", employee.getEmail());
             intent.putExtra("phoneNumber", employee.getPhone());
+            intent.putExtra("employeeId", employee.getEid());
             startActivity(intent);
         });
     }
