@@ -101,7 +101,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Close"
+                        android:text="Priority"
                         android:textColor="@color/black"
                         android:drawableLeft="@drawable/ic_square_red"
                         android:background="@drawable/button_background"
@@ -125,6 +125,7 @@
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:padding="8dp"
             android:id="@+id/recycview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

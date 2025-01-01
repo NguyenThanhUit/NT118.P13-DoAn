@@ -7,11 +7,11 @@
         <item>Tiếng Việt</item>
     </string-array>
     <string-array name="customer_type_array">
-        <item>Mới</item>
-        <item>Chưa tiếp cận</item>
-        <item>Tiếp cận</item>
-        <item>Nóng</item>
-        <item>Tiềm năng</item>
+        <item>New</item>
+        <item>Uncontacted</item>
+        <item>Contacted</item>
+        <item>Priority</item>
+        <item>Potential</item>
     </string-array>
     <string-array name="employee_position">
         <item>Nhan vien ban hang</item>
