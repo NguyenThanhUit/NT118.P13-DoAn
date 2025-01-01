@@ -63,9 +63,9 @@ public class TaskLookUpAdapter extends RecyclerView.Adapter<TaskLookUpAdapter.Ta
 
         public TaskViewHolder(View itemView) {
             super(itemView);
-            taskID = itemView.findViewById(R.id.tvTaskID);
-            taskAssignedDate = itemView.findViewById(R.id.tvTaskAssignedDate);
-            taskStatus = itemView.findViewById(R.id.tvTaskStatus);
+//            taskID = itemView.findViewById(R.id.tvTaskID);
+//            taskAssignedDate = itemView.findViewById(R.id.tvTaskAssignedDate);
+//            taskStatus = itemView.findViewById(R.id.tvTaskStatus);
         }
     }
 }

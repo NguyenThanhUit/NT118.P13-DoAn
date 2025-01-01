@@ -2,23 +2,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:padding="16dp">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Order"
         android:textSize="28sp"
-        android:textStyle="bold"
-        android:gravity="center" />
+        android:textStyle="bold" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="30dp">
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal">
 
         <EditText
             android:id="@+id/etSearch"
@@ -26,20 +27,20 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@drawable/border_white"
-            android:paddingStart="10dp"
-            android:hint="Search for order..."
-            android:padding="8dp"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="8dp"
-            android:inputType="text" />
+            android:hint="Search for order..."
+            android:inputType="text"
+            android:padding="8dp"
+            android:paddingStart="10dp" />
 
         <Button
-            style="@style/ButtonStyle"
             android:id="@+id/btnSearch"
+            style="@style/ButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Search"
-            android:layout_marginStart="10dp" />
+            android:layout_marginStart="10dp"
+            android:text="Search" />
     </LinearLayout>
 
     <!-- RecyclerView -->
@@ -47,7 +48,7 @@
         android:id="@+id/recyclerViewOrders"
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
-        android:clipToPadding="false"
-        android:layout_marginTop="20dp" />
+        android:clipToPadding="false" />
 </LinearLayout>

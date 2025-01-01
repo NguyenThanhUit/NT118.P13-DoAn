@@ -86,7 +86,7 @@ public class TaskLookupFragment extends Fragment {
             Log.d("TaskLookupFragment", "No tasks available");
         }
 
-        Button btnBack = view.findViewById(R.id.btnBackToHomeFromTask);
+        Button btnBack = view.findViewById(R.id.ic_back);
         btnBack.setOnClickListener(v -> {
             String userName = getArguments() != null ? getArguments().getString("USER_NAME") : "Guest";
             HomeFragment homeFragment = new HomeFragment();

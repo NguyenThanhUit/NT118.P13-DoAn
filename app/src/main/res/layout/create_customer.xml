@@ -22,10 +22,9 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
                 <ImageButton
                     android:id="@+id/btnBack"
@@ -43,14 +42,15 @@
                     android:gravity="center"
                     android:text="Add Customer"
                     android:textSize="28sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:textColor="@color/color3"/>
 
-            </LinearLayout>
+            </FrameLayout>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="15dp"
                 android:text="Full name"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
@@ -121,7 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="8dp"
-                android:text="Loại khách hàng"
+                android:text="Types of customer"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
@@ -142,7 +142,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:onClick="@{clickHandler::onSubmitBtnClicked}"
-                android:text="Tạo khách hàng" />
+                android:text="Add customer" />
         </LinearLayout>
     </ScrollView>
 </layout>

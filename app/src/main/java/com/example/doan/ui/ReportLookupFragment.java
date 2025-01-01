@@ -16,7 +16,7 @@ public class ReportLookupFragment extends Fragment {
         View view = inflater.inflate(R.layout.report_lookup, container, false);
 
 
-        Button btnBack = view.findViewById(R.id.btnBackToHomeFromReport);
+        Button btnBack = view.findViewById(R.id.ic_back);
         btnBack.setOnClickListener(v -> replaceFragment(new HomeFragment()));
 
         return view;
