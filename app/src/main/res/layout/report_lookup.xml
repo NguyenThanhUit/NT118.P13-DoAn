@@ -2,50 +2,78 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:padding="16dp">
 
-    <Button
-        android:id="@+id/btnBackToHomeFromReport"
-        android:layout_width="wrap_content"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Quay lại" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp">
 
-    <!-- Bố trí hàng ngang chứa EditText và Button tìm kiếm -->
+        <!-- Back Button -->
+        <ImageButton
+            android:id="@+id/btnBackToHomeFromReport"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:background="@color/background"
+            android:backgroundTint="@color/background"
+            android:src="@drawable/ic_back" />
+
+        <!-- Title -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="Report"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+    </FrameLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:padding="8dp">
+
         <EditText
             android:id="@+id/edtSearchReport"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="40dp"
             android:layout_weight="1"
-            android:hint="Nhập tên hoặc ID báo cáo"
-            android:padding="8dp" />
+            android:background="@drawable/border_white"
+            android:hint="Enter report name"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp" />
 
-        <Button
+        <ImageButton
             android:id="@+id/btnSearchReport"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Tìm kiếm"
-            android:layout_marginStart="8dp" />
+            android:layout_width="48dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/border_white"
+            android:contentDescription="Search"
+            android:src="@drawable/ic_search" />
     </LinearLayout>
-
-    <Button
-        android:id="@+id/btnAddReport"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Thêm báo cáo"
-        android:layout_gravity="end"
-        android:layout_marginTop="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvReports"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"/>
+    <View
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginTop="16dp" />
-
+        android:layout_weight="1" />
+    <ImageButton
+        android:id="@+id/btnAddReport"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/rounded_corner"
+        android:src="@drawable/ic_add"
+        android:layout_gravity="end|bottom"/>
 </LinearLayout>
