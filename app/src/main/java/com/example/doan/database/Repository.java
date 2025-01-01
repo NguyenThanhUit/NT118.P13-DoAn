@@ -157,4 +157,7 @@ public class Repository {
         executorService.execute(() -> gDao.isIDExists(id));
     }
 
+    public void updateEmployee(Employees employees){
+        executorService.execute(() -> edao.updateEmployee(employees));
+    }
 }

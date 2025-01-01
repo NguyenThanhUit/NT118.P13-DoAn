@@ -41,7 +41,7 @@ public class AddNewEmployeeClick {
             String currentDateTime = getCurrentDateTime();
 
             Employees newEmployee = new Employees(
-                    employees.getEid(),
+                    String.valueOf(System.currentTimeMillis()),
                     employees.getPhone(),
                     employees.getName(),
                     employees.getPosition(),
@@ -55,6 +55,8 @@ public class AddNewEmployeeClick {
 
             // Thông báo cho người dùng
             Toast.makeText(context, "Nhân viên đã được thêm thành công!", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(context, ManageEmployeeActivity.class);
+            context.startActivity(intent);
         }
     }
 
