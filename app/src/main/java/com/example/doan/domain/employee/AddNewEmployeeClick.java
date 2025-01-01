@@ -41,7 +41,6 @@ public class AddNewEmployeeClick {
             String currentDateTime = getCurrentDateTime();
 
             Employees newEmployee = new Employees(
-                    String.valueOf(System.currentTimeMillis()),
                     employees.getPhone(),
                     employees.getName(),
                     employees.getPosition(),
