@@ -5,11 +5,26 @@
         android:icon="@drawable/ic_home"
         android:id="@+id/home"
         />
+<<<<<<< HEAD
     <item android:title="Order"
         android:icon="@drawable/order_1_svgrepo_com"
         android:id="@+id/order"/>
     <item android:title="Settings"
         android:icon="@drawable/ic_settings"
         android:id="@+id/settings"
+=======
+    <item android:title="Customer"
+        android:icon="@drawable/ic_group"
+        android:id="@+id/customer"/>
+    <item android:title="Order"
+        android:icon="@drawable/ic_order"
+        android:id="@+id/order"/>
+    <item android:title="Goods"
+        android:icon="@drawable/ic_goods"
+        android:id="@+id/goods"/>
+    <item android:title="Setting"
+        android:icon="@drawable/ic_setting"
+        android:id="@+id/setting"
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         />
 </menu>

@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:layout_marginTop="40dp">
+
+    <!-- Header với Icon Settings và nút Chuyển đổi chế độ ban ngày / ban đêm -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_settings.xml
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="sans-serif-medium"
+            android:paddingStart="8dp"
+            android:paddingEnd="215dp"
+            android:text="Settings"
+            android:textSize="30sp" />
+
+        <Switch
+            android:id="@+id/night_mode_switch"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textOff="🌙"
+            android:textOn="☀️"
+            android:thumbTint="@color/black"
+            android:trackTint="@color/gray"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </LinearLayout>
+
+    <!-- Card cho mục Notifications -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/notifications_card"
+        android:layout_width="0dp"
+=======
+        app:layout_constraintBottom_toTopOf="@+id/account_card"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/account_card"
+        android:layout_width="match_parent"
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/admin_setting_fragment.xml
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_settings.xml
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+=======
+        app:layout_constraintTop_toBottomOf="@id/tv_account">
+
+        <LinearLayout
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_security"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/account_card">
+            <ImageView
+                android:id="@+id/img_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_security"
+                android:paddingEnd="10sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_security"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Security"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toEndOf="@+id/img_security"
+                app:layout_constraintTop_toTopOf="@+id/img_security"
+                app:layout_constraintBottom_toBottomOf="@+id/img_security"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_notifications"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_security">
+
+            <ImageView
+                android:id="@+id/img_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="10sp"
+                android:src="@drawable/ic_notifications"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_security"></ImageView>
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/admin_setting_fragment.xml
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Notifications"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_settings.xml
+                android:textSize="22sp" />
+
+=======
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_change_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/ll_notifications">
+            <ImageView
+                android:id="@+id/img_change_password"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_change_password"
+                android:paddingEnd="10sp"
+                app:layout_constraintTop_toBottomOf="@id/img_notifications"
+                app:layout_constraintStart_toStartOf="parent"
+                >
+            </ImageView>
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/admin_setting_fragment.xml
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Enable Notifications"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toBottomOf="@+id/notifications_card"
+                app:layout_constraintTop_toTopOf="@+id/btn_notifications"
+
+                />
+
+            <Button
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/btn_notifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/blue"
+                android:text="Enabled"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+<<<<<<< HEAD:app/src/main/res/layout/fragment_settings.xml
+    <!-- Card cho mục Language -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/language_card"
+=======
+
+    <TextView
+        android:id="@+id/tv_options"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Options"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginTop="20sp"
+        app:layout_constraintTop_toBottomOf="@+id/account_card"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/options_card"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/options_card"
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/admin_setting_fragment.xml
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/notifications_card">
+
+        <LinearLayout
+<<<<<<< HEAD:app/src/main/res/layout/fragment_settings.xml
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Language"
+                android:textSize="22sp" />
+
+            <TextView
+=======
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_language"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:paddingStart="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/options_card">
+            <ImageView
+                android:id="@+id/img_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_language"
+                android:paddingEnd="10sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_language"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:text="Language - English"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_report"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/ll_language">
+            <ImageView
+                android:id="@+id/img_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingEnd="10sp"
+                android:src="@drawable/ic_report"
+                >
+            </ImageView>
+
+            <TextView
+                android:id="@+id/tv_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Report proplems"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_create_account"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/ll_report">
+            <ImageView
+                android:id="@+id/img_create_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_create_account"
+                android:paddingEnd="10sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_create_account"
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/admin_setting_fragment.xml
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Select language"
+                android:textSize="18sp" />
+
+            <Spinner
+                android:id="@+id/language_spinner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:background="@color/blue"
+                android:padding="8dp"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textColor="@color/black" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Card cho mục Create Account -->
+    <com.google.android.material.card.MaterialCardView
+        android:id="@+id/create_account_card"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/language_card">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:text="Create account"
+<<<<<<< HEAD:app/src/main/res/layout/fragment_settings.xml
+                android:textSize="22sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="New account for employee"
+                android:textSize="18sp" />
+
+            <Button
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:id="@+id/btn_createaccount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:backgroundTint="@color/blue"
+                android:text="Create"
+                android:textAllCaps="false"
+                android:textColor="@color/white" />
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <!-- Bottom Navigation -->
+
+    <Button
+        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:backgroundTint="@color/blue"
+        android:text="Log out"
+        android:textSize="22sp"
+        app:layout_constraintTop_toBottomOf="@+id/create_account_card"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-medium"
+        >
+
+    </Button>
+
+=======
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+        <LinearLayout
+            android:background="@drawable/border_listview_setting"
+            android:id="@+id/ll_log_out"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginTop="3dp"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/ll_create_account">
+            <ImageView
+                android:id="@+id/img_log_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_log_out"
+                android:paddingEnd="10sp"
+                >
+            </ImageView>
+            <TextView
+                android:id="@+id/tv_log_out"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Log out"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                >
+            </TextView>
+        </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/admin_setting_fragment.xml
+</androidx.constraintlayout.widget.ConstraintLayout>

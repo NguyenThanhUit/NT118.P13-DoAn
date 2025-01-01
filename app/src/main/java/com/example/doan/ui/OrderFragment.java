@@ -1,5 +1,6 @@
 package com.example.doan.ui;
 
+<<<<<<< HEAD
 import android.content.Intent;
 import android.media.MediaTimestamp;
 import android.os.Bundle;
@@ -117,3 +118,7 @@ public class OrderFragment extends Fragment  {
         startActivity(intent);
     }
 }
+=======
+public class OrderFragment {
+}
+>>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
