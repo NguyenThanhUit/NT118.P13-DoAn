@@ -9,7 +9,6 @@ import androidx.lifecycle.LiveData;
 import com.example.doan.customers.CustomerDAO;
 import com.example.doan.customers.Customers;
 import com.example.doan.domain.employee.EmployeeDao;
-import com.example.doan.domain.employee.EmployeeDetails;
 import com.example.doan.domain.employee.Employees;
 import com.example.doan.goods.Goods;
 import com.example.doan.goods.GoodsDAO;
@@ -76,16 +75,6 @@ public class Repository {
         executorService.execute(() -> dbdao.deleteCustomer(customers));
     }
 
-    public LiveData<Integer> getCustomerCountByCategory(String category) {
-        return dbdao.countCustomersByCategory(category);
-    }
-
-    public LiveData<Integer> getTotalCustomerCount() {
-        return dbdao.countAllCustomers();
-    }
-
-
-
     //Them mot employee
     public void addEmployee(Employees employees) {
         executorService.execute(() -> edao.insertEmployeee(employees));
@@ -96,14 +85,13 @@ public class Repository {
         executorService.execute(() -> edao.deleteEmployee(employees));
     }
 
-    public LiveData<List<EmployeeDetails>> getTopEmployeesWithDetails() {
-        return oDao.getTopEmployeesWithDetails();
-    }
 
     //Xoa tat ca employee
     public void deleteAllCustomer() {
         executorService.execute(() -> dbdao.deleteAllCustomers());
     }
+
+
 
     public LiveData<List<Employees>> getAllEmployees() {
         return edao.getALLEmloyees();
@@ -114,22 +102,16 @@ public class Repository {
         return dbdao.getAllCustomers();
     }
 
-    // Report
+
     public void addnewReport(Reports reports){
         executorService.execute(() -> rdao.insertReport(reports));
     }
     public void deleteReport(Reports reports){
         executorService.execute(() -> rdao.deleteReport(reports));
     }
-    public void updateReport(Reports report) {
-        executorService.execute(() -> rdao.updateReport(report));
-    }
-
     public LiveData<List<Reports>> getAllReports(){
-        return rdao.getAllReports();
+        return rdao.getALlReports();
     }
-
-    // Task
     public void addnewTask(Tasks tasks){
         executorService.execute(() -> tdao.insertTask(tasks));
     }
@@ -139,15 +121,7 @@ public class Repository {
     public LiveData<List<Tasks>> getALLTasks(){
         return tdao.getALLTasks();
     }
-    public LiveData<Integer> getTotalTaskCount() {
-        return tdao.getTotalTaskCount();
-    }
 
-    public LiveData<Integer> getCompletedTaskCount() {
-        return tdao.getCompletedTaskCount();
-    }
-
-    // Goods
     public LiveData<List<Goods>> getALLGoods(){
         return gDao.getALLGoods();
     }
@@ -159,11 +133,6 @@ public class Repository {
     }
     public void updateGoodsQuantity(String goodsId, int newQuantity) {
         gDao.updateGoodsQuantity(goodsId, newQuantity);
-    }
-
-    // Orders
-    public LiveData<Float> getTotalOrderRevenue() {
-        return oDao.getTotalOrderRevenue();
     }
 
     public void addnewOrders(Orders orders){
@@ -186,6 +155,11 @@ public class Repository {
 
     public void isIDExists(String id) {
         executorService.execute(() -> gDao.isIDExists(id));
+    }
+
+    //Xoa task
+    public void deleteTaskID(Tasks tasks){
+        executorService.execute(() -> tdao.deleteTaskById(String.valueOf(tasks)));
     }
 
 }

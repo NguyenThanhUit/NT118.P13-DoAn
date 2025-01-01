@@ -33,15 +33,11 @@ android {
         viewBinding = true
         dataBinding = true
     }
-
 }
 
 dependencies {
     val room_version = "2.6.1"
     val lifecycle_version = "2.8.5"
-
-    implementation("com.github.PhilJay:MPAndroidChart:v3.0.3")
-    implementation("com.github.anastr:SpeedView:1.5.0")
 
 
     // ViewModel

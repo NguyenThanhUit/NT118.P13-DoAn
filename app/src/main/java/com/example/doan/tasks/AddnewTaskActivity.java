@@ -69,7 +69,7 @@ public class AddnewTaskActivity extends AppCompatActivity {
         });
 
 
-        ImageButton imgBtnBack4 = findViewById(R.id.imgBtnBack4);
+        ImageButton imgBtnBack4 = findViewById(R.id.ic_back);
         imgBtnBack4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

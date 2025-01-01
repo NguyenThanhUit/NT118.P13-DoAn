@@ -1,9 +1,12 @@
 package com.example.doan.domain.employee;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.ReturnThis;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
+
+import java.util.UUID;
 
 @Entity(tableName = "employees_information")
 public class Employees {
@@ -37,8 +40,8 @@ public class Employees {
     @ColumnInfo(name = "employee_updatedAt")
     private String updateAt;
 
-    public Employees(@NonNull String eid, String phone, String name, String position, String email, String username, String createdAt, String password, String updateAt) {
-        this.eid = eid;
+    public Employees( String phone, String name, String position, String email, String username, String createdAt, String password, String updateAt) {
+        this.eid = generateEID();
         this.phone = phone;
         this.name = name;
         this.position = position;
@@ -52,6 +55,10 @@ public class Employees {
 
     public Employees() {
 
+    }
+
+    private String generateEID(){
+        return "NV" + (System.currentTimeMillis() % 1000000);
     }
 
     @NonNull

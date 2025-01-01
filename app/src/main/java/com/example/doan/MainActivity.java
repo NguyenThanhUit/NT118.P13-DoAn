@@ -15,7 +15,7 @@ import com.example.doan.databinding.ActivityMainForAdminBinding;
 import com.example.doan.tasks.Tasks;
 import com.example.doan.ui.AdminHomeFragment;
 import com.example.doan.ui.AdminSettingFragment;
-import com.example.doan.ui.AdminStatisticFragment;
+import com.example.doan.ui.GoodsFragment;
 import com.example.doan.ui.ListPersonFragment;
 import com.example.doan.ui.SettingsFragment;
 import com.example.doan.ui.HomeFragment;
@@ -40,12 +40,10 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.home) {
                 replaceFragment(new AdminHomeFragment());
                 return true;
-            }
-            if (item.getItemId() == R.id.statistic) {
-                replaceFragment(new AdminStatisticFragment());
+            }else if(item.getItemId() == R.id.order){
+                replaceFragment(new GoodsFragment());
                 return true;
-            }
-            else if (item.getItemId() == R.id.settings) {
+            } else if (item.getItemId() == R.id.settings) {
                 replaceFragment(new AdminSettingFragment());
                 return true;
             }
@@ -57,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         String userName = getIntent().getStringExtra("USER_NAME");
         ArrayList<Parcelable> tasklists = getIntent().getParcelableArrayListExtra("TASKS");
-        ArrayList<Parcelable> notificationlists = getIntent().getParcelableArrayListExtra("NOTIFICATIONS");
+
 
         Bundle bundle = new Bundle();
 
@@ -67,9 +65,6 @@ public class MainActivity extends AppCompatActivity {
         }
         if (tasklists != null) {
             bundle.putParcelableArrayList("TASKS", tasklists);
-        }
-        if (notificationlists != null) {
-            bundle.putParcelableArrayList("NOTIFICATION", notificationlists);
         }
 
 

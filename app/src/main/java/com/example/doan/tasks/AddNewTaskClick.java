@@ -49,13 +49,8 @@ public class AddNewTaskClick {
         }, calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), calendar.get(Calendar.DAY_OF_MONTH)).show();
     }
     
-    // ngay giao lon hon ngay bat dau
+
     public void onSubmitBtnClicked(View view) {
-        Log.d("DEBUG", "TaskID: " + tasks.getTaskID());
-        Log.d("DEBUG", "Description: " + tasks.getTaskDecription());
-        Log.d("DEBUG", "Assign Date: " + tasks.getTaskAssignedDate());
-        Log.d("DEBUG", "Due Date: " + tasks.getTaskDueDate());
-        Log.d("DEBUG", "EmployeeID: " + tasks.getEmployeeID());
         if (TextUtils.isEmpty(tasks.getTaskID()) ||
                 TextUtils.isEmpty(tasks.getTaskDecription()) ||
                 TextUtils.isEmpty(tasks.getTaskAssignedDate()) ||

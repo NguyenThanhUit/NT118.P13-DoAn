@@ -44,7 +44,6 @@
             android:paddingEnd="20sp"
             android:text='@{"Start: " + task.taskAssignedDate + " - End: " + task.taskDueDate}'
             android:textSize="20sp"
-
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/tv_status"
             tools:layout_editor_absoluteX="16dp"></TextView>

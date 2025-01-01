@@ -17,7 +17,6 @@ import com.example.doan.MainActivityForSaleEmployee;
 import com.example.doan.R;
 import com.example.doan.domain.employee.Employees;
 import com.example.doan.database.InfoDatabase;
-import com.example.doan.reports.Reports;
 import com.example.doan.tasks.Tasks;
 import com.example.doan.ui.TasksLookUP;
 
@@ -30,7 +29,6 @@ public class LogInActivity extends AppCompatActivity {
     private InfoDatabase database;
 
     private Tasks tasks;
-    private Reports reports;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,30 +59,38 @@ public class LogInActivity extends AppCompatActivity {
                             if (employees != null && !employees.isEmpty()) {
                                 Employees employee = employees.get(0);
                                 if (password.equals(employee.getPassword())) {
-                                    // Lấy tất cả công việc (Tasks) của nhân viên
-                                    database.getTDAO().getTasksForEmployee(employee.getEid()).observe(LogInActivity.this, new Observer<List<Tasks>>() {
-                                        @Override
-                                        public void onChanged(List<Tasks> tasks) {
-                                            // Chuyển đổi danh sách công việc sang TasksLookUP
-                                            ArrayList<TasksLookUP> tasksLookUPList = convertTasksToTasksLookUP(tasks);
+                                    if ("Nhan vien ban hang".equals(employee.getPosition())) {
+                                        database.getTDAO().getTasksForEmployee(employee.getEid()).observe(LogInActivity.this, new Observer<List<Tasks>>() {
+                                            @Override
+                                            public void onChanged(List<Tasks> tasks) {
 
-                                            // Tạo Intent để chuyển dữ liệu
-                                            Intent intent;
-                                            if ("Nhan vien ban hang".equals(employee.getPosition())) {
-                                                intent = new Intent(LogInActivity.this, MainActivityForSaleEmployee.class);
-                                            } else {
-                                                intent = new Intent(LogInActivity.this, MainActivity.class);
+                                                ArrayList<TasksLookUP> tasksLookUPList = convertTasksToTasksLookUP(tasks);
+
+
+                                                Intent intent = new Intent(LogInActivity.this, MainActivityForSaleEmployee.class);
+                                                intent.putExtra("EMPLOYEE_ID", employee.getEid());
+                                                intent.putExtra("USER_NAME", employee.getName());
+                                                intent.putParcelableArrayListExtra("TASKS", tasksLookUPList);
+                                                startActivity(intent);
+                                                finish();
                                             }
+                                        });
+                                    } else {
+                                        database.getTDAO().getTasksForEmployee(employee.getEid()).observe(LogInActivity.this, new Observer<List<Tasks>>() {
+                                            @Override
+                                            public void onChanged(List<Tasks> tasks) {
 
-                                            intent.putExtra("EMPLOYEE_ID", employee.getEid());
-                                            intent.putExtra("USER_NAME", employee.getName());
-                                            intent.putParcelableArrayListExtra("TASKS", tasksLookUPList);
+                                                ArrayList<TasksLookUP> tasksLookUPList = convertTasksToTasksLookUP(tasks);
 
-                                            // Chuyển sang Activity tiếp theo
-                                            startActivity(intent);
-                                            finish();
-                                        }
-                                    });
+
+                                                Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+                                                intent.putExtra("USER_NAME", employee.getName());
+                                                intent.putParcelableArrayListExtra("TASKS", tasksLookUPList);
+                                                startActivity(intent);
+                                                finish();
+                                            }
+                                        });
+                                    }
                                 } else {
                                     Toast.makeText(LogInActivity.this, "Incorrect password", Toast.LENGTH_SHORT).show();
                                 }
@@ -97,6 +103,7 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
     }
+
 
     private ArrayList<TasksLookUP> convertTasksToTasksLookUP(List<Tasks> tasks) {
         ArrayList<TasksLookUP> tasksLookUPList = new ArrayList<>();

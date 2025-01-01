@@ -158,7 +158,6 @@ public class OrderTotal extends AppCompatActivity {
                     }
                 }
 
-
                 EditText edtAnotherCost = findViewById(R.id.edt_anothercost);
                 TextView tvTotalCost = findViewById(R.id.tv_totalcost);
                 calculateTotalCost(edtAnotherCost.getText().toString(), sum, sale, tvTotalCost);

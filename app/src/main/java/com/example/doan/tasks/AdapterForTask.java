@@ -20,12 +20,12 @@ public class AdapterForTask extends RecyclerView.Adapter<AdapterForTask.TaskView
 
     public interface OnItemClickListener {
         void onItemClick(Tasks task);
+        void onDeleteClick(Tasks task);
     }
 
     public AdapterForTask(ArrayList<Tasks> tasks) {
         this.tasks = tasks;
     }
-
 
 
     public void setOnItemClickListener(OnItemClickListener listener) {
@@ -48,6 +48,23 @@ public class AdapterForTask extends RecyclerView.Adapter<AdapterForTask.TaskView
     public void onBindViewHolder(@NonNull TaskViewHolder holder, int position) {
         Tasks currentTask = tasks.get(position);
         holder.bind(currentTask, listener);
+
+
+        //Xu li su kien xoa task
+        holder.binding.ibDeleteTask.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int position = holder.getAdapterPosition();
+                if(position != RecyclerView.NO_POSITION){
+                    Tasks taskDelete = tasks.get(position);
+                    if (listener != null) {
+                        listener.onDeleteClick(taskDelete);
+                    }
+                    tasks.remove(position);
+                    notifyItemRemoved(position);
+                }
+            }
+        });
     }
 
     @Override

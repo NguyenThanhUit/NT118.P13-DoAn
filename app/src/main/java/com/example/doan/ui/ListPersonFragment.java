@@ -84,7 +84,7 @@ public class ListPersonFragment extends Fragment {
         ItemTouchHelper.SimpleCallback itemTouchHelperCallback = new ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT) {
             @Override
             public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
-                return false; // No need to support drag-and-drop
+                return false;
             }
 
             @Override
@@ -128,8 +128,8 @@ public class ListPersonFragment extends Fragment {
                 }
             }
 
-
             myAdapter.setCustomer(filteredCustomers);
+            binding.executePendingBindings();
             myAdapter.notifyDataSetChanged();
         });
 

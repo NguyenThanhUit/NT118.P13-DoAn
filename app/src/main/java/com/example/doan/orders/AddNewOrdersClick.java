@@ -27,21 +27,15 @@ public class AddNewOrdersClick {
     }
 
     public void onSubmitBtnClicked(View view) {
-        Log.d("AddNewOrdersClick", "Goods ID: " + orders.getGoodsID());
-        Log.d("AddNewOrdersClick", "Order Price: " + orders.getOPrice());
-        Log.d("AddNewOrdersClick", "Order Sale: " + orders.getOSale());
-        Log.d("AddNewOrdersClick", "Order VAT: " + orders.getOVAT());
-        Log.d("AddNewOrdersClick", "Order Total: " + orders.getOTotal());
-        Log.d("AddNewOrdersClick", "Customer ID: " + orders.getCustomerID());
-        Log.d("AddNewOrdersClick", "Goods Price: " + orders.getGoodsPrice());
-        Log.d("AddNewOrdersClick", "Employee ID: " + orders.getEmployeeID());
-
+        if (orders.getCustomerID() == 0 || TextUtils.isEmpty(String.valueOf(orders.getCustomerID()))) {
+            Toast.makeText(context, "Vui lòng chọn khách hàng!", Toast.LENGTH_SHORT).show();
+            return;
+        }
         if (TextUtils.isEmpty(orders.getGoodsID()) ||
                 TextUtils.isEmpty(orders.getOPrice()) ||
                 TextUtils.isEmpty(orders.getOSale()) ||
                 TextUtils.isEmpty(orders.getOVAT()) ||
                 TextUtils.isEmpty(orders.getOTotal()) ||
-                TextUtils.isEmpty(String.valueOf(orders.getCustomerID())) ||
                 TextUtils.isEmpty(orders.getGoodsPrice()) ||
                 TextUtils.isEmpty(orders.getEmployeeID())) {
 

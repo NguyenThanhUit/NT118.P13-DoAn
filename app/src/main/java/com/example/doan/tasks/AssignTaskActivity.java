@@ -68,20 +68,25 @@ public class AssignTaskActivity extends AppCompatActivity {
         });
         TextView tvTotalTask = findViewById(R.id.number_of_task);
         TextView tvInProgressTask = findViewById(R.id.number_iprogress_task);
+        TextView tvTaskComplete = findViewById(R.id.number_completed_task);
         myViewModel.getAlltasks().observe(this, tasks -> {
             if (tasks != null) {
                 myAdapter.setTasksLists(new ArrayList<>(tasks));
                 int inProgress = 0;
+                int taskComplete = 0;
                 int totalTask = tasks.size();
                 for (Tasks task : tasks) {
                     if (task.getTaskStatus().equals("Chưa hoàn thành")) {
                         inProgress++;
                     }
+                    if(task.getTaskStatus().equals("Hoàn thành")){
+                        taskComplete++;
+                    }
                 }
-
 
                 tvTotalTask.setText(String.valueOf(totalTask));
                 tvInProgressTask.setText(String.valueOf(inProgress));
+                tvTaskComplete.setText(String.valueOf(taskComplete));
             } else {
                 myAdapter.setTasksLists(new ArrayList<>());
                 tvTotalTask.setText("0");
@@ -94,6 +99,10 @@ public class AssignTaskActivity extends AppCompatActivity {
             public void onItemClick(Tasks task) {
                 showTaskInfo(task);
             }
+            @Override
+            public void onDeleteClick(Tasks task) {
+                myViewModel.deleteTask(task);
+            }
         });
 
 
@@ -101,10 +110,14 @@ public class AssignTaskActivity extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(AssignTaskActivity.this, AdminHomeFragment.class);
-                startActivity(i);
+                AdminHomeFragment adminHomeFragment = new AdminHomeFragment();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.frameLayout3, adminHomeFragment)
+                        .addToBackStack(null)
+                        .commit();
             }
         });
+
 
 
         btnAdd = findViewById(R.id.btnadd);
@@ -115,6 +128,8 @@ public class AssignTaskActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
 
@@ -131,7 +146,6 @@ public class AssignTaskActivity extends AppCompatActivity {
         TextView tvTaskEnd = dialogView.findViewById(R.id.tv_task_end);
         TextView tvTaskDescription = dialogView.findViewById(R.id.tv_task_description);
 
-
         tvTaskId.setText(task.getTaskID());
         tvTaskTitle.setText(task.getTaskNotes());
         tvTaskDirection.setText(task.getTaskDecription());
@@ -147,7 +161,6 @@ public class AssignTaskActivity extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
-
 
 
 }

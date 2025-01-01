@@ -27,27 +27,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Eid -->
-        <TextView
-            android:id="@+id/tv_eid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Eid"
-            android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/title_text"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/eid_input"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:hint="Enter Eid"
-            android:text="@={employee.eid}"
-            android:inputType="text"
-            app:layout_constraintTop_toBottomOf="@id/tv_eid"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent" />
-
         <!-- Username -->
         <TextView
             android:id="@+id/tv_username"
@@ -55,7 +34,7 @@
             android:layout_height="wrap_content"
             android:text="Username"
             android:textSize="18sp"
-            app:layout_constraintTop_toBottomOf="@id/eid_input"
+            app:layout_constraintTop_toBottomOf="@id/title_text"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText

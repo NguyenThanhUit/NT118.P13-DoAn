@@ -41,7 +41,6 @@ public class AddNewEmployeeClick {
             String currentDateTime = getCurrentDateTime();
 
             Employees newEmployee = new Employees(
-                    employees.getEid(),
                     employees.getPhone(),
                     employees.getName(),
                     employees.getPosition(),
@@ -53,7 +52,6 @@ public class AddNewEmployeeClick {
             );
             employeesViewModel.addnewEmployee(newEmployee);
 
-            // Thông báo cho người dùng
             Toast.makeText(context, "Nhân viên đã được thêm thành công!", Toast.LENGTH_SHORT).show();
         }
     }

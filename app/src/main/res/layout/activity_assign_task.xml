@@ -132,7 +132,6 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- CardView: Another Task (e.g. Complete Task) -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/card_view_complete_task"
                 android:layout_width="0dp"
@@ -149,6 +148,7 @@
                     android:padding="15dp">
 
                     <TextView
+                        android:id="@+id/number_completed_task"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"

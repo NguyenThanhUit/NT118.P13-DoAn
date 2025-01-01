@@ -7,7 +7,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
 import com.example.doan.database.Repository;
-import com.example.doan.domain.employee.EmployeeDetails;
 
 import java.util.List;
 
@@ -28,11 +27,5 @@ public class OrdersViewModel extends AndroidViewModel {
     }
     public LiveData<List<Orders>> getAllOrders (){
         return allOders;
-    }
-    public LiveData<Float> getTotalOrderRevenue() {
-        return repository.getTotalOrderRevenue();
-    }
-    public LiveData<List<EmployeeDetails>> getTopEmployeesWithDetails() {
-        return repository.getTopEmployeesWithDetails();
     }
 }

@@ -58,6 +58,10 @@ public class AdapterForGoods extends RecyclerView.Adapter<AdapterForGoods.GoodsV
         int currentQuantity = Integer.parseInt(currentGoods.getGQuantity());
         holder.binding.btnIncrease.setVisibility(currentQuantity > 0 ? View.VISIBLE : View.GONE);
 
+        if(count >= currentQuantity){
+            holder.binding.btnIncrease.setVisibility(View.GONE);
+        }
+
 
         holder.binding.executePendingBindings();
 
@@ -75,6 +79,12 @@ public class AdapterForGoods extends RecyclerView.Adapter<AdapterForGoods.GoodsV
 
             int newQuantity = currentGoods.getGOQuantity() + 1;
             currentGoods.setGOQuantity(newQuantity);
+
+
+            int maxQuantity = Integer.parseInt(currentGoods.getGQuantity());
+            if(newQuantity > maxQuantity){
+                holder.binding.btnIncrease.setVisibility(View.GONE);
+            }
 
 
             Log.d("GoodsAdapter", "After increase, GOQuantity: " + newQuantity);

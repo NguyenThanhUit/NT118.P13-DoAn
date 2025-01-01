@@ -167,13 +167,6 @@
                 android:layout_gravity="center"
                 android:text="Giao nhiệm vụ" />
 
-            <ImageButton
-                android:id="@+id/imgBtnBack4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:layout_gravity="center"
-                app:srcCompat="?attr/homeAsUpIndicator" />
         </LinearLayout>
     </ScrollView>
 

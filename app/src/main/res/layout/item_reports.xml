@@ -1,43 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/rounded_list_item"
-    android:padding="16dp"
-    android:layout_marginBottom="10dp">
-    <TextView
-        android:id="@+id/tv_report_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Report Title"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
-    <TextView
-        android:id="@+id/tv_report_create_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="[Create date]"
-        app:layout_constraintTop_toBottomOf="@+id/tv_report_title"
-        app:layout_constraintStart_toStartOf="parent"/>
-    <TextView
-        android:id="@+id/tv_dash"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=" - "
-        app:layout_constraintStart_toEndOf="@+id/tv_report_create_date"
-        app:layout_constraintEnd_toStartOf="@id/tv_report_due_date"
-        app:layout_constraintTop_toTopOf="@id/tv_report_due_date"
-        />
-    <TextView
-        android:id="@+id/tv_report_due_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="[Due date]"
-        app:layout_constraintTop_toBottomOf="@+id/tv_report_title"
-        app:layout_constraintStart_toEndOf="@id/tv_dash"/>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <data>
+        <variable
+            name="report"
+            type="com.example.doan.reports.Reports" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <!-- ID reports -->
+        <TextView
+            android:id="@+id/tvReportID"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{report.reportID}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:hint="ID"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:hint="Tiêu đề"
+            android:id="@+id/tvReportTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{report.reportTitle}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReportID" />
+
+        <!-- Tên nhân viên -->
+        <TextView
+            android:hint="Tên nhân viên"
+            android:id="@+id/tvEmployeePhone"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{report.employeeID}"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvReportTitle" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

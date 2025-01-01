@@ -5,15 +5,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 import androidx.annotation.NonNull;
+import androidx.core.content.ContextCompat;
 import androidx.databinding.DataBindingUtil;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan.R;
 import com.example.doan.databinding.CustomerListItemBinding;
-import com.example.doan.tasks.AdapterForTask;
 
 import java.util.ArrayList;
 
@@ -77,11 +76,32 @@ public class AdapterForCustomer extends RecyclerView.Adapter<AdapterForCustomer.
             binding.setCustomer(customers);
             binding.executePendingBindings();
 
+            String category = customers.getCategory();
+            int color = getCategoryColor(category);
+            binding.indicatorSquare.setBackgroundColor(color);
             itemView.setOnClickListener(view -> {
                 if (listener != null) {
                     listener.onItemClick(customers);
                 }
             });
+        }
+
+        private int getCategoryColor(String category) {
+            Log.d("AdapterForCustomer", "Category: " + category);
+            switch (category != null ? category.toLowerCase() : "") {
+                case "mới":
+                    return ContextCompat.getColor(itemView.getContext(), R.color.blue);
+                case "chưa tiếp cận":
+                    return ContextCompat.getColor(itemView.getContext(), R.color.gray);
+                case "tiếp cận":
+                    return ContextCompat.getColor(itemView.getContext(), R.color.green);
+                case "nóng":
+                    return ContextCompat.getColor(itemView.getContext(), R.color.brown_red);
+                case "tiềm năng":
+                    return ContextCompat.getColor(itemView.getContext(), R.color.gold_metallic);
+                default:
+                    return ContextCompat.getColor(itemView.getContext(), R.color.black);
+            }
         }
     }
 }

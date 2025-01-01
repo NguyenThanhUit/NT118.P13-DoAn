@@ -71,7 +71,6 @@ public class OrderFragment extends Fragment  {
         } else {
             employeeID = null;
         }
-        Log.d("OrderFragment", "Received EMPLOYEE_ID: " + employeeID);
 
 
         myViewModel.getAllGoods().observe(getViewLifecycleOwner(), goodsList -> {

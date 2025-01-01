@@ -200,13 +200,11 @@
 
     <!-- CardView thông báo -->
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:layout_weight="1"
         card_view:cardCornerRadius="8dp"
         card_view:cardElevation="4dp">
 
@@ -223,16 +221,15 @@
                 android:text="Notifications"
                 android:textAlignment="center"
                 android:textSize="30sp"
-                android:background="@color/background"
                 android:textStyle="bold" />
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view_notifications"
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/background"
-                android:paddingTop="8dp"
-                android:scrollbars="vertical" />
+                android:text="- Nội dung thông báo"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
