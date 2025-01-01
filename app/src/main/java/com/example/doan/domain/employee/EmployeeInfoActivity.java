@@ -86,6 +86,7 @@ public class EmployeeInfoActivity extends AppCompatActivity {
                 if(!newName.isEmpty() && !newPhone.isEmpty() && !newEmail.isEmpty()){
                     Employees updatedEmployee = new Employees();
                     updatedEmployee.setEid(employeeId);
+                    updatedEmployee.setPosition(role);
                     updatedEmployee.setName(newName);
                     updatedEmployee.setPhone(newPhone);
                     updatedEmployee.setEmail(newEmail);
