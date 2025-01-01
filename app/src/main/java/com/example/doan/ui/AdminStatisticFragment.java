@@ -1,6 +1,7 @@
 package com.example.doan.ui;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,17 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.doan.customers.CustomerViewModel;
+import com.example.doan.domain.employee.EmployeeDetails;
+import com.example.doan.domain.employee.TopEmployeesAdapter;
 import com.example.doan.orders.OrdersViewModel;
 import com.example.doan.tasks.TasksViewModel;
-import com.github.mikephil.charting.charts.BarChart;
 import com.github.mikephil.charting.charts.PieChart;
-import com.github.mikephil.charting.data.BarData;
-import com.github.mikephil.charting.data.BarDataSet;
-import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
@@ -33,11 +33,9 @@ import java.util.ArrayList;
 public class AdminStatisticFragment extends Fragment {
 
     private PieChart semiDonutChart;
-    private BarChart customerSegmentationBarChart;
-    private PieChart salesByProductPieChart;
+    private PieChart customerSegmentationPieChart;
     private LinearLayout semiDonutLegend;
     private LinearLayout customerSegmentationLegend;
-    private LinearLayout salesByProductLegend;
     private CustomerViewModel customerViewModel;
 
     @Nullable
@@ -48,13 +46,11 @@ public class AdminStatisticFragment extends Fragment {
 
         // Initialize charts
         semiDonutChart = rootView.findViewById(R.id.semi_donut_chart);
-        customerSegmentationBarChart = rootView.findViewById(R.id.customer_segmentation_bar_chart);
-        salesByProductPieChart = rootView.findViewById(R.id.sales_by_product_pie_chart);
+        customerSegmentationPieChart = rootView.findViewById(R.id.customer_segmentation_pie_chart);
 
         // Initialize legends
         semiDonutLegend = rootView.findViewById(R.id.semi_donut_legend);
         customerSegmentationLegend = rootView.findViewById(R.id.customer_segmentation_legend);
-        salesByProductLegend = rootView.findViewById(R.id.sales_by_product_legend);
 
         // Initialize ViewModel
         customerViewModel = new ViewModelProvider(this).get(CustomerViewModel.class);
@@ -72,9 +68,27 @@ public class AdminStatisticFragment extends Fragment {
         updateWonOpportunities(rootView);
 
         // Set up the charts
-        setupSemiDonutChart();
-        setupCustomerSegmentationBarChart();
-        setupSalesByProductPieChart();
+        setupCustomerSegmentationPieChart(rootView);
+
+        RecyclerView recyclerView = rootView.findViewById(R.id.recycler_top_employees);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        TopEmployeesAdapter adapter = new TopEmployeesAdapter(new ArrayList<>());
+        recyclerView.setAdapter(adapter);
+
+        OrdersViewModel ordersViewModel = new ViewModelProvider(this).get(OrdersViewModel.class);
+        ordersViewModel.getTopEmployeesWithDetails().observe(getViewLifecycleOwner(), topEmployees -> {
+            adapter.setEmployees(topEmployees);
+        });
+
+        ordersViewModel.getTopEmployeesWithDetails().observe(getViewLifecycleOwner(), topEmployees -> {
+            for (EmployeeDetails employee : topEmployees) {
+                Log.d("TopEmployees", "Name: " + employee.employeeName +
+                        ", Phone: " + employee.employeePhone +
+                        ", Email: " + employee.employeeEmail +
+                        ", Total Order: " + employee.totalOrder);
+            }
+            adapter.setEmployees(topEmployees);
+        });
 
         return rootView;
     }
@@ -140,6 +154,10 @@ public class AdminStatisticFragment extends Fragment {
                 salesGoalChart.invalidate();
             }
         });
+
+        // Add legend items
+        addLegendItem(semiDonutLegend, "Achieved", android.graphics.Color.parseColor("#4CAF50"));
+        addLegendItem(semiDonutLegend, "Remaining", android.graphics.Color.parseColor("#BDBDBD"));
     }
 
 
@@ -181,35 +199,7 @@ public class AdminStatisticFragment extends Fragment {
         }
     }
 
-    private void setupSemiDonutChart() {
-        int goal = 1000000;
-        int achieved = 500000;
-
-        ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry((float) achieved / goal * 100, "Achieved"));
-        entries.add(new PieEntry(100 - (float) achieved / goal * 100, "Remaining"));
-
-        PieDataSet dataSet = new PieDataSet(entries, "");
-        dataSet.setColors(new int[]{android.graphics.Color.GREEN, android.graphics.Color.LTGRAY});
-        dataSet.setDrawValues(false);
-
-        PieData data = new PieData(dataSet);
-        semiDonutChart.setData(data);
-
-        semiDonutChart.setHoleRadius(80f);
-        semiDonutChart.setTransparentCircleRadius(85f);
-        semiDonutChart.setRotationAngle(180f);
-        semiDonutChart.setDrawHoleEnabled(true);
-        semiDonutChart.setCenterText(achieved + " / " + goal);
-        semiDonutChart.setCenterTextSize(16f);
-        semiDonutChart.invalidate();
-
-        // Add legend items
-        addLegendItem(semiDonutLegend, "Achieved", android.graphics.Color.parseColor("#4CAF50"));
-        addLegendItem(semiDonutLegend, "Remaining", android.graphics.Color.parseColor("#BDBDBD"));
-    }
-
-    private void setupCustomerSegmentationBarChart() {
+    private void setupCustomerSegmentationPieChart(View rootView) {
         customerViewModel.getTotalCustomerCount().observe(getViewLifecycleOwner(), totalCustomers -> {
             if (totalCustomers == null || totalCustomers == 0) return;
 
@@ -218,63 +208,53 @@ public class AdminStatisticFragment extends Fragment {
                     customerViewModel.getCustomerCountByCategory("Tiếp cận").observe(getViewLifecycleOwner(), contactedCustomers -> {
                         customerViewModel.getCustomerCountByCategory("Nóng").observe(getViewLifecycleOwner(), hotCustomers -> {
                             customerViewModel.getCustomerCountByCategory("Tiềm năng").observe(getViewLifecycleOwner(), potentialCustomers -> {
-                                float newPercent = (float) newCustomers / totalCustomers * 100;
-                                float notContactedPercent = (float) notContactedCustomers / totalCustomers * 100;
-                                float contactedPercent = (float) contactedCustomers / totalCustomers * 100;
-                                float hotPercent = (float) hotCustomers / totalCustomers * 100;
-                                float potentialPercent = (float) potentialCustomers / totalCustomers * 100;
+                                ArrayList<PieEntry> entries = new ArrayList<>();
 
-                                ArrayList<BarEntry> entries = new ArrayList<>();
-                                entries.add(new BarEntry(0, newPercent));          // "Mới"
-                                entries.add(new BarEntry(1, notContactedPercent)); // "Chưa tiếp cận"
-                                entries.add(new BarEntry(2, contactedPercent));    // "Tiếp cận"
-                                entries.add(new BarEntry(3, hotPercent));          // "Nóng"
-                                entries.add(new BarEntry(4, potentialPercent));    // "Tiềm năng"
+                                if (newCustomers != null && newCustomers > 0)
+                                    entries.add(new PieEntry((float) newCustomers / totalCustomers * 100));
+                                if (notContactedCustomers != null && notContactedCustomers > 0)
+                                    entries.add(new PieEntry((float) notContactedCustomers / totalCustomers * 100));
+                                if (contactedCustomers != null && contactedCustomers > 0)
+                                    entries.add(new PieEntry((float) contactedCustomers / totalCustomers * 100));
+                                if (hotCustomers != null && hotCustomers > 0)
+                                    entries.add(new PieEntry((float) hotCustomers / totalCustomers * 100));
+                                if (potentialCustomers != null && potentialCustomers > 0)
+                                    entries.add(new PieEntry((float) potentialCustomers / totalCustomers * 100));
 
-                                BarDataSet dataSet = new BarDataSet(entries, "Customer Segmentation");
+                                PieDataSet dataSet = new PieDataSet(entries, "");
                                 dataSet.setColors(new int[]{
-                                        android.graphics.Color.parseColor("#4FC3F7"), // Xanh dương nhạt
-                                        android.graphics.Color.parseColor("#BA68C8"), // Tím hồng
-                                        android.graphics.Color.parseColor("#FFD54F"), // Vàng
-                                        android.graphics.Color.parseColor("#81C784"), // Xanh lá cây
-                                        android.graphics.Color.parseColor("#E57373")  // Đỏ
+                                        android.graphics.Color.parseColor("#4FC3F7"),
+                                        android.graphics.Color.parseColor("#BA68C8"),
+                                        android.graphics.Color.parseColor("#FFD54F"),
+                                        android.graphics.Color.parseColor("#81C784"),
+                                        android.graphics.Color.parseColor("#E57373")
                                 });
+                                dataSet.setValueTextSize(12f);
+                                dataSet.setValueTextColor(android.graphics.Color.BLACK);
+                                dataSet.setValueFormatter((value, entry, dataSetIndex, viewPortHandler) -> String.format("%.0f%%", value));
 
-                                BarData data = new BarData(dataSet);
+                                PieData data = new PieData(dataSet);
+                                customerSegmentationPieChart.setData(data);
 
-                                customerSegmentationBarChart.setData(data);
-                                customerSegmentationBarChart.invalidate();
+                                customerSegmentationPieChart.setDrawHoleEnabled(true);
+                                customerSegmentationPieChart.setHoleRadius(50f);
+                                customerSegmentationPieChart.setTransparentCircleRadius(55f);
+                                customerSegmentationPieChart.setDescription(null);
+                                customerSegmentationPieChart.getLegend().setEnabled(false);
 
-                                addLegendItem(customerSegmentationLegend, "Mới", android.graphics.Color.parseColor("#4FC3F7"));
-                                addLegendItem(customerSegmentationLegend, "Chưa tiếp cận", android.graphics.Color.parseColor("#BA68C8"));
-                                addLegendItem(customerSegmentationLegend, "Tiếp cận", android.graphics.Color.parseColor("#FFD54F"));
-                                addLegendItem(customerSegmentationLegend, "Nóng", android.graphics.Color.parseColor("#81C784"));
-                                addLegendItem(customerSegmentationLegend, "Tiềm năng", android.graphics.Color.parseColor("#E57373"));
+                                addLegendItem(customerSegmentationLegend, "New", android.graphics.Color.parseColor("#4FC3F7"));
+                                addLegendItem(customerSegmentationLegend, "Not Contacted", android.graphics.Color.parseColor("#BA68C8"));
+                                addLegendItem(customerSegmentationLegend, "Contacted", android.graphics.Color.parseColor("#FFD54F"));
+                                addLegendItem(customerSegmentationLegend, "Hot", android.graphics.Color.parseColor("#81C784"));
+                                addLegendItem(customerSegmentationLegend, "Potential", android.graphics.Color.parseColor("#E57373"));
+
+                                customerSegmentationPieChart.invalidate();
                             });
                         });
                     });
                 });
             });
         });
-    }
-
-    private void setupSalesByProductPieChart() {
-        ArrayList<PieEntry> entries = new ArrayList<>();
-        entries.add(new PieEntry(40f, "Product A"));
-        entries.add(new PieEntry(30f, "Product B"));
-        entries.add(new PieEntry(30f, "Product C"));
-
-        PieDataSet dataSet = new PieDataSet(entries, "Sales by Product");
-        dataSet.setColors(new int[]{android.graphics.Color.RED, android.graphics.Color.GREEN, android.graphics.Color.BLUE});
-        PieData data = new PieData(dataSet);
-
-        salesByProductPieChart.setData(data);
-        salesByProductPieChart.invalidate();
-
-        // Add legend items
-        addLegendItem(salesByProductLegend, "Product A", android.graphics.Color.RED);
-        addLegendItem(salesByProductLegend, "Product B", android.graphics.Color.GREEN);
-        addLegendItem(salesByProductLegend, "Product C", android.graphics.Color.BLUE);
     }
 
     private void addLegendItem(LinearLayout legendContainer, String label, int color) {

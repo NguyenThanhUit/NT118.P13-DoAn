@@ -191,7 +191,7 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Customer Segmentation Bar Chart -->
+            <!-- Customer Segmentation Pie Chart -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -212,8 +212,8 @@
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
 
-                    <com.github.mikephil.charting.charts.BarChart
-                        android:id="@+id/customer_segmentation_bar_chart"
+                    <com.github.mikephil.charting.charts.PieChart
+                        android:id="@+id/customer_segmentation_pie_chart"
                         android:layout_width="match_parent"
                         android:layout_height="200dp"
                         android:layout_marginBottom="16dp" />
@@ -229,12 +229,14 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Sales by Product Pie Chart -->
+            <!-- Top Employees Section -->
             <androidx.cardview.widget.CardView
+                android:id="@+id/top_employees_card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                app:cardCornerRadius="8dp">
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -243,26 +245,19 @@
                     android:padding="16dp">
 
                     <TextView
+                        android:id="@+id/top_employees_title"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Sales by Product"
+                        android:text="Top Employees"
                         android:textSize="18sp"
                         android:textStyle="bold"
                         android:layout_marginBottom="8dp" />
 
-                    <com.github.mikephil.charting.charts.PieChart
-                        android:id="@+id/sales_by_product_pie_chart"
-                        android:layout_width="match_parent"
-                        android:layout_height="200dp"
-                        android:layout_marginBottom="16dp" />
-
-                    <!-- Legend for Sales by Product Chart -->
-                    <LinearLayout
-                        android:id="@+id/sales_by_product_legend"
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recycler_top_employees"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        android:padding="8dp" />
+                        android:nestedScrollingEnabled="false" />
 
                 </LinearLayout>
             </androidx.cardview.widget.CardView>

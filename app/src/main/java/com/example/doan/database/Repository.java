@@ -9,6 +9,7 @@ import androidx.lifecycle.LiveData;
 import com.example.doan.customers.CustomerDAO;
 import com.example.doan.customers.Customers;
 import com.example.doan.domain.employee.EmployeeDao;
+import com.example.doan.domain.employee.EmployeeDetails;
 import com.example.doan.domain.employee.Employees;
 import com.example.doan.goods.Goods;
 import com.example.doan.goods.GoodsDAO;
@@ -95,13 +96,14 @@ public class Repository {
         executorService.execute(() -> edao.deleteEmployee(employees));
     }
 
+    public LiveData<List<EmployeeDetails>> getTopEmployeesWithDetails() {
+        return oDao.getTopEmployeesWithDetails();
+    }
 
     //Xoa tat ca employee
     public void deleteAllCustomer() {
         executorService.execute(() -> dbdao.deleteAllCustomers());
     }
-
-
 
     public LiveData<List<Employees>> getAllEmployees() {
         return edao.getALLEmloyees();

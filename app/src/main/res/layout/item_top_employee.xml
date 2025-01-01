@@ -1,0 +1,59 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="8dp">
+
+    <!-- Employee Info Section -->
+    <LinearLayout
+        android:id="@+id/employee_info_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingEnd="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/revenue_container">
+
+        <!-- Employee Name -->
+        <TextView
+            android:id="@+id/employee_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nguyen Thi Duyen"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- Employee Phone -->
+        <TextView
+            android:id="@+id/employee_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="123-456-7890"
+            android:textSize="14sp"
+            android:textColor="#757575" />
+
+        <!-- Employee Email -->
+        <TextView
+            android:id="@+id/employee_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="john.doe@example.com"
+            android:textSize="14sp"
+            android:textColor="#757575" />
+    </LinearLayout>
+
+    <!-- Revenue Section -->
+    <TextView
+        android:id="@+id/revenue_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="53,600,000đ"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="#FF5722"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
