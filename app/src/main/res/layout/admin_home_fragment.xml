@@ -1,20 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.AdminHomeFragment"
-    android:padding="16dp">
+    android:padding="16dp"
+    tools:context=".ui.AdminHomeFragment">
 
     <LinearLayout
-        android:background="@drawable/border_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_white"
+        android:orientation="horizontal">
 
         <ImageView
             android:layout_width="80dp"
@@ -25,27 +24,29 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Hello"
-                android:textSize="24sp"
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:textSize="24sp" />
+
             <TextView
                 android:id="@+id/tv_admin_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phan Duy Thọ"
-                android:textSize="26sp"
                 android:textColor="@color/black"
-                android:textFontWeight="900"/>
+                android:textFontWeight="900"
+                android:textSize="26sp" />
 
 
         </LinearLayout>
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -57,6 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
         android:clickable="true"
         android:focusable="true"
         card_view:cardCornerRadius="8dp"
@@ -80,25 +82,28 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:gravity="center_vertical"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:text="Employee"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_next"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_next" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_report"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:clickable="true"
         android:focusable="true"
         card_view:cardCornerRadius="8dp"
@@ -107,36 +112,37 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_white"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@drawable/border_white"
             android:padding="15dp">
 
             <ImageView
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_reports_2"
-                 />
+                android:src="@drawable/ic_reports_2" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:gravity="center_vertical"
                 android:layout_weight="1"
+                android:gravity="center_vertical"
                 android:text="Report"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_next"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_next" />
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
+
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_task"
         android:layout_width="match_parent"
@@ -150,9 +156,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_white"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@drawable/border_white"
             android:padding="15dp">
 
             <ImageView
@@ -165,17 +171,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
+                android:layout_weight="1"
                 android:gravity="center_vertical"
                 android:text="Task"
-                android:layout_weight="1"
                 android:textColor="@color/black"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
             <ImageView
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:src="@drawable/ic_next"
-                android:gravity="center_vertical"/>
+                android:gravity="center_vertical"
+                android:src="@drawable/ic_next" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
@@ -185,16 +192,16 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
+        android:layout_weight="1"
         android:clickable="true"
         android:focusable="true"
-        android:layout_weight="1"
         card_view:cardCornerRadius="8dp"
         card_view:cardElevation="4dp">
 
         <LinearLayout
-            android:background="@drawable/border_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="@drawable/border_white"
             android:gravity="center_vertical"
             android:orientation="vertical"
             android:padding="8dp">
@@ -202,10 +209,10 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_white"
                 android:text="Notifications"
                 android:textAlignment="center"
                 android:textSize="30sp"
-                android:background="@drawable/border_white"
                 android:textStyle="bold" />
 
             <TextView

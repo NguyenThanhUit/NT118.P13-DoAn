@@ -11,7 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="8dp"
+        android:background="@drawable/rounded_list_item">
 
         <!-- ID reports -->
         <TextView
@@ -27,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:hint="Tiêu đề"
+            android:hint="Title"
             android:id="@+id/tvReportTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -35,11 +36,13 @@
             android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvReportID" />
+            app:layout_constraintTop_toBottomOf="@+id/tvReportID"
+            android:paddingTop="8dp"/>
 
         <!-- Tên nhân viên -->
         <TextView
-            android:hint="Tên nhân viên"
+            android:hint="Name"
+            android:paddingTop="8dp"
             android:id="@+id/tvEmployeePhone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

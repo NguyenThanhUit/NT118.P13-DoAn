@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="orders"
             type="com.example.doan.orders.Orders" />
@@ -10,102 +11,101 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/rounded_list_item"
         android:gravity="center_vertical"
-        android:layout_marginBottom="10dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-
-
+        
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
             android:gravity="start"
-            android:layout_marginBottom="8dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingEnd="8dp"
                 android:text="Employee ID:"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 android:textColor="@android:color/darker_gray"
-                android:paddingEnd="8dp"
-                android:gravity="start" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:singleLine="true"
                 android:text="@{orders.employeeID}"
-                android:textSize="16sp"
-                android:textStyle="bold"
                 android:textColor="@android:color/black"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:singleLine="true" />
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
             android:gravity="start"
-            android:layout_marginBottom="8dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="start"
+                android:paddingEnd="8dp"
                 android:text="Goods Price:"
-                android:textSize="14sp"
-                android:textStyle="bold"
                 android:textColor="@android:color/darker_gray"
-                android:paddingEnd="8dp"
-                android:gravity="start" />
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@{orders.goodsPrice}"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="@{orders.goodsPrice}"
+                android:textColor="@android:color/black"
+                android:textSize="16sp"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginBottom="8dp"
             android:gravity="start"
-            android:layout_marginBottom="8dp">
+            android:orientation="horizontal">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Price:"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/darker_gray"
+                android:gravity="start"
                 android:paddingEnd="8dp"
-                android:gravity="start" />
+                android:text="Price:"
+                android:textColor="@android:color/darker_gray"
+                android:textSize="14sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@{orders.OPrice}"
-                android:textSize="14sp"
-                android:textColor="@android:color/black"
                 android:ellipsize="end"
                 android:maxLines="1"
-                android:singleLine="true" />
+                android:singleLine="true"
+                android:text="@{orders.OPrice}"
+                android:textColor="@android:color/black"
+                android:textSize="14sp" />
         </LinearLayout>
 
     </LinearLayout>

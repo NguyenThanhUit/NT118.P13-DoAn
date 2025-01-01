@@ -13,7 +13,7 @@
         android:id="@+id/tv_sign_in"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="SIGN IN"
+        android:text="Log In"
         android:textSize="40dp"
         android:textFontWeight="900"
         android:layout_marginBottom="30dp"

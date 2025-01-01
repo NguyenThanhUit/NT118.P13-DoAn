@@ -17,8 +17,8 @@
 
         <activity android:name=".domain.employee.AddNewEmployeeActivity">
         </activity>
-        
-        <activity android:name=".ui.AdminHomeFragment"></activity>
+
+        <activity android:name=".ui.AdminHomeFragment" />
 
         <activity
             android:name=".tasks.AddnewTaskActivity"

@@ -1,32 +1,61 @@
-<!-- task_item.xml -->
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical"
-    android:padding="8dp"
-    android:background="?android:attr/selectableItemBackground">
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:id="@+id/tvTaskID"
+    <data>
+        <variable
+            name="task"
+            type="com.example.doan.tasks.Tasks" />
+    </data>
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Task ID"
-        android:textSize="16sp" />
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_list_item"
+        android:padding="16dp">
 
+        <!-- Task Title -->
+        <TextView
+            android:id="@+id/tv_task_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Task ID"
+            android:text="@{task.taskID}"
+            android:textSize="28sp"
+            android:textStyle="bold" />
 
+        <!-- Task Status -->
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Status"
+            android:text="@{task.taskStatus}"
+            android:layout_marginTop="8dp" />
 
-    <TextView
-        android:id="@+id/tvTaskAssignedDate"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Assigned Date"
-        android:textSize="14sp" />
+        <!-- Row for Start-End Dates and Delete Button -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
 
-    <TextView
-        android:id="@+id/tvTaskStatus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Status"
-        android:textSize="14sp" />
+            <!-- Start - End -->
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textColor="@color/brown_red"
+                android:hint="Start - End"
+                android:paddingEnd="20sp"
+                android:text='@{"Start: " + task.taskAssignedDate + " - End: " + task.taskDueDate}'
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RtlSymmetry" />
 
-</LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+</layout>

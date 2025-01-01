@@ -14,7 +14,6 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         tools:context=".ListPersonFragment"
-        android:paddingTop="50dp"
         android:paddingHorizontal="16dp">
 
         <!-- Layout chứa tiêu đề và các bộ lọc -->
