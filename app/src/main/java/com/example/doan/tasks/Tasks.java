@@ -48,8 +48,7 @@ public class Tasks extends BaseObservable {
     @ColumnInfo(name = "employee_id")
     private String employeeID;
 
-    public Tasks(@NonNull String taskID, String taskDecription, String taskAssignedDate, String taskStatus, String taskDueDate, String taskCompletedDate, String taskNotes, String employeeID) {
-        this.taskID = taskID;
+    public Tasks( String taskDecription, String taskAssignedDate, String taskStatus, String taskDueDate, String taskCompletedDate, String taskNotes, String employeeID) {
         this.taskDecription = taskDecription;
         this.taskAssignedDate = taskAssignedDate;
         this.taskStatus = (taskStatus == null || taskStatus.isEmpty()) ? "Chưa hoàn thành" : taskStatus;

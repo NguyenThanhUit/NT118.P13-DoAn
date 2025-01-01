@@ -56,15 +56,14 @@ public class AddNewTaskClick {
         Log.d("DEBUG", "Assign Date: " + tasks.getTaskAssignedDate());
         Log.d("DEBUG", "Due Date: " + tasks.getTaskDueDate());
         Log.d("DEBUG", "EmployeeID: " + tasks.getEmployeeID());
-        if (TextUtils.isEmpty(tasks.getTaskID()) ||
+        if (
                 TextUtils.isEmpty(tasks.getTaskDecription()) ||
                 TextUtils.isEmpty(tasks.getTaskAssignedDate()) ||
                 TextUtils.isEmpty(tasks.getTaskDueDate()) ||
                 TextUtils.isEmpty(tasks.getEmployeeID())) {
-            Toast.makeText(context, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Please fill all fields!", Toast.LENGTH_SHORT).show();
         }else{
             Tasks newtask  = new Tasks(
-                    tasks.getTaskID(),
                     tasks.getTaskDecription(),
                     tasks.getTaskAssignedDate(),
                     tasks.getTaskStatus(),
@@ -74,7 +73,7 @@ public class AddNewTaskClick {
                     tasks.getEmployeeID()
             );
             tasksViewModel.addnewTask(newtask);
-            Toast.makeText(context, "Thêm nhiệm vụ thành công", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Add ", Toast.LENGTH_SHORT).show();
         }
     }
 
