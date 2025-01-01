@@ -9,35 +9,33 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="160dp"
-        android:orientation="vertical"
-        android:padding="8dp">
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_list_item">
+
+        <ImageView
+            android:id="@+id/indicatorSquare"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="8dp"
+            android:background="@color/gray" />
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/avatar"
+            android:layout_gravity="center_vertical"/>
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:padding="16dp">
-
-            <ImageView
-                android:id="@+id/indicatorSquare"
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_gravity="center_vertical"
-                android:layout_marginEnd="8dp"
-                android:background="@color/gray" />
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_marginEnd="16dp"
-                android:src="@drawable/custom_icon" />
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:layout_weight="1">
+            android:layout_gravity="center"
+            android:orientation="vertical"
+            android:layout_weight="1">
 
                 <TextView
                     android:id="@+id/tvMAKH"
@@ -47,43 +45,44 @@
                     android:textAllCaps="true"
                     android:textSize="20sp"
                     android:hint="Name"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"/>
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingTop="16dp"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_call"/>
+                        android:src="@drawable/ic_call"
+                        android:layout_marginEnd="5dp"/>
                     <TextView
                         android:id="@+id/tvName"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{customer.phone}"
+                        android:layout_gravity="center_vertical"
                         android:hint="Phone"
-                        android:textSize="12sp" />
+                        android:textSize="15sp" />
                 </LinearLayout>
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:paddingTop="16dp"
                     android:orientation="horizontal"
                     android:layout_height="wrap_content">
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/ic_mail" />
+                        android:src="@drawable/ic_mail"
+                        android:layout_marginEnd="5dp" />
                     <TextView
                         android:id="@+id/tvEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="@{customer.email}"
+                        android:layout_gravity="center_vertical"
                         android:hint="Email"
-                        android:textSize="12sp" />
+                        android:textSize="15sp" />
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
     </LinearLayout>
 </layout>

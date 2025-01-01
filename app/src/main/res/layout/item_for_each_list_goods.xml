@@ -12,42 +12,10 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="@android:color/white"
+        android:background="@drawable/rounded_list_item"
         android:gravity="center_vertical"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp">
+        android:layout_marginBottom="10dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="start"
-            android:layout_marginBottom="8dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Order ID:"
-                android:textSize="14sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/darker_gray"
-                android:paddingEnd="8dp"
-                android:gravity="start" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@{orders.OID}"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                android:textColor="@android:color/black"
-                android:ellipsize="end"
-                android:maxLines="1"
-                android:singleLine="true" />
-        </LinearLayout>
 
 
         <LinearLayout
@@ -121,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="OPrice:"
+                android:text="Price:"
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:textColor="@android:color/darker_gray"

@@ -14,7 +14,8 @@
         android:layout_width="match_parent"
         android:id="@+id/register"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:paddingTop="50dp"
+        android:paddingHorizontal="16dp">
 
         <!-- Title -->
         <TextView
@@ -23,7 +24,7 @@
             android:layout_height="wrap_content"
             android:text="Create new account"
             android:textSize="30sp"
-            android:fontFamily="sans-serif-medium"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
@@ -32,7 +33,7 @@
             android:id="@+id/tv_eid"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Eid"
+            android:text="Employee ID"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/title_text"
             app:layout_constraintStart_toStartOf="parent" />
@@ -40,10 +41,12 @@
         <EditText
             android:id="@+id/eid_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="Enter Eid"
             android:text="@={employee.eid}"
             android:inputType="text"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/tv_eid"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -61,10 +64,12 @@
         <EditText
             android:id="@+id/username_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="Enter your username"
             android:text="@={employee.username}"
             android:inputType="textPersonName"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/tv_username"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -82,10 +87,12 @@
         <EditText
             android:id="@+id/password_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="Enter your password"
             android:text="@={employee.password}"
             android:inputType="textPassword"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/tv_password"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -95,7 +102,7 @@
             android:id="@+id/tv_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Name"
+            android:text="Full name"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/password_input"
             app:layout_constraintStart_toStartOf="parent" />
@@ -103,10 +110,12 @@
         <EditText
             android:id="@+id/name_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="Enter full name"
             android:text="@={employee.name}"
             android:inputType="textPersonName"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/tv_name"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -116,7 +125,7 @@
             android:id="@+id/tv_phone"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Phone"
+            android:text="Phone number"
             android:textSize="18sp"
             app:layout_constraintTop_toBottomOf="@id/name_input"
             app:layout_constraintStart_toStartOf="parent" />
@@ -124,10 +133,12 @@
         <EditText
             android:id="@+id/phone_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="Enter phone number"
             android:inputType="phone"
             android:text="@={employee.phone}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/tv_phone"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -145,10 +156,12 @@
         <EditText
             android:id="@+id/email_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:hint="Enter email"
             android:inputType="textEmailAddress"
             android:text="@={employee.email}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
             app:layout_constraintTop_toBottomOf="@id/tv_email"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
@@ -164,15 +177,17 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Spinner
+            android:background="@drawable/border_white"
             android:id="@+id/position_input"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             app:layout_constraintTop_toBottomOf="@id/tv_position"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
         <!-- Sign Up Button -->
         <Button
+            style="@style/ButtonStyle"
             android:onClick="@{clickHandler::onSubmitBtnClicked}"
             android:id="@+id/sign_up_button"
             android:layout_width="match_parent"
@@ -181,7 +196,6 @@
             android:text="Sign Up"
             android:textColor="@color/white"
             android:textSize="18sp"
-            android:backgroundTint="@color/blue"
             app:layout_constraintTop_toBottomOf="@id/position_input"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

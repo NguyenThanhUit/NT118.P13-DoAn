@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="ButtonStyle" parent="Widget.MaterialComponents.Button">
-        <item name="android:backgroundTint">#1E2022</item> <!-- Màu nền -->
-        <item name="android:textColor">#FFFFFF</item> <!-- Màu chữ -->
+        <item name="android:backgroundTint">@color/accent</item> <!-- Màu nền -->
+        <item name="android:textColor">@color/white</item> <!-- Màu chữ -->
         <item name="cornerFamily">rounded</item> <!-- Bo góc -->
         <item name="cornerRadius">8dp</item>
         <item name="android:textStyle">bold</item>
@@ -12,9 +12,8 @@
         <item name="boxStrokeColor">@color/black</item> <!-- Màu viền -->
         <item name="boxStrokeWidth">2dp</item>
         <item name="background">@color/white</item>
-        <item name="backgroundTint">#F0F5F9</item> <!-- Màu nền khi chưa nhấn vào-->
-        <item name="android:textColorHint">#52616B</item> <!-- Màu chữ hint -->
-        <item name="android:textColor">#000000</item> <!-- Màu chữ -->
+        <item name="backgroundTint">@color/background</item> <!-- Màu nền khi chưa nhấn vào-->
+        <item name="android:textColor">@color/black</item> <!-- Màu chữ -->
         <item name="boxCornerRadiusTopStart">8dp</item> <!-- Bo góc -->
         <item name="boxCornerRadiusTopEnd">8dp</item>
         <item name="boxCornerRadiusBottomStart">8dp</item>
@@ -24,4 +23,5 @@
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">50%</item> <!-- Làm cho hình tròn hoàn toàn -->
     </style>
+
 </resources>

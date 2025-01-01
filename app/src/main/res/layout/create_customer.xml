@@ -1,4 +1,6 @@
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
     <data>
         <variable
             name="customer"
@@ -12,7 +14,8 @@
         android:layout_width="match_parent"
         android:id="@+id/main"
         android:layout_height="match_parent"
-        android:padding="16dp">
+        android:paddingTop="50dp"
+        android:paddingHorizontal="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,46 +28,46 @@
                 <ImageButton
                     android:onClick="@{clickHandler::onBackBtnClicked}"
                     android:id="@+id/btnBack"
-                    android:layout_width="40dp"
-                    android:layout_height="50dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginEnd="80dp"
-                    android:background="@drawable/back_arrow">
+                    android:src="@drawable/ic_back"
+                    android:background="@color/background"
+                    android:backgroundTint="@color/background">
                 </ImageButton>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Thêm khách hàng"
-                    android:textSize="20sp"
+                    android:text="Add Customer"
+                    android:textSize="28sp"
                     android:textStyle="bold"
-                    android:gravity="center"
-                    android:paddingBottom="16dp" />
+                    android:gravity="center" />
 
             </LinearLayout>
-
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Tên khách hàng (*)"
+                android:text="Full name"
                 android:textColor="@color/black"
                 android:textStyle="bold"
-                android:paddingTop="8dp" />
+                android:layout_marginTop="30dp"/>
 
             <EditText
                 android:id="@+id/edtName"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nhập nội dung"
-                android:backgroundTint="@color/gray"
-                android:background="@drawable/edittext_border"
+                android:layout_height="45dp"
+                android:hint="Name here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
                 android:padding="10dp"
                 android:text="@={customer.name}" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Nhập số điện thoại khách hàng"
+                android:text="Phone number"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="8dp" />
@@ -72,18 +75,17 @@
             <EditText
                 android:id="@+id/edtCustomerPhone"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nhập nội dung"
-                android:backgroundTint="@color/gray"
-                android:padding="10dp"
-                android:background="@drawable/edittext_border"
+                android:layout_height="45dp"
+                android:hint="Phone number here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
                 android:inputType="phone"
                 android:text="@={customer.phone}" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ email (*)"
+                android:text="Email (*)"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="8dp" />
@@ -91,17 +93,16 @@
             <EditText
                 android:id="@+id/edtEmail"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nhập nội dung"
-                android:backgroundTint="@color/gray"
-                android:background="@drawable/edittext_border"
-                android:padding="10dp"
+                android:layout_height="45dp"
+                android:hint="Email here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
                 android:text="@={customer.email}" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Địa chỉ"
+                android:text="Adress"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="8dp" />
@@ -109,11 +110,10 @@
             <EditText
                 android:id="@+id/edtAddress"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Nhập nội dung"
-                android:backgroundTint="@color/gray"
-                android:background="@drawable/edittext_border"
-                android:padding="10dp"
+                android:layout_height="45dp"
+                android:hint="Adress here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
                 android:text="@={customer.address}" />
 
             <TextView
@@ -128,20 +128,20 @@
             <Spinner
                 android:id="@+id/spinnerCustomerType"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:backgroundTint="@color/gray"
+                android:layout_height="45dp"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
                 android:entries="@array/customer_type_array"
                 android:padding="10dp" />
 
             <Button
+                style="@style/ButtonStyle"
                 android:onClick="@{clickHandler::onSubmitBtnClicked}"
                 android:id="@+id/btnSave"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Tạo khách hàng"
-                android:backgroundTint="@color/blue_dark"
-                android:textColor="@android:color/white" />
+                android:text="Tạo khách hàng" />
         </LinearLayout>
     </ScrollView>
 </layout>

@@ -3,56 +3,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@android:color/white">
+    android:paddingTop="50dp"
+    android:paddingHorizontal="16dp">
 
     <TextView
         android:id="@+id/tvTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Danh Sách Đơn Hàng"
-        android:textSize="20sp"
+        android:text="Order"
+        android:textSize="28sp"
         android:textStyle="bold"
-        android:gravity="center"
-        android:background="@color/purple_500"
-        android:textColor="@android:color/white" />
+        android:gravity="center" />
 
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@android:color/white">
+        android:layout_marginTop="30dp">
 
         <EditText
             android:id="@+id/etSearch"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:hint="Tìm kiếm đơn hàng..."
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            android:hint="Search for order..."
             android:padding="8dp"
             android:drawableLeft="@android:drawable/ic_menu_search"
             android:drawablePadding="8dp"
             android:inputType="text" />
 
         <Button
+            style="@style/ButtonStyle"
             android:id="@+id/btnSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tìm"
-            android:padding="8dp"
-            android:layout_marginStart="8dp"
-            android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white" />
+            android:text="Search"
+            android:layout_marginStart="10dp" />
     </LinearLayout>
 
     <!-- RecyclerView -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewOrders"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:clipToPadding="false"
-        android:layout_marginTop="4dp" />
+        android:layout_marginTop="20dp" />
 </LinearLayout>
