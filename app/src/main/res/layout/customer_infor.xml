@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp">
-<<<<<<< HEAD
 
     <LinearLayout
         android:id="@+id/layout_edit_fields"
@@ -14,113 +13,62 @@
         android:orientation="vertical">
     </LinearLayout>
 
-=======
-    <ImageButton
-        android:id="@+id/ic_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:src="@drawable/ic_back"
-        android:backgroundTint="@color/background"
-        android:background="@color/background" />
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
     <TextView
         android:id="@+id/tv_customer_infor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Customer information"
-<<<<<<< HEAD
         android:textSize="21sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-=======
-        android:textStyle="bold"
-        android:textSize="21sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
     <ImageButton
         android:id="@+id/ic_edit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:background="@color/background"
         android:backgroundTint="@color/background"
         android:src="@drawable/ic_edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-=======
-        android:src="@drawable/ic_edit"
-        android:background="@color/background"
-        android:backgroundTint="@color/background"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_customer_infor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-<<<<<<< HEAD
         android:layout_marginTop="30dp"
         android:background="@drawable/border_background"
         android:padding="16dp"
         app:layout_constraintTop_toBottomOf="@id/ic_edit">
 
-=======
-        android:padding="16dp"
-        android:background="@drawable/border_background"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/ic_edit">
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/avatar_image"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:src="@drawable/avatar"
-<<<<<<< HEAD
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circle" />
 
-=======
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.Circle"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_customer_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Customer name"
-<<<<<<< HEAD
             android:textSize="21sp"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/avatar_image" />
 
-=======
-            app:layout_constraintStart_toEndOf="@id/avatar_image"
-            android:textSize="21sp"
-            android:textStyle="bold"
-            />
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_phone_number"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone number: "
             app:layout_constraintStart_toEndOf="@id/avatar_image"
-<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@id/tv_customer_name" />
 
-=======
-            app:layout_constraintTop_toBottomOf="@id/tv_customer_name"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_customer_phone_number"
             android:layout_width="wrap_content"
@@ -128,24 +76,16 @@
             android:text="[0123456789]"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_phone_number"
-<<<<<<< HEAD
             app:layout_constraintTop_toTopOf="@id/tv_phone_number" />
 
-=======
-            app:layout_constraintTop_toTopOf="@id/tv_phone_number"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Email: "
             app:layout_constraintStart_toEndOf="@id/avatar_image"
-<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@id/tv_phone_number" />
 
-=======
-            app:layout_constraintTop_toBottomOf="@id/tv_phone_number"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_customer_email"
             android:layout_width="wrap_content"
@@ -153,24 +93,16 @@
             android:text="[abcdef@gmail.com]"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_email"
-<<<<<<< HEAD
             app:layout_constraintTop_toTopOf="@id/tv_email" />
 
-=======
-            app:layout_constraintTop_toTopOf="@id/tv_email"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_adress"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Adress: "
             app:layout_constraintStart_toEndOf="@id/avatar_image"
-<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@id/tv_email" />
 
-=======
-            app:layout_constraintTop_toBottomOf="@id/tv_email"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_customer_adress"
             android:layout_width="wrap_content"
@@ -178,24 +110,16 @@
             android:text="[Ho Chi Minh City]"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_adress"
-<<<<<<< HEAD
             app:layout_constraintTop_toTopOf="@id/tv_adress" />
 
-=======
-            app:layout_constraintTop_toTopOf="@id/tv_adress"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_incharge"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Person in charge: "
             app:layout_constraintStart_toEndOf="@id/avatar_image"
-<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@id/tv_adress" />
 
-=======
-            app:layout_constraintTop_toBottomOf="@id/tv_adress"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_employee_incharge"
             android:layout_width="wrap_content"
@@ -203,24 +127,16 @@
             android:text="[Phan Duy Tho]"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_incharge"
-<<<<<<< HEAD
             app:layout_constraintTop_toTopOf="@id/tv_incharge" />
 
-=======
-            app:layout_constraintTop_toTopOf="@id/tv_incharge"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_class"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Customer class: "
             app:layout_constraintStart_toEndOf="@id/avatar_image"
-<<<<<<< HEAD
             app:layout_constraintTop_toBottomOf="@id/tv_incharge" />
 
-=======
-            app:layout_constraintTop_toBottomOf="@id/tv_incharge"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <TextView
             android:id="@+id/tv_customer_filter"
             android:layout_width="wrap_content"
@@ -228,7 +144,6 @@
             android:text="[Potential]"
             android:textStyle="bold"
             app:layout_constraintStart_toEndOf="@id/tv_class"
-<<<<<<< HEAD
             app:layout_constraintTop_toTopOf="@id/tv_class" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -279,57 +194,10 @@
         app:layout_constraintStart_toStartOf="@id/ic_mail"
         app:layout_constraintTop_toBottomOf="@id/ic_mail" />
 
-=======
-            app:layout_constraintTop_toTopOf="@id/tv_class"/>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <ImageButton
-            android:id="@+id/ic_call"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_call"
-            android:background="@drawable/circle_icon_background"
-            android:gravity="center"
-            android:layout_marginTop="30dp"
-            app:layout_constraintTop_toBottomOf="@id/cl_customer_infor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/ic_mail"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Call phone"
-        android:textSize="18sp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/ic_call"
-        app:layout_constraintEnd_toEndOf="@id/ic_call"
-        app:layout_constraintTop_toBottomOf="@id/ic_call"/>
-        <ImageButton
-            android:id="@+id/ic_mail"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:src="@drawable/ic_mail"
-            android:background="@drawable/circle_icon_background"
-            android:gravity="center"
-            android:layout_marginTop="30dp"
-            app:layout_constraintTop_toBottomOf="@id/cl_customer_infor"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Send email"
-        android:textSize="18sp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/ic_mail"
-        app:layout_constraintEnd_toEndOf="@id/ic_mail"
-        app:layout_constraintTop_toBottomOf="@id/ic_mail"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
     <ImageButton
         android:id="@+id/ic_note"
         android:layout_width="70dp"
         android:layout_height="70dp"
-<<<<<<< HEAD
         android:layout_marginTop="30dp"
         android:background="@drawable/circle_icon_background"
         android:gravity="center"
@@ -357,22 +225,4 @@
         android:text="Save"
         app:layout_constraintEnd_toEndOf="@+id/ic_note"
         app:layout_constraintTop_toBottomOf="@+id/textView5"></Button>
-=======
-        android:src="@drawable/ic_note"
-        android:background="@drawable/circle_icon_background"
-        android:gravity="center"
-        android:layout_marginTop="30dp"
-        app:layout_constraintTop_toBottomOf="@id/cl_customer_infor"
-        app:layout_constraintStart_toEndOf="@id/ic_mail"
-        app:layout_constraintEnd_toEndOf="parent"/>
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add note"
-        android:textSize="18sp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintStart_toStartOf="@id/ic_note"
-        app:layout_constraintEnd_toEndOf="@id/ic_note"
-        app:layout_constraintTop_toBottomOf="@id/ic_note"/>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
 </androidx.constraintlayout.widget.ConstraintLayout>

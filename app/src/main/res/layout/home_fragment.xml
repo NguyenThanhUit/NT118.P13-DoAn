@@ -1,23 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-<<<<<<< HEAD:app/src/main/res/layout/home_fragment.xml
     android:background="@color/color4"
     android:padding="15dp">
-=======
-    android:background="@color/background"
-    android:padding="16dp">
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/employee_home_fragment.xml
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/background"
         android:layout_marginTop="16dp">
 
         <ImageView
@@ -34,28 +27,11 @@
             android:layout_weight="1">
 
             <TextView
-<<<<<<< HEAD:app/src/main/res/layout/home_fragment.xml
                 android:id="@+id/tvLoaiNV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Chào buổi sáng"
                 android:textSize="18sp"
-=======
-                android:id="@+id/tv_employee_name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Tên nhân viên"
-                android:textSize="32sp"
-                android:textColor="@color/black"
-                android:textStyle="bold" />
-
-            <TextView
-                android:id="@+id/tv_employee_position"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Salesman"
-                android:textSize="16sp"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/employee_home_fragment.xml
                 android:textColor="@color/black" />
 
             <TextView
@@ -234,94 +210,6 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-<<<<<<< HEAD:app/src/main/res/layout/home_fragment.xml
-=======
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="@color/background"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_reports" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"
-                android:text="Report"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_next"
-                android:gravity="center_vertical"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-
-    <!-- CardView thứ hai cho Nhiệm vụ hôm nay -->
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view_task"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        card_view:cardCornerRadius="8dp"
-        card_view:cardElevation="4dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="@color/background"
-            android:padding="8dp">
-
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_task" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"
-                android:text="Task"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_next"
-                android:gravity="center_vertical"/>
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
-    <!-- CardView cho phần "Xem thông báo" -->
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_weight="1"
-        card_view:cardCornerRadius="8dp"
-        card_view:cardElevation="4dp">
-
-        <LinearLayout
-            android:layout_width="match_parent"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/employee_home_fragment.xml
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="vertical"
@@ -333,27 +221,16 @@
                 android:text="Notifications"
                 android:textAlignment="center"
                 android:textSize="30sp"
-                android:background="@color/background"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-<<<<<<< HEAD:app/src/main/res/layout/home_fragment.xml
                 android:text="- Nội dung thông báo"
-=======
-                android:text="- Notification content"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/employee_home_fragment.xml
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:background="@color/background"
                 android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-<<<<<<< HEAD:app/src/main/res/layout/home_fragment.xml
 </LinearLayout>
-=======
-
-</LinearLayout>
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7:app/src/main/res/layout/employee_home_fragment.xml
