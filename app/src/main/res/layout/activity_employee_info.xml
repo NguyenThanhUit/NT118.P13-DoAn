@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:padding="16dp"
+    android:paddingHorizontal="16dp"
+    android:paddingTop="50dp"
     xmlns:tools="http://schemas.android.com/tools">
     <ImageButton
         android:id="@+id/ic_back"
