@@ -1,154 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+<layout>
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.example.doan.domain.employee.AddNewEmployeeClick" />
+        <variable
+            name="employee"
+            type="com.example.doan.domain.employee.Employees" />
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:id="@+id/register"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:paddingHorizontal="16dp">
 
-    <ImageView
-        android:id="@+id/ic_back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/ic_back"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/title"
-        />
-    <TextView
-        android:id="@+id/title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create new account"
-        android:textSize="30sp"
-        android:fontFamily="sans-serif-medium"
-        app:layout_constraintTop_toTopOf="@id/ic_back"
-        app:layout_constraintBottom_toTopOf="@+id/profile_icon"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <!-- Profile Icon -->
-
-    <!-- Employee ID Input -->
-
-    <ImageView
-        android:id="@+id/profile_icon"
-        android:layout_width="72dp"
-        android:layout_height="72dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/ic_person_add"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/title" />
-
-    <TextView
-        android:id="@+id/tv_employee_id"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Employee ID"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/profile_icon"
-        app:layout_constraintBottom_toTopOf="@id/employee_id"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-    <EditText
-        android:id="@+id/employee_id"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="ABC123"
-        app:layout_constraintTop_toBottomOf="@id/tv_employee_id"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="textPersonName" />
-    <TextView
-        android:id="@+id/tv_full_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Full Name"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/employee_id"
-        app:layout_constraintBottom_toTopOf="@id/full_name"
-        />
-    <!-- Full Name Input -->
-    <EditText
-        android:id="@+id/full_name"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="Nguyen Van A"
-        app:layout_constraintTop_toBottomOf="@id/tv_full_name"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="textPersonName" />
-    <TextView
-        android:id="@+id/tv_email"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Email"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/full_name"
-        app:layout_constraintBottom_toTopOf="@id/email"
-        />
-    <!-- Email Input -->
-    <EditText
-        android:id="@+id/email"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:hint="nguyenvana@gmail.com"
-        app:layout_constraintTop_toBottomOf="@id/tv_email"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:inputType="textEmailAddress" />
-    <TextView
-        android:id="@+id/tv_phone_number"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Phone Number"
-        android:textSize="18sp"
-        app:layout_constraintTop_toBottomOf="@+id/email"
-        app:layout_constraintBottom_toTopOf="@id/phone_number_container"
-        />
-    <!-- Phone Number Input -->
-    <LinearLayout
-        android:id="@+id/phone_number_container"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintTop_toBottomOf="@id/tv_phone_number"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <!-- Country Code Spinner -->
-        <Spinner
-            android:id="@+id/country_code_spinner"
+        <!-- Title -->
+        <TextView
+            android:id="@+id/title_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
-            android:backgroundTint="@color/white"
-            />
+            android:text="Create new account"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Phone Number EditText -->
-        <EditText
-            android:id="@+id/phone_number"
-            android:layout_width="0dp"
+        <!-- Eid -->
+        <TextView
+            android:id="@+id/tv_eid"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="0123456789"
+            android:text="Employee ID"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/title_text"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/eid_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter Eid"
+            android:text="@={employee.eid}"
+            android:inputType="text"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_eid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/eid_input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/username_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter your username"
+            android:text="@={employee.username}"
+            android:inputType="textPersonName"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_username"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Password -->
+        <TextView
+            android:id="@+id/tv_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Password"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/username_input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/password_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter your password"
+            android:text="@={employee.password}"
+            android:inputType="textPassword"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_password"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Name -->
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Full name"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/password_input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter full name"
+            android:text="@={employee.name}"
+            android:inputType="textPersonName"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Phone -->
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Phone number"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/name_input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/phone_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter phone number"
             android:inputType="phone"
-            android:layout_weight="1" />
-    </LinearLayout>
+            android:text="@={employee.phone}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
-    <!-- Sign Up Button -->
-    <Button
-        android:id="@+id/sign_up_button"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="Sign Up"
-        android:textColor="@color/white"
-        android:textSize="18sp"
-        android:backgroundTint="@color/blue"
-        android:fontFamily="sans-serif-black"
-        app:layout_constraintTop_toBottomOf="@id/phone_number_container"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        <!-- Email -->
+        <TextView
+            android:id="@+id/tv_email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/phone_input"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/email_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter email"
+            android:inputType="textEmailAddress"
+            android:text="@={employee.email}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_email"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Position -->
+        <TextView
+            android:id="@+id/tv_position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Position"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/email_input"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Spinner
+            android:background="@drawable/border_white"
+            android:id="@+id/position_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            app:layout_constraintTop_toBottomOf="@id/tv_position"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Sign Up Button -->
+        <Button
+            style="@style/ButtonStyle"
+            android:onClick="@{clickHandler::onSubmitBtnClicked}"
+            android:id="@+id/sign_up_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="Sign Up"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintTop_toBottomOf="@id/position_input"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

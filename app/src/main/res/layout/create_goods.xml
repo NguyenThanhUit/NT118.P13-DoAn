@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="clickHandler"
+            type="com.example.doan.goods.AddNewGoodsClick" />
+        <variable
+            name="goods"
+            type="com.example.doan.goods.Goods" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/register"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_phone"
+        app:layout_constraintTop_toBottomOf="@+id/tv_phone">
+
+        <ImageButton
+            android:id="@+id/ic_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/background"
+            android:backgroundTint="@color/background"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_import_goods"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Import goods"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/tv_eid"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goods ID"
+            android:textSize="18sp"
+            android:layout_marginTop="30dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_import_goods" />
+
+        <EditText
+            android:id="@+id/eid_gid"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter Eid"
+            android:inputType="text"
+            android:text="@={goods.GID}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_eid" />
+
+        <!-- Username -->
+        <TextView
+            android:id="@+id/tv_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goods Name"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/eid_gid" />
+
+        <EditText
+            android:id="@+id/gname_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter your username"
+            android:inputType="textPersonName"
+            android:text="@={goods.GName}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_username" />
+
+        <TextView
+            android:id="@+id/tv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goods Price"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gname_input" />
+
+        <EditText
+            android:id="@+id/name_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter full name"
+            android:inputType="textPersonName"
+            android:text="@={goods.GPrice}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_name" />
+
+        <TextView
+            android:id="@+id/tv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goods Quantity"
+            android:layout_marginTop="5dp"
+            android:textSize="18sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/name_input" />
+
+        <EditText
+            android:id="@+id/gquatity_input"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:hint="Enter phone number"
+            android:inputType="phone"
+            android:text="@={goods.GQuantity}"
+            android:background="@drawable/border_white"
+            android:paddingStart="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_phone" />
+
+        <TextView
+            android:id="@+id/tv_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Goods Image"
+            android:textSize="18sp"
+            android:layout_marginTop="5dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gquatity_input" />
+
+
+        <Button
+            style="@style/ButtonStyle"
+            android:id="@+id/btn_choose_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{clickHandler::openImagePicker}"
+            android:text="Choose"
+            android:layout_marginStart="10dp"
+            app:layout_constraintTop_toTopOf="@id/selectedImageView"
+            app:layout_constraintBottom_toBottomOf="@+id/selectedImageView"
+            app:layout_constraintStart_toEndOf="@id/selectedImageView"/>
+
+        <ImageView
+            android:id="@+id/selectedImageView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:contentDescription="Selected Image"
+            android:src="@drawable/goods"
+            app:layout_constraintStart_toStartOf="@+id/btn_submit"
+            app:layout_constraintTop_toBottomOf="@+id/tv_image" />
+
+        <Button
+            style="@style/ButtonStyle"
+            android:id="@+id/btn_submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:onClick="@{clickHandler::onSubmitBtnClicked}"
+            android:text="Import"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/selectedImageView" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,32 @@
+<!-- task_item.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="?android:attr/selectableItemBackground">
+
+    <TextView
+        android:id="@+id/tvTaskID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Task ID"
+        android:textSize="16sp" />
+
+
+
+    <TextView
+        android:id="@+id/tvTaskAssignedDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Assigned Date"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/tvTaskStatus"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:textSize="14sp" />
+
+</LinearLayout>

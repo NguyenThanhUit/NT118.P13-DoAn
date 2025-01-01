@@ -1,0 +1,147 @@
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+    <data>
+        <variable
+            name="customer"
+            type="com.example.doan.customers.Customers" />
+        <variable
+            name="clickHandler"
+            type="com.example.doan.customers.AddNewCustomerClick" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/main"
+        android:layout_height="match_parent"
+        android:paddingTop="50dp"
+        android:paddingHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:onClick="@{clickHandler::onBackBtnClicked}"
+                    android:id="@+id/btnBack"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="80dp"
+                    android:src="@drawable/ic_back"
+                    android:background="@color/background"
+                    android:backgroundTint="@color/background">
+                </ImageButton>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Add Customer"
+                    android:textSize="28sp"
+                    android:textStyle="bold"
+                    android:gravity="center" />
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Full name"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:layout_marginTop="30dp"/>
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Name here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
+                android:padding="10dp"
+                android:text="@={customer.name}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone number"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtCustomerPhone"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Phone number here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
+                android:inputType="phone"
+                android:text="@={customer.phone}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email (*)"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Email here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
+                android:text="@={customer.email}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Adress"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:hint="Adress here"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
+                android:text="@={customer.address}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loại khách hàng"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+
+            <Spinner
+                android:id="@+id/spinnerCustomerType"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/border_white"
+                android:paddingStart="10dp"
+                android:entries="@array/customer_type_array"
+                android:padding="10dp" />
+
+            <Button
+                style="@style/ButtonStyle"
+                android:onClick="@{clickHandler::onSubmitBtnClicked}"
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tạo khách hàng" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
