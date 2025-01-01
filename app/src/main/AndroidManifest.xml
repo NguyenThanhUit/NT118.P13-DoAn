@@ -21,29 +21,17 @@
         <activity android:name=".ui.AdminHomeFragment"></activity>
 
         <activity
-<<<<<<< HEAD
             android:name=".tasks.AddnewTaskActivity"
-=======
-            android:name=".domain.admin.AdminEmployeeList"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
             android:exported="false" />
         <activity android:name=".orders.OrderTotal"
             android:exported="false"/>
         <activity
-<<<<<<< HEAD
             android:name=".tasks.AssignTaskActivity"
-=======
-            android:name=".domain.admin.AdminReportList"
             android:exported="false" />
         <activity
-            android:name=".domain.admin.AdminTaskList"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
+            android:name=".domain.employee.ManageEmployeeActivity"
             android:exported="false" />
         <activity
-            android:name=".domain.employee.EmployeeReportList"
-            android:exported="false" />
-        <activity
-<<<<<<< HEAD
             android:name=".goods.AddNewGoodsActivity"
             android:exported="false" />
         <activity
@@ -53,27 +41,16 @@
         </activity>
         <activity android:name=".domain.employee.AddNewEmployeeClick">
         </activity>
-=======
-            android:name=".domain.employee.EmployeeTaskList"
-            android:exported="false" />
-        <activity
-            android:name=".domain.admin.AdminHomeFragment"
-            android:exported="false" />
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         <activity
             android:name=".MainActivity"
             android:exported="true">
         </activity>
-<<<<<<< HEAD
         <activity
             android:name=".MainActivityForSaleEmployee"
             android:exported="true">
         </activity>
 
         <activity android:name=".domain.auth.LogInActivity"
-=======
-        <activity android:name=".ui.LogInActivity"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -7,26 +7,12 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-<<<<<<< HEAD
     tools:context=".LogInActivity">
     <ImageView
         android:layout_width="298dp"
         android:layout_height="234dp"
         android:src="@drawable/logo"
         app:layout_constraintTop_toTopOf="parent"
-=======
-    tools:context=".ui.LogInActivity">
-
-    <TextView
-        android:id="@+id/tv_sign_in"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SIGN IN TO CUSTODI"
-        android:textSize="32sp"
-        android:textStyle="bold"
-        android:layout_marginTop="200dp"
-        app:layout_constraintBottom_toTopOf="@id/til_username"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@+id/til_username"
@@ -40,10 +26,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="400dp"
         android:hint="Username"
-<<<<<<< HEAD
-=======
-        android:textStyle="bold"
->>>>>>> 0a54650359fd6f2b2d0508867501cb6089f648b7
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
