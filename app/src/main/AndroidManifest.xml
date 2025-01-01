@@ -46,9 +46,7 @@
 <<<<<<< HEAD
             android:name=".goods.AddNewGoodsActivity"
             android:exported="false" />
-        <activity
-            android:name=".domain.employee.AdminHomeActivity"
-            android:exported="false" />
+        <activity android:name=".domain.employee.EmployeeInfoActivity" />
         <activity android:name=".customers.AddNewCustomerActivity">
         </activity>
         <activity android:name=".domain.employee.AddNewEmployeeClick">

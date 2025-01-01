@@ -162,4 +162,7 @@ public class Repository {
         executorService.execute(() -> tdao.deleteTaskById(String.valueOf(tasks)));
     }
 
+    public void updateEmployee(Employees employees){
+        executorService.execute(() -> edao.updateEmployee(employees));
+    }
 }

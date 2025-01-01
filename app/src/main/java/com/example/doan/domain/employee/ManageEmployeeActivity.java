@@ -96,5 +96,15 @@ public class ManageEmployeeActivity extends AppCompatActivity {
 
         ItemTouchHelper itemTouchHelper = new ItemTouchHelper(simpleCallback);
         itemTouchHelper.attachToRecyclerView(recyclerView);
+
+        myAdapter.setOnItemClickListener(employee -> {
+            Intent intent = new Intent(ManageEmployeeActivity.this, EmployeeInfoActivity.class);
+            intent.putExtra("employeeName", employee.getName());
+            intent.putExtra("role", employee.getPosition());
+            intent.putExtra("email", employee.getEmail());
+            intent.putExtra("phoneNumber", employee.getPhone());
+            intent.putExtra("employeeId", employee.getEid());
+            startActivity(intent);
+        });
     }
 }
