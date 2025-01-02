@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/accent" /> <!-- Màu nền của FAB -->
+    <corners android:radius="4dp" /> <!-- Bo góc 8dp -->
+</shape>

@@ -1,58 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/white">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/tvTitle"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp"
-        android:text="Danh Sách Đơn Hàng"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:background="@color/purple_500"
-        android:textColor="@android:color/white" />
-
+    <data>
+        <variable
+            name="clickHandles"
+            type="com.example.doan.ui.OrderFragment" />
+    </data>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="8dp"
-        android:background="@android:color/white">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <EditText
-            android:id="@+id/etSearch"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Tìm kiếm đơn hàng..."
-            android:padding="8dp"
-            android:drawableLeft="@android:drawable/ic_menu_search"
-            android:drawablePadding="8dp"
-            android:inputType="text" />
-
-        <Button
-            android:id="@+id/btnSearch"
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Tìm"
-            android:padding="8dp"
-            android:layout_marginStart="8dp"
-            android:backgroundTint="@color/purple_500"
-            android:textColor="@android:color/white" />
+            android:text="Orders"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="15dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <EditText
+                android:id="@+id/edtOrder"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@drawable/border_white"
+                android:hint="Enter goods name, ID"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp" />
+
+            <ImageButton
+                android:id="@+id/btn_edt"
+                android:background="@drawable/border_white"
+                android:layout_width="48dp"
+                android:layout_height="40dp"
+                android:layout_marginStart="8dp"
+                android:contentDescription="Search"
+                android:src="@drawable/ic_search" />
+        </LinearLayout>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvGoods"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:padding="8dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="end"
+            android:padding="16dp">
+
+            <Button
+                android:id="@+id/btnViewOrder"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="Xem đơn hàng"
+                android:visibility="gone"
+                style="@style/ButtonStyle" />
+
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/btn_add_goods"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{clickHandles::onFABClicked}"
+                app:tint="@color/white"
+                android:layout_marginBottom="30dp"
+                android:src="@drawable/ic_add"
+                app:backgroundTint="@color/accent"
+                app:fabSize="normal" />
+        </LinearLayout>
     </LinearLayout>
 
-    <!-- RecyclerView -->
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerViewOrders"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="8dp"
-        android:clipToPadding="false"
-        android:layout_marginTop="4dp" />
-</LinearLayout>
+</layout>

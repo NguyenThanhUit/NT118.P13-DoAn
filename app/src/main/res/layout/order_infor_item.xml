@@ -14,7 +14,7 @@
         android:orientation="horizontal"
         android:padding="16dp"
         android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_list_goods_in_order">
+        android:background="@drawable/rounded_list_item">
 
         <ImageView
             android:id="@+id/iv_goods_image"

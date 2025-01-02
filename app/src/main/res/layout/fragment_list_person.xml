@@ -12,7 +12,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"
         tools:context=".ListPersonFragment">
 
         <!-- Layout chứa tiêu đề và các bộ lọc -->
@@ -26,12 +25,10 @@
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/light_sky_blue"
-                android:drawableLeft="@drawable/baseline_contact_page_24"
+                android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Thông tin khách hàng"
-                android:textSize="20sp"
+                android:text="Customer"
+                android:textSize="28sp"
                 android:textStyle="bold" />
 
             <!-- Filter Section -->
@@ -52,9 +49,10 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Tất cả"
+                        android:text="All"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -63,9 +61,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Mới"
+                        android:text="New"
+                        android:drawableLeft="@drawable/ic_square_blue"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -74,9 +74,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Chưa tiếp cận"
+                        android:text="Uncontacted"
+                        android:drawableLeft="@drawable/ic_square_orange"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -85,9 +87,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Tiếp cận"
+                        android:text="Contacted"
+                        android:drawableLeft="@drawable/ic_square_green"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -96,9 +100,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Nóng"
+                        android:text="Close"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/ic_square_red"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
 
                     <Button
@@ -107,9 +113,11 @@
                         android:layout_height="wrap_content"
                         android:layout_marginEnd="16dp"
                         android:padding="8dp"
-                        android:text="Tiềm năng"
+                        android:text="Potential"
                         android:textColor="@color/black"
-                        android:backgroundTint="@color/white"
+                        android:drawableLeft="@drawable/ic_square_golden"
+                        android:background="@drawable/button_background"
+                        app:backgroundTint="@null"
                         android:elevation="4dp" />
                 </LinearLayout>
             </HorizontalScrollView>
@@ -120,7 +128,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_below="@id/headerLayout"
-            android:layout_marginTop="-3dp"
+            android:layout_marginTop="10dp"
             tools:listitem="@layout/customer_list_item" />
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -129,9 +137,10 @@
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_margin="16dp"
-            android:tint="@color/white"
-            app:backgroundTint="@color/blue_dark"
-            app:fabSize="mini" />
+            android:layout_marginBottom="30dp"
+            app:srcCompat="@drawable/ic_add_white"
+            app:tint="@color/white"
+            android:backgroundTint="@color/accent"
+            app:fabSize="normal" />
     </RelativeLayout>
 </layout>
