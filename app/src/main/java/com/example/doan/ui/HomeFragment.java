@@ -29,7 +29,7 @@ public class HomeFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.home_fragment, container, false);
+        View view = inflater.inflate(R.layout.employee_home_fragment, container, false);
 
         textViewName = view.findViewById(R.id.tvTenNV);
         if (getArguments() != null) {

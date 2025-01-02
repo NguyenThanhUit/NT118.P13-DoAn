@@ -67,55 +67,10 @@ public class SettingsFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        View view = inflater.inflate(R.layout.fragment_settings, container, false);
-
-
-        nightModeSwitch = view.findViewById(R.id.night_mode_switch);
-
-        // Kiểm tra chế độ hiện tại của ứng dụng và thiết lập trạng thái cho Switch
-        getContext();
-        SharedPreferences preferences = getActivity().getSharedPreferences("settings", Context.MODE_PRIVATE);
-        boolean nightMode = preferences.getBoolean("night_mode", false);
-
-        // Cập nhật trạng thái cho Switch
-        nightModeSwitch.setChecked(nightMode);
-
-        // Lắng nghe sự thay đổi của Switch
-        nightModeSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                // Lưu trạng thái vào SharedPreferences
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.putBoolean("night_mode", isChecked);
-                editor.apply();
-
-                // Chuyển đổi chế độ sáng/tối
-                if (isChecked) {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
-                } else {
-                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-                }
-
-                // Áp dụng thay đổi chế độ ngay lập tức
-                getActivity().recreate();
-            }
-        });
-        // Tìm nút btn_notifications và thiết lập sự kiện chuyển đổi
-        btnNotifications = view.findViewById(R.id.btn_notifications);
-        btnNotifications.setOnClickListener(v -> toggleNotification());
-
-        // Thiết lập Spinner với hai lựa chọn English và Tiếng Việt
-        Spinner languageSpinner = view.findViewById(R.id.language_spinner);
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(
-                getContext(),
-                R.array.language_options,
-                android.R.layout.simple_spinner_item
-        );
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        languageSpinner.setAdapter(adapter);
+        View view = inflater.inflate(R.layout.employee_settings_fragment, container, false);
 
         // Ánh xạ nút "Log out"
-        btnLogout = view.findViewById(R.id.btn_logout);
+        btnLogout = view.findViewById(R.id.btn_log_out);
         // Gán sự kiện cho nút "Log out"
         btnLogout.setOnClickListener(new View.OnClickListener() {
             @Override
