@@ -39,7 +39,7 @@ public class AddNewOrdersClick {
                 TextUtils.isEmpty(orders.getGoodsPrice()) ||
                 TextUtils.isEmpty(orders.getEmployeeID())) {
 
-            Toast.makeText(context, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Please fill in all ìnformation!", Toast.LENGTH_SHORT).show();
         } else {
             Orders newOrder = new Orders(
                     orders.getOPrice(),
@@ -53,7 +53,7 @@ public class AddNewOrdersClick {
                     orders.getEmployeeID()
             );
             ordersViewModel.addnewOrdcer(newOrder);
-            Toast.makeText(context, "Thêm đơn hàng thành công!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Add new order successfully!", Toast.LENGTH_SHORT).show();
 
 
             if (listener != null) {

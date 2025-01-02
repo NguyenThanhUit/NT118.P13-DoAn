@@ -131,6 +131,7 @@
             android:layout_alignParentEnd="true"
             android:layout_margin="16dp"
             android:tint="@color/white"
+            android:src="@drawable/ic_add"
             app:backgroundTint="@color/blue_dark"
             app:fabSize="mini" />
     </RelativeLayout>

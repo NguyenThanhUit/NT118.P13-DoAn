@@ -83,7 +83,6 @@ public class TaskLookupFragment extends Fragment {
             taskAdapter.notifyDataSetChanged();
         } else {
             Toast.makeText(getContext(), "No tasks available", Toast.LENGTH_SHORT).show();
-            Log.d("TaskLookupFragment", "No tasks available");
         }
 
         Button btnBack = view.findViewById(R.id.btnBackToHomeFromTask);

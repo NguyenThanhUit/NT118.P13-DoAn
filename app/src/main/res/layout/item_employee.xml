@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
@@ -12,24 +13,24 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="8dp">
+        android:padding="16dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/rounded_list_item">
 
-        <!-- Tên nhân viên -->
         <TextView
             android:id="@+id/tvEmployeeName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{employee.name}"
-            android:textSize="16sp"
+            android:textSize="22sp"
             android:textStyle="bold"
-            android:hint="Tên nhân viên"
+            android:hint="Employee name"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <!-- Số điện thoại -->
         <TextView
-            android:hint="Số điện thoại"
+            android:hint="Phone number"
             android:id="@+id/tvEmployeePhone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"

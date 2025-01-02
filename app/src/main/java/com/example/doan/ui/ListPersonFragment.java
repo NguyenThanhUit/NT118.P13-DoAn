@@ -1,6 +1,9 @@
 package com.example.doan.ui;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +31,8 @@ import com.example.doan.customers.Customers;
 import com.example.doan.customers.AdapterForCustomer;
 import com.example.doan.customers.CustomerViewModel;
 import com.example.doan.customers.CustomerClickHandler;
-import com.example.doan.databinding.FragmentListPersonBinding;
+import com.example.doan.databinding.FragmentListCustomerBinding;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,7 +40,7 @@ import java.util.List;
 public class ListPersonFragment extends Fragment {
     private AdapterForCustomer myAdapter;
     private CustomerViewModel myViewModel;
-    private FragmentListPersonBinding binding;
+    private FragmentListCustomerBinding binding;
     private CustomerClickHandler personClickHandler;
     private AddNewCustomerClick addNewCustomerClick;
 
@@ -45,7 +49,7 @@ public class ListPersonFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-        binding = FragmentListPersonBinding.inflate(inflater, container, false);
+        binding = FragmentListCustomerBinding.inflate(inflater, container, false);
 
 
         RecyclerView recyclerView = binding.recycview;
@@ -159,6 +163,38 @@ public class ListPersonFragment extends Fragment {
         TextView tvCustomerEmail = dialogView.findViewById(R.id.tv_customer_email);
         TextView tvCustomerAddr = dialogView.findViewById(R.id.tv_customer_adress);
         TextView tvCustomerCate = dialogView.findViewById(R.id.tv_customer_filter);
+
+        ImageButton icCall = dialogView.findViewById(R.id.ic_call);
+        ImageButton icMail = dialogView.findViewById(R.id.ic_mail);
+
+        icCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phoneNumber = customers.getPhone();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber));
+                getContext().startActivity(intent);
+            }
+        });
+
+        icMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = customers.getEmail();
+
+                // Tạo Intent với ACTION_SENDTO và URI 'mailto'
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:" + email)); // Chỉ các ứng dụng hỗ trợ gửi email mới nhận Intent này
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Example"); // Tiêu đề email
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is an example email."); // Nội dung email
+
+                try {
+                    getContext().startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getContext(), "No email app installed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         tvCustomerName.setText(customers.getName());

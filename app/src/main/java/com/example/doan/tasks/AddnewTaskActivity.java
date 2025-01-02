@@ -46,7 +46,7 @@ public class AddnewTaskActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 Employees selectedEmployee = (Employees) parent.getItemAtPosition(position);
-                tasks.setEmployeeID(selectedEmployee.getEid()); // Lấy employee_id
+                tasks.setEmployeeID(selectedEmployee.getEid());
             }
 
             @Override

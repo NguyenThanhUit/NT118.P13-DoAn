@@ -1,7 +1,8 @@
 package com.example.doan.domain.employee;
 
-import static androidx.core.app.ActivityCompat.startActivityForResult;
 
+import androidx.lifecycle.LifecycleOwner;
+import androidx.lifecycle.Observer;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
@@ -36,25 +37,34 @@ public class AddNewEmployeeClick {
                 TextUtils.isEmpty(employees.getPhone()) ||
                 TextUtils.isEmpty(employees.getEmail()) ||
                 TextUtils.isEmpty(employees.getPosition())) {
-            Toast.makeText(context, "Vui lòng điền đầy đủ thông tin!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, "Please fill in all information!", Toast.LENGTH_SHORT).show();
         } else {
-            String currentDateTime = getCurrentDateTime();
+            employeesViewModel.checkUsernameExists(employees.getUsername()).observe((LifecycleOwner) context, new Observer<Boolean>() {
+                @Override
+                public void onChanged(Boolean isTaken) {
+                    if (isTaken) {
+                        Toast.makeText(context, "Username already exists!", Toast.LENGTH_SHORT).show();
+                    } else {
+                        String currentDateTime = getCurrentDateTime();
 
-            Employees newEmployee = new Employees(
-                    employees.getPhone(),
-                    employees.getName(),
-                    employees.getPosition(),
-                    employees.getEmail(),
-                    employees.getUsername(),
-                    currentDateTime,
-                    employees.getPassword(),
-                    currentDateTime
-            );
-            employeesViewModel.addnewEmployee(newEmployee);
+                        Employees newEmployee = new Employees(
+                                employees.getPhone(),
+                                employees.getName(),
+                                employees.getPosition(),
+                                employees.getEmail(),
+                                employees.getUsername(),
+                                currentDateTime,
+                                employees.getPassword(),
+                                currentDateTime
+                        );
+                        employeesViewModel.addnewEmployee(newEmployee);
 
-            Toast.makeText(context, "Nhân viên đã được thêm thành công!", Toast.LENGTH_SHORT).show();
-            Intent intent = new Intent(context, ManageEmployeeActivity.class);
-            context.startActivity(intent);
+                        Toast.makeText(context, "Add new employee successfully!", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(context, ManageEmployeeActivity.class);
+                        context.startActivity(intent);
+                    }
+                }
+            });
         }
     }
 

@@ -40,8 +40,10 @@ public class MainActivity extends AppCompatActivity {
             if (item.getItemId() == R.id.home) {
                 replaceFragment(new AdminHomeFragment());
                 return true;
-            }
-            if (item.getItemId() == R.id.statistic) {
+            }else if (item.getItemId() == R.id.list_person) {
+                replaceFragment(new ListPersonFragment());
+                return true;
+            }if (item.getItemId() == R.id.statistic) {
                 replaceFragment(new AdminStatisticFragment());
                 return true;
             }

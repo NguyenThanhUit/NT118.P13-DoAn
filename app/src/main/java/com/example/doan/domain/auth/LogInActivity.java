@@ -59,7 +59,7 @@ public class LogInActivity extends AppCompatActivity {
                             if (employees != null && !employees.isEmpty()) {
                                 Employees employee = employees.get(0);
                                 if (password.equals(employee.getPassword())) {
-                                    if ("Nhan vien ban hang".equals(employee.getPosition())) {
+                                    if ("Sales agent".equals(employee.getPosition())) {
                                         database.getTDAO().getTasksForEmployee(employee.getEid()).observe(LogInActivity.this, new Observer<List<Tasks>>() {
                                             @Override
                                             public void onChanged(List<Tasks> tasks) {
@@ -111,7 +111,7 @@ public class LogInActivity extends AppCompatActivity {
         if (tasks != null && !tasks.isEmpty()) {
             for (Tasks task : tasks) {
 
-                String taskName = task.getTaskID();
+                String taskName = String.valueOf(task.getTaskID());
                 String taskDescription = task.getTaskDecription() != null ? task.getTaskDecription() : "No description available";
                 String taskAssignedDate = task.getTaskAssignedDate() != null ? task.getTaskAssignedDate() : "Not assigned";
                 String taskStatus = task.getTaskStatus() != null ? task.getTaskStatus() : "Chưa hoàn thành";
@@ -134,10 +134,7 @@ public class LogInActivity extends AppCompatActivity {
 
                 tasksLookUPList.add(tasksLookUP);
             }
-        } else {
-            Toast.makeText(LogInActivity.this, "Không có công việc nào", Toast.LENGTH_SHORT).show();
         }
-
         return tasksLookUPList;
     }
 }

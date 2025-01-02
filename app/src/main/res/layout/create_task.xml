@@ -46,19 +46,6 @@
             </LinearLayout>
 
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="Mã nhiệm vụ"
-                android:textStyle="bold" />
-            <EditText
-                android:id="@+id/taskId"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:hint="Nhập mã nhiệm vụ"
-                android:text="@={task.taskID}" />
 
 
             <TextView

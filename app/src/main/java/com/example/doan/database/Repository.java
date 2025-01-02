@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.os.Looper;
 
 import androidx.lifecycle.LiveData;
+import androidx.lifecycle.MutableLiveData;
 
 import com.example.doan.customers.CustomerDAO;
 import com.example.doan.customers.Customers;
@@ -121,7 +122,7 @@ public class Repository {
         executorService.execute(() -> rdao.deleteReport(reports));
     }
     public LiveData<List<Reports>> getAllReports(){
-        return rdao.getALlReports();
+        return rdao.getAllReports();
     }
     public void addnewTask(Tasks tasks){
         executorService.execute(() -> tdao.insertTask(tasks));
@@ -192,4 +193,14 @@ public class Repository {
     public LiveData<List<EmployeeDetails>> getTopEmployeesWithDetails() {
         return oDao.getTopEmployeesWithDetails();
     }
+
+    public LiveData<Boolean> checkUsernameExists(String username) {
+        return edao.doesUsernameExist(username);
+    }
+    public void updateReport(Reports report) {
+        executorService.execute(() -> rdao.updateReport(report));
+    }
+
+
+
 }

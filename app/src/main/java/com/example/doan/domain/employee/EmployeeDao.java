@@ -30,4 +30,9 @@ public interface EmployeeDao {
 
     @Update
     void updateEmployee(Employees employees);
+
+    @Query("SELECT EXISTS(SELECT 1 FROM employees_information WHERE employee_username = :username LIMIT 1)")
+    LiveData<Boolean> doesUsernameExist(String username);
+
+
 }

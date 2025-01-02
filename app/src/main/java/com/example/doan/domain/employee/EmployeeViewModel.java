@@ -13,6 +13,7 @@ import java.util.List;
 public class EmployeeViewModel extends AndroidViewModel {
     public Repository repository;
     public LiveData<List<Employees>> allemployees;
+    private LiveData<Boolean> isUsernameTaken;
 
     public EmployeeViewModel(@NonNull Application application) {
         super(application);
@@ -35,4 +36,12 @@ public class EmployeeViewModel extends AndroidViewModel {
     public void updateEmployee(Employees employees) {
         repository.updateEmployee(employees);
     }
+
+    public LiveData<Boolean> checkUsernameExists(String username) {
+        if (isUsernameTaken == null) {
+            isUsernameTaken = repository.checkUsernameExists(username);
+        }
+        return isUsernameTaken;
+    }
+
 }

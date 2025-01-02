@@ -6,7 +6,6 @@
     android:padding="8dp"
     android:gravity="center_vertical">
 
-    <!-- Left Section: Employee Details -->
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -38,7 +37,6 @@
             android:textColor="#757575" />
     </LinearLayout>
 
-    <!-- Right Section: Total Order -->
     <TextView
         android:id="@+id/employee_total_order"
         android:layout_width="wrap_content"

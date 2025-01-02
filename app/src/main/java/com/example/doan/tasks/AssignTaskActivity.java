@@ -76,10 +76,10 @@ public class AssignTaskActivity extends AppCompatActivity {
                 int taskComplete = 0;
                 int totalTask = tasks.size();
                 for (Tasks task : tasks) {
-                    if (task.getTaskStatus().equals("Chưa hoàn thành")) {
+                    if (task.getTaskStatus().equals("Not complete")) {
                         inProgress++;
                     }
-                    if(task.getTaskStatus().equals("Hoàn thành")){
+                    if(task.getTaskStatus().equals("Completed")){
                         taskComplete++;
                     }
                 }
@@ -107,16 +107,8 @@ public class AssignTaskActivity extends AppCompatActivity {
 
 
         btnBack = findViewById(R.id.ic_back);
-        btnBack.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AdminHomeFragment adminHomeFragment = new AdminHomeFragment();
-                getSupportFragmentManager().beginTransaction()
-                        .replace(R.id.frameLayout3, adminHomeFragment)
-                        .addToBackStack(null)
-                        .commit();
-            }
-        });
+        btnBack.setOnClickListener(view -> finish());
+
 
 
 

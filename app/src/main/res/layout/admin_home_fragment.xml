@@ -6,14 +6,13 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".ui.AdminHomeFragment"
-    android:padding="16dp">
+    tools:context=".ui.AdminHomeFragment">
 
     <LinearLayout
+        android:background="@drawable/border_white"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:background="@color/background"
         android:layout_marginTop="16dp">
 
         <ImageView
@@ -29,71 +28,47 @@
             android:layout_weight="1">
 
             <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hello"
+                android:textSize="24sp"
+                android:textColor="@color/black" />
+            <TextView
                 android:id="@+id/tv_admin_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Phan Duy Thọ"
-                android:textSize="32sp"
+                android:textSize="26sp"
                 android:textColor="@color/black"
-                android:textStyle="bold" />
+                android:textFontWeight="900"/>
 
-            <TextView
-                android:id="@+id/tv_admin_role"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Admin"
-                android:textSize="16sp"
-                android:textColor="@color/black" />
+
         </LinearLayout>
     </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_marginTop="16dp"
+        android:background="@color/black" />
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_customer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="30dp"
         android:clickable="true"
         android:focusable="true"
         card_view:cardCornerRadius="8dp"
         card_view:cardElevation="4dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/background"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:padding="8dp">
 
-            <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_vertical"
-                android:src="@drawable/ic_group" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:gravity="center_vertical"
-                android:layout_weight="1"
-                android:text="Customer"
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:src="@drawable/ic_next"
-                android:gravity="center_vertical"/>
-        </LinearLayout>
 
     </androidx.cardview.widget.CardView>
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_report"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:clickable="true"
         android:focusable="true"
         card_view:cardCornerRadius="8dp"
@@ -104,14 +79,15 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@color/background"
-            android:padding="8dp">
+            android:background="@drawable/border_white"
+            android:padding="15dp">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
-                 />
+                android:src="@drawable/ic_reports_2"
+                />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -119,9 +95,9 @@
                 android:layout_marginStart="16dp"
                 android:gravity="center_vertical"
                 android:layout_weight="1"
-                android:text="Report"
+                android:text="Notice"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
             <ImageView
                 android:layout_width="40dp"
@@ -135,7 +111,7 @@
         android:id="@+id/card_view_task"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="5dp"
         android:clickable="true"
         android:focusable="true"
         card_view:cardCornerRadius="8dp"
@@ -146,12 +122,12 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:background="@color/background"
-            android:padding="8dp">
+            android:background="@drawable/border_white"
+            android:padding="15dp">
 
             <ImageView
-                android:layout_width="80dp"
-                android:layout_height="80dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:layout_gravity="center_vertical"
                 android:src="@drawable/ic_task" />
 
@@ -163,7 +139,7 @@
                 android:text="Task"
                 android:layout_weight="1"
                 android:textColor="@color/black"
-                android:textSize="30sp"
+                android:textSize="24sp"
                 android:textStyle="bold" />
             <ImageView
                 android:layout_width="40dp"
@@ -172,7 +148,6 @@
                 android:gravity="center_vertical"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 
     <androidx.cardview.widget.CardView
         android:id="@+id/card_view_notification"
@@ -186,6 +161,7 @@
         card_view:cardElevation="4dp">
 
         <LinearLayout
+            android:background="@drawable/border_white"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
@@ -198,17 +174,23 @@
                 android:text="Notifications"
                 android:textAlignment="center"
                 android:textSize="30sp"
-                android:background="@color/background"
+                android:background="@drawable/border_white"
                 android:textStyle="bold" />
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="- Notification content"
+                android:text="Notification content: "
                 android:textColor="@color/black"
                 android:textSize="24sp"
-                android:background="@color/background"
                 android:textStyle="bold" />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view_notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/background"
+                android:paddingTop="8dp"
+                android:scrollbars="vertical" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 

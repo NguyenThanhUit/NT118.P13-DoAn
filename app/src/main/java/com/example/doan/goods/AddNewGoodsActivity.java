@@ -3,6 +3,8 @@ package com.example.doan.goods;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 
 import androidx.annotation.Nullable;
@@ -29,6 +31,9 @@ public class AddNewGoodsActivity extends AppCompatActivity {
         handlers = new AddNewGoodsClick(goods, this, goodsViewModel);
         createGoodsBinding.setGoods(goods);
         createGoodsBinding.setClickHandler(handlers);
+
+        ImageButton btnBack = findViewById(R.id.ic_back);
+        btnBack.setOnClickListener(view -> finish());
     }
 
     @Override

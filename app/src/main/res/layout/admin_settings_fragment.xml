@@ -4,8 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/tv_setting"
@@ -46,23 +45,22 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_security"
             android:text="Security"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical" />
 
         <Button
             android:id="@+id/btn_notifications"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_notifications"
             android:text="Notifications"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/btn_security" />
 
@@ -70,13 +68,12 @@
             android:id="@+id/btn_change_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_change_password"
             android:text="Change Password"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/btn_notifications" />
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -109,23 +106,23 @@
             android:layout_height="wrap_content"
             android:drawableLeft="@drawable/ic_language"
             android:text="Language - English"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
-            android:gravity="center_vertical" />
+            android:backgroundTint="@color/white"
+            android:gravity="center_vertical"
+            app:layout_constraintTop_toTopOf="parent"/>
 
         <Button
             android:id="@+id/btn_report"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_report"
             android:text="Report Problems"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/btn_language" />
 
@@ -133,13 +130,12 @@
             android:id="@+id/btn_create_account"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_create_account"
             android:text="Create Account"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/btn_report" />
 
@@ -147,13 +143,12 @@
             android:id="@+id/btn_log_out"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:drawableLeft="@drawable/ic_log_out"
             android:text="Log Out"
-            android:textSize="16sp"
+            android:textSize="14sp"
+            android:textColor="@color/black"
             android:textStyle="bold"
-            android:background="@drawable/border_listview_setting"
-            android:paddingStart="10dp"
+            android:backgroundTint="@color/white"
             android:gravity="center_vertical"
             app:layout_constraintTop_toBottomOf="@+id/btn_create_account" />
     </androidx.constraintlayout.widget.ConstraintLayout>

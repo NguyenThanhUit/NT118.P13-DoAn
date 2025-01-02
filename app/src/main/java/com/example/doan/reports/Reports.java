@@ -27,7 +27,6 @@ public class Reports {
     @ColumnInfo(name = "report_end_date")
     private String endDate;    // Ngày kết thúc
 
-    // Constructors, Getters và Setters
     public Reports(@NonNull String reportID, String reportTitle, String reportContent, String startDate, String endDate) {
         this.reportID = reportID;
         this.reportTitle = reportTitle;
