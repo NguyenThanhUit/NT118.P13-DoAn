@@ -1,6 +1,9 @@
 package com.example.doan.ui;
 
 import android.app.AlertDialog;
+import android.content.ActivityNotFoundException;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -159,6 +162,38 @@ public class ListPersonFragment extends Fragment {
         TextView tvCustomerEmail = dialogView.findViewById(R.id.tv_customer_email);
         TextView tvCustomerAddr = dialogView.findViewById(R.id.tv_customer_adress);
         TextView tvCustomerCate = dialogView.findViewById(R.id.tv_customer_filter);
+
+        ImageButton icCall = dialogView.findViewById(R.id.ic_call);
+        ImageButton icMail = dialogView.findViewById(R.id.ic_mail);
+
+        icCall.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String phoneNumber = customers.getPhone();
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:" + phoneNumber));
+                getContext().startActivity(intent);
+            }
+        });
+
+        icMail.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = customers.getEmail();
+
+                // Tạo Intent với ACTION_SENDTO và URI 'mailto'
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO);
+                emailIntent.setData(Uri.parse("mailto:" + email)); // Chỉ các ứng dụng hỗ trợ gửi email mới nhận Intent này
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject Example"); // Tiêu đề email
+                emailIntent.putExtra(Intent.EXTRA_TEXT, "Hello, this is an example email."); // Nội dung email
+
+                try {
+                    getContext().startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(getContext(), "No email app installed", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
         tvCustomerName.setText(customers.getName());
