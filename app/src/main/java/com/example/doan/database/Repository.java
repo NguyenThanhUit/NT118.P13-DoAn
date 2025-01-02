@@ -120,8 +120,11 @@ public class Repository {
     public void deleteReport(Reports reports){
         executorService.execute(() -> rdao.deleteReport(reports));
     }
+    public void updateReport(Reports report) {
+        executorService.execute(() -> rdao.updateReport(report));
+    }
     public LiveData<List<Reports>> getAllReports(){
-        return rdao.getALlReports();
+        return rdao.getAllReports();
     }
     public void addnewTask(Tasks tasks){
         executorService.execute(() -> tdao.insertTask(tasks));
