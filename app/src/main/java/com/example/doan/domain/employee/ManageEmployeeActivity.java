@@ -50,7 +50,8 @@ public class ManageEmployeeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-
+        ImageButton btnBack = findViewById(R.id.ic_back);
+        btnBack.setOnClickListener(view -> finish());
 
 
         myAdapter = new AdapterForEmployee(new ArrayList<>());

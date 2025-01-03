@@ -164,8 +164,15 @@ public class ListPersonFragment extends Fragment {
         TextView tvCustomerAddr = dialogView.findViewById(R.id.tv_customer_adress);
         TextView tvCustomerCate = dialogView.findViewById(R.id.tv_customer_filter);
 
+        androidx.constraintlayout.widget.ConstraintLayout clCustomerInfor = dialogView.findViewById(R.id.cl_customer_infor);
+
+        TextView callPhone = dialogView.findViewById(R.id.textView3);
+        TextView sendEmail = dialogView.findViewById(R.id.textView4);
+        TextView addNote = dialogView.findViewById(R.id.textView5);
+
         ImageButton icCall = dialogView.findViewById(R.id.ic_call);
         ImageButton icMail = dialogView.findViewById(R.id.ic_mail);
+        ImageButton icNote = dialogView.findViewById(R.id.ic_note);
 
         icCall.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -223,6 +230,19 @@ public class ListPersonFragment extends Fragment {
                 EditText etCustomerCate = new EditText(getContext());
                 etCustomerCate.setText(customers.getCategory());
 
+
+                TextView tvCustomerInfor = dialogView.findViewById(R.id.tv_customer_infor);
+
+                clCustomerInfor.setVisibility(View.GONE);
+                tvCustomerInfor.setVisibility(View.GONE);
+
+                icCall.setVisibility(View.GONE);
+                icMail.setVisibility(View.GONE);
+                icNote.setVisibility(View.GONE);
+
+                callPhone.setVisibility(View.GONE);
+                sendEmail.setVisibility(View.GONE);
+                addNote.setVisibility(View.GONE);
 
                 tvCustomerName.setVisibility(View.GONE);
                 tvCustomerPhone.setVisibility(View.GONE);

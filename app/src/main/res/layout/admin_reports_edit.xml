@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:paddingHorizontal="16dp"
+    android:paddingTop="50dp">
     <ImageButton
         android:id="@+id/ic_back"
         android:layout_width="wrap_content"
@@ -50,6 +51,7 @@
         android:id="@+id/et_report_title"
         android:layout_width="match_parent"
         android:layout_height="40dp"
+        android:background="@drawable/border_listview_setting"
         app:layout_constraintTop_toBottomOf="@id/tv_report_title" />
     <TextView
         android:id="@+id/tv_report_start"
@@ -65,6 +67,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="date"
+        android:background="@drawable/border_listview_setting"
         app:layout_constraintTop_toBottomOf="@id/tv_report_start" />
     <TextView
         android:id="@+id/tv_report_end"
@@ -80,6 +83,7 @@
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:inputType="date"
+        android:background="@drawable/border_listview_setting"
         app:layout_constraintTop_toBottomOf="@id/tv_report_end" />
     <TextView
         android:id="@+id/tv_report_description"
@@ -95,6 +99,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:gravity="start|top"
+        android:background="@drawable/border_listview_setting"
         android:inputType="textMultiLine"
         app:layout_constraintTop_toBottomOf="@id/tv_report_description" />
 </androidx.constraintlayout.widget.ConstraintLayout>

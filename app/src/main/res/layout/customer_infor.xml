@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:paddingTop="50dp"
+    android:paddingHorizontal="16dp">
 
     <LinearLayout
         android:id="@+id/layout_edit_fields"
@@ -112,22 +113,7 @@
             app:layout_constraintStart_toEndOf="@id/tv_adress"
             app:layout_constraintTop_toTopOf="@id/tv_adress" />
 
-        <TextView
-            android:id="@+id/tv_incharge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Person in charge: "
-            app:layout_constraintStart_toEndOf="@id/avatar_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_adress" />
 
-        <TextView
-            android:id="@+id/tv_employee_incharge"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="[Phan Duy Tho]"
-            android:textStyle="bold"
-            app:layout_constraintStart_toEndOf="@id/tv_incharge"
-            app:layout_constraintTop_toTopOf="@id/tv_incharge" />
 
         <TextView
             android:id="@+id/tv_class"
@@ -135,7 +121,7 @@
             android:layout_height="wrap_content"
             android:text="Customer class: "
             app:layout_constraintStart_toEndOf="@id/avatar_image"
-            app:layout_constraintTop_toBottomOf="@id/tv_incharge" />
+            app:layout_constraintTop_toBottomOf="@id/tv_customer_adress" />
 
         <TextView
             android:id="@+id/tv_customer_filter"
@@ -223,6 +209,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Save"
-        app:layout_constraintEnd_toEndOf="@+id/ic_note"
-        app:layout_constraintTop_toBottomOf="@+id/textView5"></Button>
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"></Button>
 </androidx.constraintlayout.widget.ConstraintLayout>

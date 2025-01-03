@@ -39,8 +39,7 @@
                 android:layout_height="wrap_content"
                 android:text="Phan Duy Thọ"
                 android:textSize="26sp"
-                android:textColor="@color/black"
-                android:textFontWeight="900"/>
+                android:textStyle="bold"/>
 
 
         </LinearLayout>
@@ -177,19 +176,14 @@
                 android:background="@drawable/border_white"
                 android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Notification content: "
-                android:textColor="@color/black"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view_notifications"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/background"
                 android:paddingTop="8dp"
+                android:layout_marginTop="10dp"
                 android:scrollbars="vertical" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>

@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,7 +34,7 @@ public class TaskLookupFragment extends Fragment {
     private TaskLookUpAdapter taskAdapter;
     private ArrayList<com.example.doan.ui.TasksLookUP> taskList;
     private EditText editTextSearch;
-    private Button btnSearch;
+    private ImageButton btnSearch;
     private LiveData<List<Tasks>> tasks;
     private TasksDAO tasksDAO;
 
@@ -85,7 +86,7 @@ public class TaskLookupFragment extends Fragment {
             Toast.makeText(getContext(), "No tasks available", Toast.LENGTH_SHORT).show();
         }
 
-        Button btnBack = view.findViewById(R.id.btnBackToHomeFromTask);
+        ImageButton btnBack = view.findViewById(R.id.btnBackToHomeFromTask);
         btnBack.setOnClickListener(v -> {
             String userName = getArguments() != null ? getArguments().getString("USER_NAME") : "Guest";
             HomeFragment homeFragment = new HomeFragment();
@@ -117,14 +118,14 @@ public class TaskLookupFragment extends Fragment {
         Button btnComplete = dialogView.findViewById(R.id.btn_task_complete);
         btnComplete.setOnClickListener(view -> {
             Log.d("TaskLookupFragment", "Marking task as complete: " + taskLookUP.getTaskName());
-            taskLookUP.setTaskStatus("Hoàn thành");
+            taskLookUP.setTaskStatus("Completed");
 
             new Thread(() -> {
                 try {
                     tasksDAO = InfoDatabase.getInstance(getContext()).getTDAO();
 
 
-                    tasksDAO.updateTaskStatus(taskLookUP.getTaskName(), "Hoàn thành");
+                    tasksDAO.updateTaskStatus(taskLookUP.getTaskName(), "Completed");
                     Log.d("TaskLookupFragment", "Task status updated in database for ID: " + taskLookUP.getTaskName());
 
 

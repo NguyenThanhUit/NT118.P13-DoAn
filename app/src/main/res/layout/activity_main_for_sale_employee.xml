@@ -9,7 +9,9 @@
         android:id="@+id/frameLayout4"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1" />
+        android:layout_weight="1"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="50dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNavigationViewForEmployee"

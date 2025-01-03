@@ -23,9 +23,9 @@ import com.example.doan.domain.employee.Employees;
 )
 public class Tasks extends BaseObservable {
     @NonNull
-    @PrimaryKey(autoGenerate = true)
+    @PrimaryKey
     @ColumnInfo(name = "task_id")
-    private int taskID;
+    private String taskID;
 
     @ColumnInfo(name = "task_description")
     private String taskDecription;
@@ -49,7 +49,7 @@ public class Tasks extends BaseObservable {
     private String employeeID;
 
     public Tasks(String taskDecription, String taskAssignedDate, String taskStatus, String taskDueDate, String taskCompletedDate, String taskNotes, String employeeID) {
-        this.taskID = Integer.parseInt(generateTID());
+        this.taskID = generateTID();
         this.taskDecription = taskDecription;
         this.taskAssignedDate = taskAssignedDate;
         this.taskStatus = (taskStatus == null || taskStatus.isEmpty()) ? "Not complete" : taskStatus;
@@ -60,7 +60,7 @@ public class Tasks extends BaseObservable {
     }
 
     private String generateTID(){
-        return "Task" + System.currentTimeMillis() / 8 ;
+        return "Task" +  (System.currentTimeMillis() % 1000000) ;
     }
 
     public Tasks() {
@@ -68,11 +68,11 @@ public class Tasks extends BaseObservable {
 
     @Bindable
     @NonNull
-    public int getTaskID() {
+    public String getTaskID() {
         return taskID;
     }
 
-    public void setTaskID(@NonNull int taskID) {
+    public void setTaskID(@NonNull String taskID) {
         this.taskID = taskID;
         notifyPropertyChanged(BR.taskID);
     }

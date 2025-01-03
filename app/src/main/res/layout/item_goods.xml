@@ -14,8 +14,9 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="12dp"
-        android:background="@color/white">
+        android:padding="8dp"
+        android:background="@drawable/rounded_list_item"
+        android:layout_marginBottom="10dp">
 
         <!-- Hình ảnh sản phẩm -->
         <ImageView
@@ -46,19 +47,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Tên sản phẩm:"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-                <TextView
                     android:id="@+id/goodsName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{goods.GName}"
-                    android:textColor="@color/gray"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     android:layout_marginStart="4dp" />
             </LinearLayout>
 
@@ -68,18 +62,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Mã sản phẩm:"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-                <TextView
                     android:id="@+id/goodsID"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{goods.GID}"
-                    android:textColor="@color/gray"
                     android:textSize="14sp"
                     android:layout_marginStart="4dp" />
             </LinearLayout>
@@ -90,18 +76,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Giá:"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-                <TextView
                     android:id="@+id/goodsPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{goods.GPrice}"
-                    android:textColor="@color/green"
                     android:textSize="14sp"
                     android:layout_marginStart="4dp" />
             </LinearLayout>
@@ -112,18 +90,10 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Số lượng:"
-                    android:textColor="@color/black"
-                    android:textSize="14sp"
-                    android:textStyle="bold" />
-                <TextView
                     android:id="@+id/goodsQuantity"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@{goods.GQuantity}"
-                    android:textColor="@color/gray"
                     android:textSize="14sp"
                     android:layout_marginStart="4dp" />
             </LinearLayout>
@@ -142,32 +112,35 @@
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnDecrease"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/gray_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent"
                 android:onClick="@{modify::onUpdateBtnClicked}"
-                app:srcCompat="@drawable/ic_minus" />
+                app:srcCompat="@drawable/ic_minus"
+                app:tint="@color/white"/>
 
 
             <TextView
                 android:id="@+id/quantityText"
-                android:layout_width="40dp"
+                android:layout_width="20dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center"
                 android:gravity="center"
                 android:layout_marginHorizontal="8dp"
                 android:text="@{String.valueOf(goods.GOQuantity)}"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="22sp"
                 android:textStyle="bold" />
 
 
             <com.google.android.material.floatingactionbutton.FloatingActionButton
                 android:id="@+id/btnIncrease"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:backgroundTint="@color/primary"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/accent"
                 android:onClick="@{modify::onUpdateBtnClicked}"
-                app:srcCompat="@drawable/ic_add" />
+                app:srcCompat="@drawable/ic_add"
+                app:tint="@color/white"/>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

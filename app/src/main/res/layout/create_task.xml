@@ -19,7 +19,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp"
+            android:paddingTop="50dp"
+            android:paddingHorizontal="16dp"
             tools:context=".ui.createTask">
 
 
@@ -53,11 +54,13 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Nhân viên"
+                android:textSize="16sp"
                 android:textStyle="bold" />
             <Spinner
                 android:id="@+id/spinnerEmployeeList"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_white"
                 android:padding="8dp" />
 
 
@@ -66,12 +69,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Mô tả nhiệm vụ"
+                android:textSize="16sp"
                 android:textStyle="bold" />
             <EditText
                 android:id="@+id/taskDescription"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
+                android:padding="5dp"
+                android:background="@drawable/border_white"
                 android:hint="Nhập mô tả nhiệm vụ"
                 android:text="@={task.taskDecription}" />
 
@@ -81,6 +87,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Ngày giao"
+                android:textSize="16sp"
                 android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -90,7 +97,10 @@
                     android:id="@+id/tvAssignDate"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border_white"
                     android:text="@{task.taskAssignedDate != null ? task.taskAssignedDate : `Chưa chọn ngày giao`}"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -98,7 +108,9 @@
                     android:id="@+id/btnAssignDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chọn"
+                    android:text="Pick"
+                    android:layout_gravity="center"
+                    style="@style/ButtonStyle"
                     android:onClick="@{clickHandler::onAssignDateClicked}" />
             </LinearLayout>
 
@@ -108,6 +120,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Ngày hết hạn"
+                android:textSize="16sp"
                 android:textStyle="bold" />
             <LinearLayout
                 android:layout_width="match_parent"
@@ -117,7 +130,10 @@
                     android:id="@+id/tvDueDate"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="wrap_content"
+                    android:layout_height="40dp"
+                    android:padding="5dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/border_white"
                     android:text="@{task.taskDueDate != null ? task.taskDueDate : `Chưa chọn ngày hết hạn`}"
                     android:textColor="@color/black"
                     android:textSize="16sp" />
@@ -125,7 +141,9 @@
                     android:id="@+id/btnDueDate"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Chọn"
+                    android:text="Pick"
+                    android:layout_gravity="center"
+                    style="@style/ButtonStyle"
                     android:onClick="@{clickHandler::onDueDateClicked}" />
             </LinearLayout>
 
@@ -135,24 +153,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="Ghi chú"
+                android:textSize="16sp"
                 android:textStyle="bold" />
             <EditText
                 android:id="@+id/taskNotes"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginTop="8dp"
                 android:hint="Nhập ghi chú"
+                android:padding="5dp"
+                android:background="@drawable/border_white"
                 android:text="@={task.taskNotes}" />
 
 
             <Button
+                style="@style/ButtonStyle"
                 android:onClick="@{clickHandler::onSubmitBtnClicked}"
                 android:id="@+id/assignTaskButton"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:layout_gravity="center"
-                android:text="Giao nhiệm vụ" />
+                android:text="Assign Task" />
 
         </LinearLayout>
     </ScrollView>

@@ -111,7 +111,7 @@ public class LogInActivity extends AppCompatActivity {
         if (tasks != null && !tasks.isEmpty()) {
             for (Tasks task : tasks) {
 
-                String taskName = String.valueOf(task.getTaskID());
+                String taskName = task.getTaskID();
                 String taskDescription = task.getTaskDecription() != null ? task.getTaskDecription() : "No description available";
                 String taskAssignedDate = task.getTaskAssignedDate() != null ? task.getTaskAssignedDate() : "Not assigned";
                 String taskStatus = task.getTaskStatus() != null ? task.getTaskStatus() : "Chưa hoàn thành";

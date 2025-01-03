@@ -1,0 +1,12 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Màu nền -->
+    <solid android:color="@color/background" /> <!-- Đổi thành màu bạn muốn -->
+
+    <!-- Đường viền -->
+    <stroke
+        android:width="2dp"
+        android:color="#000000" /> <!-- Đổi thành màu viền bạn muốn -->
+
+    <!-- Bo góc -->
+    <corners android:radius="4dp" /> <!-- Đổi thành bán kính bo góc -->
+</shape>

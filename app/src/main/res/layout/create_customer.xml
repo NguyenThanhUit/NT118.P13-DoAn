@@ -119,7 +119,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Loại khách hàng"
+                android:text="Customer class"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:paddingTop="8dp" />
@@ -141,7 +141,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:text="Tạo khách hàng" />
+                android:text="Add customer" />
         </LinearLayout>
     </ScrollView>
 </layout>
