@@ -29,7 +29,7 @@
                 android:id="@+id/tvLoaiNV"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Chào buổi sáng"
+                android:text="Good to see you back"
                 android:textSize="18sp"
                 android:textColor="@color/black" />
 
