@@ -1,27 +1,6 @@
-# Các bước cần làm để bắt đầu code:
+PHÁT TRIỂN ỨNG DỤNG TRÊN THIẾT BỊ DI ĐỘNG - NHÓM 5 
 
-Làm theo các bước như sau:
-
-Bước 1: Clone project bằng lệnh sau:
-```bash
-git clone https://github.com/NguyenThanhUit/NT118.P13-DoAn.git
-```
-
-Bước 2: Checkout sang branch của bạn, ví dụ ở đây là Thang:
-```bash
-git checkout Thang
-```
-
-Sau khi sửa chữa, thay đổi bạn muốn commit thay đổi của bạn thì làm theo từng bước như sau:
-- Thêm nó vào bằng lệnh
-```bash
-git add .
-```
-- Thêm commit message (nhớ ghi ngắn gọn thay đổi), e.g.
-```bash
-git commit -m "chore: change project structure"
-```
-- Push (default là branch hiện tại):
-```bash
-git push
-```
+TÊN ĐỀ TÀI: XÂY DỰNG ỨNG DỤNG QUẢN LÝ QUAN HỆ KHÁCH HÀNG (CRM APP)
+- Hướng dẫn sử dụng:
+  + Bước 1: Đăng nhập với tư cách admin với tên tài khoản "admin" và mật khẩu tùy chọn để vào Homepage của Admin.
+  + 
