@@ -31,6 +31,7 @@ android {
     }
     buildFeatures{
         viewBinding = true
+        dataBinding = true
     }
 
 }
@@ -38,7 +39,10 @@ android {
 dependencies {
     val room_version = "2.6.1"
     val lifecycle_version = "2.8.5"
-    implementation ("com.google.android.material:material:1.12.0")
+
+    implementation("com.github.PhilJay:MPAndroidChart:v3.0.3")
+    implementation("com.github.anastr:SpeedView:1.5.0")
+
     // ViewModel
     implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
     // LiveData

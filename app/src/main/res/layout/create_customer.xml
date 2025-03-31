@@ -1,0 +1,147 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+        <variable
+            name="customer"
+            type="com.example.doan.customers.Customers" />
+        <variable
+            name="clickHandler"
+            type="com.example.doan.customers.AddNewCustomerClick" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:id="@+id/main"
+        android:layout_height="match_parent"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <ImageButton
+                    android:onClick="@{clickHandler::onBackBtnClicked}"
+                    android:id="@+id/btnBack"
+                    android:layout_width="40dp"
+                    android:layout_height="50dp"
+                    android:layout_marginEnd="80dp"
+                    android:background="@drawable/back_arrow">
+                </ImageButton>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Thêm khách hàng"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:paddingBottom="16dp" />
+
+            </LinearLayout>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tên khách hàng (*)"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập nội dung"
+                android:backgroundTint="@color/gray"
+                android:background="@drawable/edittext_border"
+                android:padding="10dp"
+                android:text="@={customer.name}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Nhập số điện thoại khách hàng"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtCustomerPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập nội dung"
+                android:backgroundTint="@color/gray"
+                android:padding="10dp"
+                android:background="@drawable/edittext_border"
+                android:inputType="phone"
+                android:text="@={customer.phone}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ email (*)"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập nội dung"
+                android:backgroundTint="@color/gray"
+                android:background="@drawable/edittext_border"
+                android:padding="10dp"
+                android:text="@={customer.email}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Địa chỉ"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+            <EditText
+                android:id="@+id/edtAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Nhập nội dung"
+                android:backgroundTint="@color/gray"
+                android:background="@drawable/edittext_border"
+                android:padding="10dp"
+                android:text="@={customer.address}" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Loại khách hàng"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:paddingTop="8dp" />
+
+
+            <Spinner
+                android:id="@+id/spinnerCustomerType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/gray"
+                android:entries="@array/customer_type_array"
+                android:padding="10dp" />
+
+            <Button
+                android:onClick="@{clickHandler::onSubmitBtnClicked}"
+                android:id="@+id/btnSave"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tạo khách hàng"
+                android:backgroundTint="@color/blue_dark"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </ScrollView>
+</layout>
